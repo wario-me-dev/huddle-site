@@ -31,8 +31,8 @@
 
   <!-- HERO -->
   <section style="position:relative;overflow:hidden;padding:120px 48px 170px;display:flex;flex-direction:column;align-items:center;text-align:center;">
-    <!-- BACKGROUND SLIDESHOW: dual-video, waits for canplay before switching -->
-    <video id="vid0" autoplay muted playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;"></video>
+    <!-- BACKGROUND SLIDESHOW -->
+    <video id="vid0" autoplay muted playsinline preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;"></video>
     <video id="vid1" muted playsinline preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;"></video>
     <div style="position:absolute;inset:0;background:rgba(0,0,0,0.48);z-index:2;"></div>
     <div style="position:absolute;bottom:0;left:0;right:0;height:340px;background:linear-gradient(to bottom,transparent 0%,rgba(11,11,11,0.6) 50%,#0b0b0b 100%);z-index:3;pointer-events:none;"></div>
@@ -40,47 +40,53 @@
       (function(){
         var B="/landing%20page%20background%20assets/";
         var list=[
+          "98870-650523168.mp4",
+          "kling_20260419_\u4f5c\u54c1_Just_cinem_5965_0.mp4",
           "112905-696336308.mp4",
-          "kling_20260419_\u4f5c\u54c1_Just_slowl_5640_0.mp4",
+          "kling_20260419_\u4f5c\u54c1_Just_pan_s_6019_0.mp4",
           "213042.mp4",
-          "kling_20260419_\u4f5c\u54c1_Just_slowl_5678_0.mp4",
-          "72794-544315373.mp4",
+          "kling_20260419_\u4f5c\u54c1_Just_cinem_5966_0.mp4",
+          "266512.mp4",
+          "kling_20260419_\u4f5c\u54c1_Just_pan_a_6033_0.mp4",
+          "kling_20260419_\u4f5c\u54c1_Just_slowl_5640_0.mp4",
+          "kling_20260419_\u4f5c\u54c1_Just_pan_s_6029_0.mp4",
           "kling_20260419_\u4f5c\u54c1_Slowly_pan_5715_0.mp4",
-          "kling_20260419_\u4f5c\u54c1__5709_0.mp4",
-          "kling_20260419_\u4f5c\u54c1_Slowly_pan_5729_0.mp4",
           "kling_20260419_\u4f5c\u54c1_Just_slowl_5658_0%20(1).mp4"
         ];
         var vids=[document.getElementById("vid0"),document.getElementById("vid1")];
-        var idx=0,active=0,timer=null,nextReady=false,timerDone=false;
+        var idx=0,active=0,timer=null;
 
-        function doSwitch(){
-          if(!nextReady||!timerDone)return;
-          nextReady=false;timerDone=false;
-          clearTimeout(timer);
-          var n=1-active;
-          vids[n].style.zIndex="1";
-          vids[active].style.zIndex="0";
-          vids[n].play().catch(function(){});
-          active=n;
-          idx=(idx+1)%list.length;
-          var hidden=1-active;
-          var pre=(idx+1)%list.length;
-          vids[hidden].src=B+list[pre];
-          vids[hidden].load();
-          vids[hidden].addEventListener("canplay",function h(){vids[hidden].removeEventListener("canplay",h);nextReady=true;doSwitch();});
-          vids[hidden].addEventListener("error",function e(){vids[hidden].removeEventListener("error",e);nextReady=true;doSwitch();},{once:true});
-          timer=setTimeout(function(){timerDone=true;doSwitch();},3400);
+        function prepareHidden(nextIdx){
+          var h=vids[1-active];
+          h.src=B+list[nextIdx];
+          h.load();
         }
 
-        vids[0].addEventListener("ended",function(){timerDone=true;doSwitch();});
-        vids[1].addEventListener("ended",function(){timerDone=true;doSwitch();});
+        function trySwitch(){
+          clearTimeout(timer);
+          var h=1-active;
+          if(vids[h].readyState<3){
+            timer=setTimeout(trySwitch,80);
+            return;
+          }
+          vids[h].currentTime=0;
+          vids[active].style.zIndex="0";
+          vids[h].style.zIndex="1";
+          vids[h].play().catch(function(){});
+          vids[active].pause();
+          active=h;
+          idx=(idx+1)%list.length;
+          prepareHidden((idx+1)%list.length);
+          timer=setTimeout(trySwitch,3500);
+        }
 
-        vids[1].src=B+list[1];
-        vids[1].load();
-        vids[1].addEventListener("canplay",function h(){vids[1].removeEventListener("canplay",h);nextReady=true;doSwitch();});
+        vids[0].addEventListener("ended",function(){if(active===0)trySwitch();});
+        vids[1].addEventListener("ended",function(){if(active===1)trySwitch();});
+
         vids[0].src=B+list[0];
         vids[0].play().catch(function(){});
-        timer=setTimeout(function(){timerDone=true;doSwitch();},3400);
+        prepareHidden(1);
+        timer=setTimeout(trySwitch,3500);
       })();
     </script>
     <div style="position:relative;z-index:4;display:flex;flex-direction:column;align-items:center;max-width:700px;">
