@@ -31,11 +31,11 @@
 
   <!-- HERO -->
   <section style="position:relative;overflow:hidden;padding:120px 48px 170px;display:flex;flex-direction:column;align-items:center;text-align:center;">
-    <!-- BACKGROUND SLIDESHOW: dual-video for seamless switching -->
+    <!-- BACKGROUND SLIDESHOW: dual-video, waits for canplay before switching -->
     <video id="vid0" autoplay muted playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;"></video>
-    <video id="vid1" muted playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;"></video>
-    <div style="position:absolute;inset:0;background:rgba(0,0,0,0.52);z-index:2;"></div>
-    <div style="position:absolute;bottom:0;left:0;right:0;height:220px;background:linear-gradient(to bottom,transparent 0%,#0b0b0b 100%);z-index:3;pointer-events:none;"></div>
+    <video id="vid1" muted playsinline preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;"></video>
+    <div style="position:absolute;inset:0;background:rgba(0,0,0,0.48);z-index:2;"></div>
+    <div style="position:absolute;bottom:0;left:0;right:0;height:340px;background:linear-gradient(to bottom,transparent 0%,rgba(11,11,11,0.6) 50%,#0b0b0b 100%);z-index:3;pointer-events:none;"></div>
     <script>
       (function(){
         var B="/landing%20page%20background%20assets/";
@@ -51,26 +51,36 @@
           "kling_20260419_\u4f5c\u54c1_Just_slowl_5658_0%20(1).mp4"
         ];
         var vids=[document.getElementById("vid0"),document.getElementById("vid1")];
-        var i=0,active=0,timer=null,busy=false;
-        function go(){
-          if(busy)return; busy=true;
+        var idx=0,active=0,timer=null,nextReady=false,timerDone=false;
+
+        function doSwitch(){
+          if(!nextReady||!timerDone)return;
+          nextReady=false;timerDone=false;
           clearTimeout(timer);
-          i=(i+1)%list.length;
           var n=1-active;
           vids[n].style.zIndex="1";
           vids[active].style.zIndex="0";
           vids[n].play().catch(function(){});
           active=n;
-          vids[1-active].src=B+list[(i+1)%list.length];
-          setTimeout(function(){busy=false;},100);
-          timer=setTimeout(go,3400);
+          idx=(idx+1)%list.length;
+          var hidden=1-active;
+          var pre=(idx+1)%list.length;
+          vids[hidden].src=B+list[pre];
+          vids[hidden].load();
+          vids[hidden].addEventListener("canplay",function h(){vids[hidden].removeEventListener("canplay",h);nextReady=true;doSwitch();});
+          vids[hidden].addEventListener("error",function e(){vids[hidden].removeEventListener("error",e);nextReady=true;doSwitch();},{once:true});
+          timer=setTimeout(function(){timerDone=true;doSwitch();},3400);
         }
-        vids[0].addEventListener("ended",go);
-        vids[1].addEventListener("ended",go);
-        vids[0].src=B+list[0];
+
+        vids[0].addEventListener("ended",function(){timerDone=true;doSwitch();});
+        vids[1].addEventListener("ended",function(){timerDone=true;doSwitch();});
+
         vids[1].src=B+list[1];
+        vids[1].load();
+        vids[1].addEventListener("canplay",function h(){vids[1].removeEventListener("canplay",h);nextReady=true;doSwitch();});
+        vids[0].src=B+list[0];
         vids[0].play().catch(function(){});
-        timer=setTimeout(go,3400);
+        timer=setTimeout(function(){timerDone=true;doSwitch();},3400);
       })();
     </script>
     <div style="position:relative;z-index:4;display:flex;flex-direction:column;align-items:center;max-width:700px;">
