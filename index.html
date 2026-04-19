@@ -31,10 +31,33 @@
 
   <!-- HERO -->
   <section style="position:relative;overflow:hidden;padding:120px 48px 170px;display:flex;flex-direction:column;align-items:center;text-align:center;">
-    <div style="position:absolute;inset:0;background:linear-gradient(120deg,#1a0800,#0d0d0d,#0a0012,#0d0800,#1a0a00);background-size:400% 400%;animation:videoPan 14s ease infinite;z-index:0;"></div>
-    <div style="position:absolute;inset:0;background:rgba(11,11,11,0.68);z-index:1;"></div>
-    <div style="position:absolute;inset:0;opacity:0.04;background-image:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22><filter id=%22n%22><feTurbulence type=%22fractalNoise%22 baseFrequency=%220.9%22 numOctaves=%224%22 stitchTiles=%22stitch%22/></filter><rect width=%22200%22 height=%22200%22 filter=%22url(%23n)%22/></svg>');z-index:2;"></div>
-    <div style="position:absolute;bottom:0;left:0;right:0;height:220px;background:linear-gradient(to bottom,transparent 0%,#0b0b0b 100%);z-index:3;pointer-events:none;"></div>
+    <!-- VIDEO BACKGROUND -->
+    <video id="bgVid" autoplay muted playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:1;transition:opacity 0.6s ease;"></video>
+    <div style="position:absolute;inset:0;background:rgba(0,0,0,0.55);z-index:1;"></div>
+    <div style="position:absolute;bottom:0;left:0;right:0;height:220px;background:linear-gradient(to bottom,transparent 0%,#0b0b0b 100%);z-index:2;pointer-events:none;"></div>
+    <script>
+      (function(){
+        var videos=["/112905-696336308.mp4","/20495-310204614.mp4","/213042.mp4","/48354-453189085.mp4","/kling_20260419_\u4f5c\u54c1_Anime_art__5320_0.mp4"];
+        var i=0,timer=null;
+        var v=document.getElementById("bgVid");
+        function advance(){
+          clearTimeout(timer);
+          v.style.opacity="0";
+          setTimeout(function(){
+            i=(i+1)%videos.length;
+            v.src=videos[i];
+            v.play().catch(function(){});
+            v.style.opacity="1";
+          },600);
+        }
+        function scheduleNext(){clearTimeout(timer);timer=setTimeout(advance,3400);}
+        v.addEventListener("canplay",scheduleNext);
+        v.addEventListener("ended",advance);
+        v.addEventListener("error",advance);
+        v.src=videos[0];
+        v.play().catch(function(){});
+      })();
+    </script>
     <div style="position:relative;z-index:4;display:flex;flex-direction:column;align-items:center;max-width:700px;">
       <h1 class="fade1" style="font-size:clamp(3.4rem,8vw,6.8rem);font-weight:900;letter-spacing:-0.05em;line-height:1.05;margin:0 0 24px;color:#f0f0f0;">
         The <span class="grad-text">home</span><br>for fandoms.
