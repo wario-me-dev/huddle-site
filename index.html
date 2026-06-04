@@ -30,8 +30,8 @@
     @keyframes sgf3{0%,100%{transform:translate(-50%,-50%) translate(0,0)}33%{transform:translate(-50%,-50%) translate(4px,9px)}66%{transform:translate(-50%,-50%) translate(-6px,-4px)}}
     @keyframes sgf4{0%,100%{transform:translate(-50%,-50%) translate(0,0)}33%{transform:translate(-50%,-50%) translate(-5px,-7px)}66%{transform:translate(-50%,-50%) translate(7px,4px)}}
     .sgn{position:absolute;transform:translate(-50%,-50%);background:none;border:none;padding:0;}
-    .sgn img{display:block;height:36px;width:auto;max-width:92px;opacity:0.62;filter:brightness(1.15) saturate(1.1);}
-    .sgn-hub img{opacity:0.82;filter:brightness(1.05) saturate(1.15);}
+    .sgn img{display:block;height:36px;width:auto;max-width:92px;opacity:0.72;filter:brightness(1.1) saturate(1.1);}
+    .sgn-hub img{opacity:0.88;filter:brightness(1.05) saturate(1.15);}
     @keyframes sg-drift{0%{transform:translate(0,0) rotate(0deg)}20%{transform:translate(8px,-5px) rotate(0.7deg)}40%{transform:translate(-5px,7px) rotate(-0.85deg)}60%{transform:translate(6px,5px) rotate(0.6deg)}80%{transform:translate(-7px,-4px) rotate(-0.7deg)}100%{transform:translate(0,0) rotate(0deg)}}
     .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(253,106,0,0.055);border:1px solid rgba(253,106,0,0.18);border-radius:100px;padding:5px 16px 5px 10px;margin-bottom:38px;animation:badge-in 0.75s cubic-bezier(0.16,1,0.3,1) both;}
     .badge-dot{width:7px;height:7px;border-radius:50%;background:linear-gradient(135deg,#fd6a00,#ffcd00);animation:pulse-dot 2.4s ease infinite;flex-shrink:0;}
@@ -103,28 +103,32 @@
 
     <!-- SOCIAL GRAPH -->
     <div style="position:absolute;inset:0;z-index:4;pointer-events:none;overflow:hidden;animation:sg-drift 55s ease-in-out infinite;will-change:transform;transform-origin:center;">
-      <svg style="position:absolute;inset:0;width:100%;height:100%;" viewBox="0 0 100 56" preserveAspectRatio="xMidYMid slice" fill="none">
-        <g stroke="rgba(255,255,255,0.05)" stroke-width="0.18">
-          <line x1="8" y1="9" x2="22" y2="16"/>
-          <line x1="8" y1="9" x2="6" y2="32"/>
-          <line x1="22" y1="16" x2="25" y2="6"/>
-          <line x1="6" y1="32" x2="14" y2="44"/>
-          <line x1="14" y1="44" x2="28" y2="51"/>
-          <line x1="25" y1="6" x2="72" y2="6"/>
-          <line x1="72" y1="6" x2="83" y2="8"/>
-          <line x1="83" y1="8" x2="91" y2="17"/>
-          <line x1="91" y1="17" x2="87" y2="31"/>
-          <line x1="87" y1="31" x2="76" y2="47"/>
-          <line x1="76" y1="47" x2="52" y2="52"/>
-          <line x1="28" y1="51" x2="52" y2="52"/>
-          <line x1="22" y1="16" x2="6" y2="32"/>
-          <line x1="41" y1="20" x2="22" y2="16"/>
-          <line x1="41" y1="20" x2="60" y2="22"/>
-          <line x1="60" y1="22" x2="87" y2="31"/>
+      <svg style="position:absolute;inset:0;width:100%;height:100%;" viewBox="0 0 100 100" preserveAspectRatio="none" fill="none">
+        <g stroke="rgba(255,255,255,0.05)" stroke-width="0.14">
+          <line x1="8" y1="16" x2="22" y2="28"/>
+          <line x1="8" y1="16" x2="6" y2="57"/>
+          <line x1="22" y1="28" x2="25" y2="10"/>
+          <line x1="6" y1="57" x2="14" y2="79"/>
+          <line x1="14" y1="79" x2="28" y2="91"/>
+          <line x1="25" y1="10" x2="72" y2="10"/>
+          <line x1="72" y1="10" x2="83" y2="14"/>
+          <line x1="83" y1="14" x2="91" y2="30"/>
+          <line x1="91" y1="30" x2="87" y2="55"/>
+          <line x1="87" y1="55" x2="76" y2="84"/>
+          <line x1="76" y1="84" x2="52" y2="93"/>
+          <line x1="28" y1="91" x2="52" y2="93"/>
+          <line x1="22" y1="28" x2="6" y2="57"/>
+          <line x1="41" y1="36" x2="22" y2="28"/>
+          <line x1="41" y1="36" x2="60" y2="39"/>
+          <line x1="60" y1="39" x2="87" y2="55"/>
+          <!-- new grey -->
+          <line x1="72" y1="10" x2="91" y2="30"/>
         </g>
-        <g stroke="rgba(253,106,0,0.09)" stroke-width="0.18">
-          <line x1="22" y1="16" x2="87" y2="31"/>
-          <line x1="8" y1="9" x2="25" y2="6"/>
+        <g stroke="rgba(253,106,0,0.09)" stroke-width="0.14">
+          <line x1="22" y1="28" x2="87" y2="55"/>
+          <line x1="8" y1="16" x2="25" y2="10"/>
+          <!-- new orange -->
+          <line x1="41" y1="36" x2="6" y2="57"/>
         </g>
       </svg>
       <div class="sgn sgn-hub" style="left:8%;top:16%;animation:sgf1 9.4s ease-in-out infinite -1.2s;"><img src="/One%20Piece.png" alt="" style="height:50px;max-width:120px;"/></div>
