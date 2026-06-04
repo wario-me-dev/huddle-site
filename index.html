@@ -21,23 +21,29 @@
     .mR{display:flex;white-space:nowrap;animation:mR 32s linear infinite;}
     .mi{display:inline-flex;align-items:center;gap:14px;padding:0 16px;font-size:0.67rem;font-weight:600;color:rgba(255,255,255,0.16);letter-spacing:0.1em;text-transform:uppercase;}
     .mi::after{content:'';width:2px;height:2px;border-radius:50%;background:rgba(253,106,0,0.35);flex-shrink:0;}
-    @keyframes float{0%,100%{transform:translateY(0px) rotate(0deg)}50%{transform:translateY(-10px) rotate(2deg)}}
+    @keyframes float{0%,100%{transform:translateY(0px)}50%{transform:translateY(-8px)}}
+    @keyframes orb{from{transform:rotate(0deg) translateY(-88px) rotate(0deg)}to{transform:rotate(360deg) translateY(-88px) rotate(-360deg)}}
+    @keyframes pulse-ring{0%,100%{opacity:0.12;transform:translate(-50%,-50%) scale(1)}50%{opacity:0.22;transform:translate(-50%,-50%) scale(1.04)}}
     .bento{display:grid;grid-template-columns:1.6fr 1fr 1fr;grid-template-rows:260px 260px;gap:12px;}
     .tile{border-radius:20px;overflow:hidden;position:relative;border:1px solid rgba(255,255,255,0.06);background:#0d0d0d;transition:border-color 0.3s,transform 0.35s cubic-bezier(0.16,1,0.3,1);}
-    .tile:hover{border-color:rgba(255,255,255,0.1);transform:translateY(-3px);}
+    .tile:hover{border-color:rgba(255,255,255,0.12);transform:translateY(-3px);}
     .tile-tall{grid-row:span 2;}
-    .tile-inner{position:absolute;inset:0;padding:26px;display:flex;flex-direction:column;justify-content:space-between;}
-    .tile-tags{display:flex;flex-direction:column;gap:8px;}
-    .tile-tags-row{display:flex;gap:7px;flex-wrap:wrap;}
-    .tag{font-size:0.57rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:4px 11px;border-radius:100px;}
-    .tag-a{background:rgba(253,106,0,0.1);border:1px solid rgba(253,106,0,0.22);color:#fd6a00;}
-    .tag-i{background:rgba(255,255,255,0.035);border:1px solid rgba(255,255,255,0.07);color:rgba(255,255,255,0.2);}
+    .tile-inner{position:absolute;inset:0;padding:26px;display:flex;flex-direction:column;justify-content:flex-end;}
     .tile-foot h3{font-size:1.5rem;font-weight:900;letter-spacing:-0.04em;color:#f2f2f2;line-height:1.1;margin-bottom:8px;}
     .tile-foot p{font-size:0.74rem;color:#5a5a5a;line-height:1.65;}
     .tl{position:absolute;bottom:0;left:0;right:0;padding:16px 20px 20px;background:linear-gradient(to top,rgba(7,7,7,0.97) 0%,rgba(7,7,7,0.4) 70%,transparent 100%);}
     .tl-label{font-size:0.57rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.22);margin-bottom:4px;}
     .tl-title{font-size:0.88rem;font-weight:800;color:#f2f2f2;letter-spacing:-0.02em;}
-    .emoji{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:5.5rem;opacity:0.18;animation:float 5s ease-in-out infinite;pointer-events:none;}
+    .tile-img{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;}
+    .tile-img img{width:120px;height:120px;object-fit:contain;opacity:0.22;animation:float 5s ease-in-out infinite;}
+    .orbit-wrap{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;margin-bottom:60px;}
+    .orbit-icon{position:absolute;width:52px;height:52px;margin:-26px 0 0 -26px;top:50%;left:50%;}
+    .orbit-icon img{width:100%;height:100%;object-fit:contain;border-radius:14px;background:rgba(255,255,255,0.04);padding:7px;border:1px solid rgba(255,255,255,0.07);}
+    .orbit-icon:nth-child(1){animation:orb 14s 0s linear infinite;}
+    .orbit-icon:nth-child(2){animation:orb 14s -2.8s linear infinite;}
+    .orbit-icon:nth-child(3){animation:orb 14s -5.6s linear infinite;}
+    .orbit-icon:nth-child(4){animation:orb 14s -8.4s linear infinite;}
+    .orbit-icon:nth-child(5){animation:orb 14s -11.2s linear infinite;}
   </style>
 </head>
 <body>
@@ -153,42 +159,52 @@
   <section style="padding:72px 48px 64px;max-width:980px;margin:0 auto;width:100%;">
     <div class="bento">
 
+      <!-- Tall tile: orbital carousel -->
       <div class="tile tile-tall">
-        <div style="position:absolute;inset:0;background:linear-gradient(145deg,rgba(253,106,0,0.07) 0%,transparent 50%);pointer-events:none;"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(145deg,rgba(253,106,0,0.06) 0%,transparent 55%);pointer-events:none;"></div>
+        <div style="position:absolute;top:50%;left:50%;width:180px;height:180px;border-radius:50%;border:1px solid rgba(253,106,0,0.1);transform:translate(-50%,-60%);animation:pulse-ring 4s ease-in-out infinite;"></div>
+        <div style="position:absolute;top:50%;left:50%;width:120px;height:120px;border-radius:50%;border:1px solid rgba(253,106,0,0.07);transform:translate(-50%,-60%);animation:pulse-ring 4s ease-in-out infinite 0.5s;"></div>
+        <div class="orbit-wrap" style="margin-bottom:80px;">
+          <div class="orbit-icon"><img src="/bento1.png" alt="" /></div>
+          <div class="orbit-icon"><img src="/bento2.png" alt="" /></div>
+          <div class="orbit-icon"><img src="/bento3.png" alt="" /></div>
+          <div class="orbit-icon"><img src="/bento4.png" alt="" /></div>
+          <div class="orbit-icon"><img src="/bento5.png" alt="" /></div>
+          <div style="position:absolute;width:10px;height:10px;border-radius:50%;background:rgba(253,106,0,0.6);box-shadow:0 0 18px 4px rgba(253,106,0,0.3);top:50%;left:50%;transform:translate(-50%,-50%);"></div>
+        </div>
         <div class="tile-inner">
-          <div class="tile-tags">
-            <div class="tile-tags-row"><span class="tag tag-a">Demon Slayer</span><span class="tag tag-i">BLACKPINK</span></div>
-            <div class="tile-tags-row"><span class="tag tag-i">Elden Ring</span><span class="tag tag-i">BTS</span></div>
-            <div class="tile-tags-row"><span class="tag tag-i">One Piece</span><span class="tag tag-i">Genshin</span></div>
-          </div>
           <div class="tile-foot">
-            <h3>10,000+ fandoms.<br>All in one place.</h3>
-            <p>Find communities built around exactly what you love. Join in seconds.</p>
+            <h3>50,000+ fandoms.<br>All in one place.</h3>
+            <p>Find fandoms with other people who care deeply as you do around what you love. Join in seconds.</p>
           </div>
         </div>
       </div>
 
+      <!-- Anime -->
       <div class="tile" style="background:linear-gradient(145deg,#140800,#0a0400);">
-        <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 70% 30%,rgba(253,106,0,0.11) 0%,transparent 70%);pointer-events:none;"></div>
-        <div class="emoji">🎌</div>
+        <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 70% 30%,rgba(253,106,0,0.13) 0%,transparent 70%);pointer-events:none;"></div>
+        <div class="tile-img"><img src="/Anime.png" alt="" style="animation-delay:0s;" /></div>
         <div class="tl"><div class="tl-label">Anime</div><div class="tl-title">Every arc. Every drop.</div></div>
       </div>
 
+      <!-- K-pop -->
       <div class="tile" style="background:linear-gradient(145deg,#0e000e,#080008);">
-        <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(200,100,255,0.09) 0%,transparent 70%);pointer-events:none;"></div>
-        <div class="emoji" style="animation-delay:0.8s;">🎵</div>
+        <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(200,100,255,0.1) 0%,transparent 70%);pointer-events:none;"></div>
+        <div class="tile-img"><img src="/Kpop.png" alt="" style="animation-delay:0.8s;" /></div>
         <div class="tl"><div class="tl-label">K-pop</div><div class="tl-title">Stan together.</div></div>
       </div>
 
+      <!-- Gaming -->
       <div class="tile" style="background:linear-gradient(145deg,#00100c,#000c08);">
-        <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 40% 50%,rgba(50,220,100,0.07) 0%,transparent 70%);pointer-events:none;"></div>
-        <div class="emoji" style="animation-delay:1.4s;">🎮</div>
+        <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 40% 50%,rgba(50,220,100,0.08) 0%,transparent 70%);pointer-events:none;"></div>
+        <div class="tile-img"><img src="/Gaming.png" alt="" style="animation-delay:1.4s;" /></div>
         <div class="tl"><div class="tl-label">Gaming</div><div class="tl-title">Find your squad.</div></div>
       </div>
 
+      <!-- Live -->
       <div class="tile" style="background:linear-gradient(145deg,#0f0a00,#090600);">
-        <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 60%,rgba(255,205,0,0.07) 0%,transparent 70%);pointer-events:none;"></div>
-        <div class="emoji" style="animation-delay:0.3s;">⚡</div>
+        <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 60%,rgba(255,205,0,0.08) 0%,transparent 70%);pointer-events:none;"></div>
+        <div class="tile-img"><img src="/Kpop.png" alt="" style="animation-delay:0.3s;filter:hue-rotate(40deg);" /></div>
         <div class="tl"><div class="tl-label">Live</div><div class="tl-title">React in real time.</div></div>
       </div>
 
