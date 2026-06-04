@@ -29,12 +29,8 @@
     @keyframes sgf2{0%,100%{transform:translate(-50%,-50%) translate(0,0)}33%{transform:translate(-50%,-50%) translate(-7px,5px)}66%{transform:translate(-50%,-50%) translate(5px,-5px)}}
     @keyframes sgf3{0%,100%{transform:translate(-50%,-50%) translate(0,0)}33%{transform:translate(-50%,-50%) translate(4px,9px)}66%{transform:translate(-50%,-50%) translate(-6px,-4px)}}
     @keyframes sgf4{0%,100%{transform:translate(-50%,-50%) translate(0,0)}33%{transform:translate(-50%,-50%) translate(-5px,-7px)}66%{transform:translate(-50%,-50%) translate(7px,4px)}}
-    .sgn{position:absolute;display:inline-flex;align-items:center;gap:5px;transform:translate(-50%,-50%);background:rgba(255,255,255,0.028);border:1px solid rgba(255,255,255,0.08);border-radius:100px;padding:5px 11px 5px 7px;white-space:nowrap;will-change:transform;backdrop-filter:blur(2px);}
-    .sgn-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.2);flex-shrink:0;}
-    .sgn-lbl{font-size:0.5rem;font-weight:600;letter-spacing:0.08em;color:rgba(255,255,255,0.18);text-transform:uppercase;}
-    .sgn-a{background:rgba(253,106,0,0.07);border-color:rgba(253,106,0,0.22);}
-    .sgn-a .sgn-dot{background:rgba(253,106,0,0.55);}
-    .sgn-a .sgn-lbl{color:rgba(253,106,0,0.45);}
+    .sgn{position:absolute;transform:translate(-50%,-50%);border-radius:100px;will-change:transform;background:linear-gradient(135deg,rgba(255,255,255,0.07) 0%,rgba(255,255,255,0.02) 100%);border:1px solid rgba(255,255,255,0.11);}
+    .sgn-hub{background:linear-gradient(135deg,rgba(253,106,0,0.1) 0%,rgba(253,106,0,0.03) 100%);border-color:rgba(253,106,0,0.28);box-shadow:0 0 18px rgba(253,106,0,0.1),inset 0 0 10px rgba(253,106,0,0.04);}
     .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(253,106,0,0.055);border:1px solid rgba(253,106,0,0.18);border-radius:100px;padding:5px 16px 5px 10px;margin-bottom:38px;animation:badge-in 0.75s cubic-bezier(0.16,1,0.3,1) both;}
     .badge-dot{width:7px;height:7px;border-radius:50%;background:linear-gradient(135deg,#fd6a00,#ffcd00);animation:pulse-dot 2.4s ease infinite;flex-shrink:0;}
     .badge-text{font-size:0.65rem;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:#fd6a00;}
@@ -106,43 +102,45 @@
     <!-- SOCIAL GRAPH -->
     <div style="position:absolute;inset:0;z-index:4;pointer-events:none;overflow:hidden;">
       <svg style="position:absolute;inset:0;width:100%;height:100%;" viewBox="0 0 100 56" preserveAspectRatio="xMidYMid slice" fill="none">
-        <g stroke="rgba(255,255,255,0.05)" stroke-width="0.18">
-          <line x1="8" y1="9" x2="22" y2="16"/>
-          <line x1="8" y1="9" x2="6" y2="32"/>
-          <line x1="22" y1="16" x2="25" y2="6"/>
-          <line x1="6" y1="32" x2="14" y2="44"/>
-          <line x1="14" y1="44" x2="28" y2="51"/>
-          <line x1="25" y1="6" x2="72" y2="6"/>
-          <line x1="72" y1="6" x2="83" y2="8"/>
-          <line x1="83" y1="8" x2="91" y2="17"/>
-          <line x1="91" y1="17" x2="87" y2="31"/>
-          <line x1="87" y1="31" x2="76" y2="47"/>
-          <line x1="76" y1="47" x2="52" y2="52"/>
-          <line x1="28" y1="51" x2="52" y2="52"/>
-          <line x1="22" y1="16" x2="6" y2="32"/>
-          <line x1="41" y1="20" x2="22" y2="16"/>
-          <line x1="41" y1="20" x2="60" y2="22"/>
-          <line x1="60" y1="22" x2="87" y2="31"/>
+        <g stroke="rgba(255,255,255,0.055)" stroke-width="0.16">
+          <line x1="8" y1="6.7" x2="28" y2="4.5"/>
+          <line x1="28" y1="4.5" x2="72" y2="4.5"/>
+          <line x1="72" y1="4.5" x2="90" y2="7.8"/>
+          <line x1="8" y1="6.7" x2="5" y2="19.6"/>
+          <line x1="90" y1="7.8" x2="92" y2="19.6"/>
+          <line x1="5" y1="19.6" x2="8" y2="34.7"/>
+          <line x1="92" y1="19.6" x2="88" y2="34.7"/>
+          <line x1="8" y1="34.7" x2="18" y2="45.9"/>
+          <line x1="88" y1="34.7" x2="78" y2="45.9"/>
+          <line x1="18" y1="45.9" x2="50" y2="49.3"/>
+          <line x1="78" y1="45.9" x2="50" y2="49.3"/>
+          <line x1="5" y1="19.6" x2="25" y2="25.2"/>
+          <line x1="92" y1="19.6" x2="75" y2="26.9"/>
+          <line x1="28" y1="4.5" x2="25" y2="25.2"/>
+          <line x1="72" y1="4.5" x2="75" y2="26.9"/>
+          <line x1="8" y1="34.7" x2="50" y2="49.3"/>
+          <line x1="88" y1="34.7" x2="50" y2="49.3"/>
         </g>
-        <g stroke="rgba(253,106,0,0.09)" stroke-width="0.18">
-          <line x1="22" y1="16" x2="87" y2="31"/>
-          <line x1="8" y1="9" x2="25" y2="6"/>
+        <g stroke="rgba(253,106,0,0.1)" stroke-width="0.16">
+          <line x1="25" y1="25.2" x2="75" y2="26.9"/>
+          <line x1="28" y1="4.5" x2="72" y2="4.5"/>
         </g>
       </svg>
-      <div class="sgn sgn-a" style="left:8%;top:16%;animation:sgf1 9.4s ease-in-out infinite -1.2s;"><div class="sgn-dot"></div><span class="sgn-lbl">One Piece</span></div>
-      <div class="sgn sgn-a" style="left:22%;top:28%;animation:sgf2 11.2s ease-in-out infinite -3.5s;"><div class="sgn-dot"></div><span class="sgn-lbl">BTS</span></div>
-      <div class="sgn" style="left:83%;top:14%;animation:sgf3 10.1s ease-in-out infinite -0.8s;"><div class="sgn-dot"></div><span class="sgn-lbl">Elden Ring</span></div>
-      <div class="sgn" style="left:91%;top:30%;animation:sgf1 8.6s ease-in-out infinite -5.1s;"><div class="sgn-dot"></div><span class="sgn-lbl">BLACKPINK</span></div>
-      <div class="sgn" style="left:6%;top:57%;animation:sgf4 12.3s ease-in-out infinite -2.3s;"><div class="sgn-dot"></div><span class="sgn-lbl">Demon Slayer</span></div>
-      <div class="sgn" style="left:14%;top:79%;animation:sgf2 9.8s ease-in-out infinite -7.4s;"><div class="sgn-dot"></div><span class="sgn-lbl">Valorant</span></div>
-      <div class="sgn sgn-a" style="left:87%;top:55%;animation:sgf3 11.5s ease-in-out infinite -4.6s;"><div class="sgn-dot"></div><span class="sgn-lbl">TWICE</span></div>
-      <div class="sgn" style="left:28%;top:91%;animation:sgf1 10.4s ease-in-out infinite -1.8s;"><div class="sgn-dot"></div><span class="sgn-lbl">Naruto</span></div>
-      <div class="sgn" style="left:76%;top:84%;animation:sgf4 9.2s ease-in-out infinite -6.2s;"><div class="sgn-dot"></div><span class="sgn-lbl">Minecraft</span></div>
-      <div class="sgn" style="left:25%;top:10%;animation:sgf2 12.7s ease-in-out infinite -0.5s;"><div class="sgn-dot"></div><span class="sgn-lbl">Genshin Impact</span></div>
-      <div class="sgn" style="left:72%;top:10%;animation:sgf3 8.3s ease-in-out infinite -3.9s;"><div class="sgn-dot"></div><span class="sgn-lbl">Haikyuu</span></div>
-      <div class="sgn" style="left:52%;top:93%;animation:sgf1 11.8s ease-in-out infinite -8.3s;"><div class="sgn-dot"></div><span class="sgn-lbl">Jujutsu Kaisen</span></div>
-      <div class="sgn" style="left:41%;top:36%;animation:sgf4 10.9s ease-in-out infinite -5.7s;"><div class="sgn-dot"></div><span class="sgn-lbl">ENHYPEN</span></div>
-      <div class="sgn" style="left:60%;top:39%;animation:sgf2 9.6s ease-in-out infinite -2.9s;"><div class="sgn-dot"></div><span class="sgn-lbl">Chainsaw Man</span></div>
+      <!-- Peripheral nodes -->
+      <div class="sgn" style="width:50px;height:30px;left:8%;top:12%;animation:sgf1 9.4s ease-in-out infinite -1.2s;"></div>
+      <div class="sgn" style="width:44px;height:28px;left:90%;top:14%;animation:sgf3 10.1s ease-in-out infinite -0.8s;"></div>
+      <div class="sgn" style="width:38px;height:24px;left:5%;top:35%;animation:sgf4 12.3s ease-in-out infinite -2.3s;"></div>
+      <div class="sgn" style="width:38px;height:24px;left:92%;top:35%;animation:sgf2 11.5s ease-in-out infinite -4.6s;"></div>
+      <div class="sgn" style="width:44px;height:28px;left:8%;top:62%;animation:sgf2 9.8s ease-in-out infinite -7.4s;"></div>
+      <div class="sgn" style="width:44px;height:28px;left:88%;top:62%;animation:sgf1 10.4s ease-in-out infinite -1.8s;"></div>
+      <div class="sgn" style="width:50px;height:30px;left:18%;top:82%;animation:sgf4 9.2s ease-in-out infinite -6.2s;"></div>
+      <div class="sgn" style="width:50px;height:30px;left:78%;top:82%;animation:sgf3 11.8s ease-in-out infinite -5.1s;"></div>
+      <div class="sgn" style="width:44px;height:28px;left:50%;top:88%;animation:sgf1 11.8s ease-in-out infinite -8.3s;"></div>
+      <!-- Hub nodes — orange accent, slightly larger -->
+      <div class="sgn sgn-hub" style="width:58px;height:36px;left:28%;top:8%;animation:sgf2 12.7s ease-in-out infinite -0.5s;"></div>
+      <div class="sgn sgn-hub" style="width:58px;height:36px;left:72%;top:8%;animation:sgf3 8.3s ease-in-out infinite -3.9s;"></div>
+      <div class="sgn sgn-hub" style="width:62px;height:38px;left:25%;top:45%;animation:sgf4 10.9s ease-in-out infinite -5.7s;"></div>
+      <div class="sgn sgn-hub" style="width:62px;height:38px;left:75%;top:48%;animation:sgf2 9.6s ease-in-out infinite -2.9s;"></div>
     </div>
 
     <div style="position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;max-width:700px;">
