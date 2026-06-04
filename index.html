@@ -15,10 +15,11 @@
     .dl-btn:hover{opacity:0.88}
     .grad-text{display:inline-block;background:linear-gradient(135deg,#fd6a00 20%,#ffcd00 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;padding:0 4px 8px 2px;margin-bottom:-8px;}
     .logo{height:36px;width:auto;}
-    @keyframes tickL{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-    @keyframes tickR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
-    .tick-l{animation:tickL 35s linear infinite;}
-    .tick-r{animation:tickR 40s linear infinite;}
+    @keyframes tickL{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    @keyframes tickR{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
+    .tick-l{display:inline-flex;white-space:nowrap;will-change:transform;animation:tickL 40s linear infinite;}
+    .tick-r{display:inline-flex;white-space:nowrap;will-change:transform;animation:tickR 46s linear infinite;}
+    .tick-item{font-size:0.65rem;font-weight:700;letter-spacing:0.13em;color:#3a3a3a;text-transform:uppercase;padding-right:48px;white-space:nowrap;flex-shrink:0;}
   </style>
 </head>
 <body>
@@ -119,14 +120,18 @@
   </section>
 
   <!-- FANDOM TICKER -->
-  <div style="overflow:hidden;padding:14px 0;border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05);background:#0b0b0b;">
-    <div class="tick-l" style="display:flex;width:max-content;gap:0;margin-bottom:10px;">
-      <span style="white-space:nowrap;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;color:#2e2e2e;text-transform:uppercase;padding-right:40px;">DEMON SLAYER &nbsp;·&nbsp; BLACKPINK &nbsp;·&nbsp; ELDEN RING &nbsp;·&nbsp; GENSHIN IMPACT &nbsp;·&nbsp; JUJUTSU KAISEN &nbsp;·&nbsp; AESPA &nbsp;·&nbsp; VALORANT &nbsp;·&nbsp; ATTACK ON TITAN &nbsp;·&nbsp; TWICE &nbsp;·&nbsp; HAIKYUU &nbsp;·&nbsp; ONE PIECE &nbsp;·&nbsp; BTS &nbsp;·&nbsp; CHAINSAW MAN &nbsp;·&nbsp; OVERWATCH &nbsp;·&nbsp; KARINA &nbsp;·&nbsp; SOLO LEVELING &nbsp;·&nbsp;</span>
-      <span aria-hidden="true" style="white-space:nowrap;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;color:#2e2e2e;text-transform:uppercase;padding-right:40px;">DEMON SLAYER &nbsp;·&nbsp; BLACKPINK &nbsp;·&nbsp; ELDEN RING &nbsp;·&nbsp; GENSHIN IMPACT &nbsp;·&nbsp; JUJUTSU KAISEN &nbsp;·&nbsp; AESPA &nbsp;·&nbsp; VALORANT &nbsp;·&nbsp; ATTACK ON TITAN &nbsp;·&nbsp; TWICE &nbsp;·&nbsp; HAIKYUU &nbsp;·&nbsp; ONE PIECE &nbsp;·&nbsp; BTS &nbsp;·&nbsp; CHAINSAW MAN &nbsp;·&nbsp; OVERWATCH &nbsp;·&nbsp; KARINA &nbsp;·&nbsp; SOLO LEVELING &nbsp;·&nbsp;</span>
+  <div style="background:#0b0b0b;padding:13px 0;border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05);">
+    <div style="overflow:hidden;margin-bottom:9px;">
+      <div class="tick-l">
+        <span class="tick-item">DEMON SLAYER &nbsp;·&nbsp; BLACKPINK &nbsp;·&nbsp; ELDEN RING &nbsp;·&nbsp; GENSHIN IMPACT &nbsp;·&nbsp; JUJUTSU KAISEN &nbsp;·&nbsp; AESPA &nbsp;·&nbsp; VALORANT &nbsp;·&nbsp; ATTACK ON TITAN &nbsp;·&nbsp; TWICE &nbsp;·&nbsp; HAIKYUU &nbsp;·&nbsp; ONE PIECE &nbsp;·&nbsp; BTS &nbsp;·&nbsp; CHAINSAW MAN &nbsp;·&nbsp; OVERWATCH &nbsp;·&nbsp; SOLO LEVELING &nbsp;·&nbsp;</span>
+        <span class="tick-item" aria-hidden="true">DEMON SLAYER &nbsp;·&nbsp; BLACKPINK &nbsp;·&nbsp; ELDEN RING &nbsp;·&nbsp; GENSHIN IMPACT &nbsp;·&nbsp; JUJUTSU KAISEN &nbsp;·&nbsp; AESPA &nbsp;·&nbsp; VALORANT &nbsp;·&nbsp; ATTACK ON TITAN &nbsp;·&nbsp; TWICE &nbsp;·&nbsp; HAIKYUU &nbsp;·&nbsp; ONE PIECE &nbsp;·&nbsp; BTS &nbsp;·&nbsp; CHAINSAW MAN &nbsp;·&nbsp; OVERWATCH &nbsp;·&nbsp; SOLO LEVELING &nbsp;·&nbsp;</span>
+      </div>
     </div>
-    <div class="tick-r" style="display:flex;width:max-content;gap:0;">
-      <span style="white-space:nowrap;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;color:#2e2e2e;text-transform:uppercase;padding-right:40px;">MY HERO ACADEMIA &nbsp;·&nbsp; FORTNITE &nbsp;·&nbsp; TOKYO REVENGERS &nbsp;·&nbsp; LE SSERAFIM &nbsp;·&nbsp; ROBLOX &nbsp;·&nbsp; NEWJEANS &nbsp;·&nbsp; MINECRAFT &nbsp;·&nbsp; NARUTO &nbsp;·&nbsp; LEAGUE OF LEGENDS &nbsp;·&nbsp; IVE &nbsp;·&nbsp; STRAY KIDS &nbsp;·&nbsp; APEX LEGENDS &nbsp;·&nbsp; SEVENTEEN &nbsp;·&nbsp; SPY X FAMILY &nbsp;·&nbsp; VALORANT &nbsp;·&nbsp;</span>
-      <span aria-hidden="true" style="white-space:nowrap;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;color:#2e2e2e;text-transform:uppercase;padding-right:40px;">MY HERO ACADEMIA &nbsp;·&nbsp; FORTNITE &nbsp;·&nbsp; TOKYO REVENGERS &nbsp;·&nbsp; LE SSERAFIM &nbsp;·&nbsp; ROBLOX &nbsp;·&nbsp; NEWJEANS &nbsp;·&nbsp; MINECRAFT &nbsp;·&nbsp; NARUTO &nbsp;·&nbsp; LEAGUE OF LEGENDS &nbsp;·&nbsp; IVE &nbsp;·&nbsp; STRAY KIDS &nbsp;·&nbsp; APEX LEGENDS &nbsp;·&nbsp; SEVENTEEN &nbsp;·&nbsp; SPY X FAMILY &nbsp;·&nbsp; VALORANT &nbsp;·&nbsp;</span>
+    <div style="overflow:hidden;">
+      <div class="tick-r">
+        <span class="tick-item">MY HERO ACADEMIA &nbsp;·&nbsp; FORTNITE &nbsp;·&nbsp; TOKYO REVENGERS &nbsp;·&nbsp; LE SSERAFIM &nbsp;·&nbsp; ROBLOX &nbsp;·&nbsp; NEWJEANS &nbsp;·&nbsp; MINECRAFT &nbsp;·&nbsp; NARUTO &nbsp;·&nbsp; LEAGUE OF LEGENDS &nbsp;·&nbsp; IVE &nbsp;·&nbsp; STRAY KIDS &nbsp;·&nbsp; APEX LEGENDS &nbsp;·&nbsp; SEVENTEEN &nbsp;·&nbsp; SPY X FAMILY &nbsp;·&nbsp; BORUTO &nbsp;·&nbsp;</span>
+        <span class="tick-item" aria-hidden="true">MY HERO ACADEMIA &nbsp;·&nbsp; FORTNITE &nbsp;·&nbsp; TOKYO REVENGERS &nbsp;·&nbsp; LE SSERAFIM &nbsp;·&nbsp; ROBLOX &nbsp;·&nbsp; NEWJEANS &nbsp;·&nbsp; MINECRAFT &nbsp;·&nbsp; NARUTO &nbsp;·&nbsp; LEAGUE OF LEGENDS &nbsp;·&nbsp; IVE &nbsp;·&nbsp; STRAY KIDS &nbsp;·&nbsp; APEX LEGENDS &nbsp;·&nbsp; SEVENTEEN &nbsp;·&nbsp; SPY X FAMILY &nbsp;·&nbsp; BORUTO &nbsp;·&nbsp;</span>
+      </div>
     </div>
   </div>
 
