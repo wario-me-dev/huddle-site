@@ -17,9 +17,9 @@
     .logo{height:36px;width:auto;}
     @keyframes mL{from{transform:translateX(0)}to{transform:translateX(-50%)}}
     @keyframes mR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
-    .mL{display:flex;white-space:nowrap;animation:mL 40s linear infinite;}
-    .mR{display:flex;white-space:nowrap;animation:mR 32s linear infinite;}
-    .mi{display:inline-flex;align-items:center;gap:14px;padding:0 16px;font-size:0.67rem;font-weight:600;color:rgba(255,255,255,0.16);letter-spacing:0.1em;text-transform:uppercase;}
+    .mL{display:flex;width:max-content;white-space:nowrap;will-change:transform;animation:mL 40s linear infinite;}
+    .mR{display:flex;width:max-content;white-space:nowrap;will-change:transform;animation:mR 32s linear infinite;}
+    .mi{display:inline-flex;flex-shrink:0;align-items:center;gap:14px;padding:0 16px;font-size:0.67rem;font-weight:600;color:rgba(255,255,255,0.16);letter-spacing:0.1em;text-transform:uppercase;}
     .mi::after{content:'';width:2px;height:2px;border-radius:50%;background:rgba(253,106,0,0.35);flex-shrink:0;}
     @keyframes float{0%,100%{transform:translateY(0px)}50%{transform:translateY(-8px)}}
     @keyframes orb{from{transform:rotate(0deg) translateY(-88px) rotate(0deg)}to{transform:rotate(360deg) translateY(-88px) rotate(-360deg)}}
@@ -144,7 +144,7 @@
   </section>
 
   <!-- FANDOM TICKER -->
-  <div style="background:#060606;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',sans-serif;padding:22px 0;border-top:1px solid rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.04);overflow:hidden;display:flex;flex-direction:column;gap:10px;">
+  <div style="background:transparent;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',sans-serif;padding:22px 0;border-top:1px solid rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.04);overflow:hidden;display:flex;flex-direction:column;gap:10px;">
     <div style="overflow:hidden;"><div class="mL">
       <span class="mi">One Piece</span><span class="mi">BTS</span><span class="mi">Demon Slayer</span><span class="mi">BLACKPINK</span><span class="mi">Elden Ring</span><span class="mi">Genshin Impact</span><span class="mi">Jujutsu Kaisen</span><span class="mi">aespa</span><span class="mi">Valorant</span><span class="mi">Attack on Titan</span><span class="mi">TWICE</span><span class="mi">Haikyuu</span>
       <span class="mi">One Piece</span><span class="mi">BTS</span><span class="mi">Demon Slayer</span><span class="mi">BLACKPINK</span><span class="mi">Elden Ring</span><span class="mi">Genshin Impact</span><span class="mi">Jujutsu Kaisen</span><span class="mi">aespa</span><span class="mi">Valorant</span><span class="mi">Attack on Titan</span><span class="mi">TWICE</span><span class="mi">Haikyuu</span>
