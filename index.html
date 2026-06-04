@@ -15,6 +15,10 @@
     .dl-btn:hover{opacity:0.88}
     .grad-text{display:inline-block;background:linear-gradient(135deg,#fd6a00 20%,#ffcd00 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;padding:0 4px 8px 2px;margin-bottom:-8px;}
     .logo{height:36px;width:auto;}
+    @keyframes tickL{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    @keyframes tickR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+    .tick-l{animation:tickL 35s linear infinite;}
+    .tick-r{animation:tickR 40s linear infinite;}
   </style>
 </head>
 <body>
@@ -113,6 +117,18 @@
       </div>
     </div>
   </section>
+
+  <!-- FANDOM TICKER -->
+  <div style="overflow:hidden;padding:14px 0;border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05);background:#0b0b0b;">
+    <div class="tick-l" style="display:flex;width:max-content;gap:0;margin-bottom:10px;">
+      <span style="white-space:nowrap;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;color:#2e2e2e;text-transform:uppercase;padding-right:40px;">DEMON SLAYER &nbsp;·&nbsp; BLACKPINK &nbsp;·&nbsp; ELDEN RING &nbsp;·&nbsp; GENSHIN IMPACT &nbsp;·&nbsp; JUJUTSU KAISEN &nbsp;·&nbsp; AESPA &nbsp;·&nbsp; VALORANT &nbsp;·&nbsp; ATTACK ON TITAN &nbsp;·&nbsp; TWICE &nbsp;·&nbsp; HAIKYUU &nbsp;·&nbsp; ONE PIECE &nbsp;·&nbsp; BTS &nbsp;·&nbsp; CHAINSAW MAN &nbsp;·&nbsp; OVERWATCH &nbsp;·&nbsp; KARINA &nbsp;·&nbsp; SOLO LEVELING &nbsp;·&nbsp;</span>
+      <span aria-hidden="true" style="white-space:nowrap;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;color:#2e2e2e;text-transform:uppercase;padding-right:40px;">DEMON SLAYER &nbsp;·&nbsp; BLACKPINK &nbsp;·&nbsp; ELDEN RING &nbsp;·&nbsp; GENSHIN IMPACT &nbsp;·&nbsp; JUJUTSU KAISEN &nbsp;·&nbsp; AESPA &nbsp;·&nbsp; VALORANT &nbsp;·&nbsp; ATTACK ON TITAN &nbsp;·&nbsp; TWICE &nbsp;·&nbsp; HAIKYUU &nbsp;·&nbsp; ONE PIECE &nbsp;·&nbsp; BTS &nbsp;·&nbsp; CHAINSAW MAN &nbsp;·&nbsp; OVERWATCH &nbsp;·&nbsp; KARINA &nbsp;·&nbsp; SOLO LEVELING &nbsp;·&nbsp;</span>
+    </div>
+    <div class="tick-r" style="display:flex;width:max-content;gap:0;">
+      <span style="white-space:nowrap;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;color:#2e2e2e;text-transform:uppercase;padding-right:40px;">MY HERO ACADEMIA &nbsp;·&nbsp; FORTNITE &nbsp;·&nbsp; TOKYO REVENGERS &nbsp;·&nbsp; LE SSERAFIM &nbsp;·&nbsp; ROBLOX &nbsp;·&nbsp; NEWJEANS &nbsp;·&nbsp; MINECRAFT &nbsp;·&nbsp; NARUTO &nbsp;·&nbsp; LEAGUE OF LEGENDS &nbsp;·&nbsp; IVE &nbsp;·&nbsp; STRAY KIDS &nbsp;·&nbsp; APEX LEGENDS &nbsp;·&nbsp; SEVENTEEN &nbsp;·&nbsp; SPY X FAMILY &nbsp;·&nbsp; VALORANT &nbsp;·&nbsp;</span>
+      <span aria-hidden="true" style="white-space:nowrap;font-size:0.65rem;font-weight:700;letter-spacing:0.12em;color:#2e2e2e;text-transform:uppercase;padding-right:40px;">MY HERO ACADEMIA &nbsp;·&nbsp; FORTNITE &nbsp;·&nbsp; TOKYO REVENGERS &nbsp;·&nbsp; LE SSERAFIM &nbsp;·&nbsp; ROBLOX &nbsp;·&nbsp; NEWJEANS &nbsp;·&nbsp; MINECRAFT &nbsp;·&nbsp; NARUTO &nbsp;·&nbsp; LEAGUE OF LEGENDS &nbsp;·&nbsp; IVE &nbsp;·&nbsp; STRAY KIDS &nbsp;·&nbsp; APEX LEGENDS &nbsp;·&nbsp; SEVENTEEN &nbsp;·&nbsp; SPY X FAMILY &nbsp;·&nbsp; VALORANT &nbsp;·&nbsp;</span>
+    </div>
+  </div>
 
   <!-- FANDOM PILLARS -->
   <section style="padding:80px 48px 64px;max-width:960px;margin:0 auto;width:100%;">
