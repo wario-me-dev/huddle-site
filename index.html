@@ -7,14 +7,38 @@
   <meta name="description" content="Join over 100000 fandom communities for anime, gaming, K-pop, and more. Find your people, share your passions, and take part in fan discussions." />
   <style>
     *{box-sizing:border-box;margin:0;padding:0;}
-    @keyframes videoPan{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-    @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-    .fade1{animation:fadeUp 0.9s ease both}
-    .fade2{animation:fadeUp 0.9s 0.15s ease both}
-    .fade3{animation:fadeUp 0.9s 0.3s ease both}
-    .dl-btn:hover{opacity:0.88}
-    .grad-text{display:inline-block;background:linear-gradient(135deg,#fd6a00 20%,#ffcd00 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;padding:0 4px 8px 2px;margin-bottom:-8px;}
+    html,body{-webkit-font-smoothing:antialiased;}
     .logo{height:36px;width:auto;}
+    /* Hero atmospheric */
+    @keyframes glow-breathe{0%,100%{opacity:0.4;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}
+    @keyframes glow-breathe-2{0%,100%{opacity:0.25;transform:scale(1)}50%{opacity:0.7;transform:scale(1.12)}}
+    @keyframes rotate-ring{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+    @keyframes rotate-ring-rev{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(-360deg)}}
+    @keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.6)}}
+    @keyframes reveal-up{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes badge-in{from{opacity:0;transform:translateY(16px) scale(0.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+    .bg-grid{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.07) 1px,transparent 1px);background-size:36px 36px;mask-image:radial-gradient(ellipse 90% 80% at 50% 42%,black 10%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 90% 80% at 50% 42%,black 10%,transparent 75%);pointer-events:none;}
+    .bg-grain{position:absolute;inset:0;opacity:0.032;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px;pointer-events:none;z-index:1;}
+    .bg-orb-center{position:absolute;top:-10%;left:50%;transform:translateX(-50%);width:min(700px,110vw);height:min(700px,110vw);border-radius:50%;background:radial-gradient(circle,rgba(253,106,0,0.16) 0%,rgba(253,106,0,0.04) 45%,transparent 72%);filter:blur(2px);animation:glow-breathe 8s ease-in-out infinite;pointer-events:none;}
+    .bg-orb-gold{position:absolute;bottom:5%;left:-5%;width:min(480px,70vw);height:min(480px,70vw);border-radius:50%;background:radial-gradient(circle,rgba(255,205,0,0.07) 0%,transparent 65%);filter:blur(40px);animation:glow-breathe-2 11s ease-in-out infinite 3s;pointer-events:none;}
+    .bg-orb-purple{position:absolute;bottom:0%;right:-8%;width:min(420px,60vw);height:min(420px,60vw);border-radius:50%;background:radial-gradient(circle,rgba(150,40,255,0.06) 0%,transparent 65%);filter:blur(40px);animation:glow-breathe-2 9s ease-in-out infinite 6s;pointer-events:none;}
+    .bg-ring-outer{position:absolute;top:50%;left:50%;width:min(1100px,160vw);height:min(1100px,160vw);border-radius:50%;border:1px solid rgba(255,255,255,0.028);animation:rotate-ring 100s linear infinite;pointer-events:none;}
+    .bg-ring-inner{position:absolute;top:50%;left:50%;width:min(720px,110vw);height:min(720px,110vw);border-radius:50%;border:1px solid rgba(253,106,0,0.04);animation:rotate-ring-rev 70s linear infinite;pointer-events:none;}
+    .bg-vignette{position:absolute;inset:0;background:radial-gradient(ellipse 100% 100% at 50% 50%,transparent 40%,rgba(6,6,6,0.7) 100%);pointer-events:none;}
+    .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(253,106,0,0.055);border:1px solid rgba(253,106,0,0.18);border-radius:100px;padding:5px 16px 5px 10px;margin-bottom:38px;animation:badge-in 0.75s cubic-bezier(0.16,1,0.3,1) both;}
+    .badge-dot{width:7px;height:7px;border-radius:50%;background:linear-gradient(135deg,#fd6a00,#ffcd00);animation:pulse-dot 2.4s ease infinite;flex-shrink:0;}
+    .badge-text{font-size:0.65rem;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:#fd6a00;}
+    .hero-h1{font-size:clamp(3.6rem,9.5vw,8rem);font-weight:900;letter-spacing:-0.055em;line-height:0.92;color:#f2f2f2;margin-bottom:28px;animation:reveal-up 0.9s 0.1s cubic-bezier(0.16,1,0.3,1) both;}
+    .gt{background:linear-gradient(118deg,#fd6a00 0%,#ffcd00 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+    .hero-sub{font-size:clamp(0.92rem,2vw,1.05rem);color:#505050;max-width:380px;line-height:1.75;font-weight:400;margin-bottom:44px;animation:reveal-up 0.9s 0.22s cubic-bezier(0.16,1,0.3,1) both;}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;animation:reveal-up 0.9s 0.34s cubic-bezier(0.16,1,0.3,1) both;}
+    .btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:12px;background:linear-gradient(135deg,#fd6a00,#ffcd00);color:#000;font-weight:800;font-size:0.84rem;letter-spacing:-0.01em;text-decoration:none;position:relative;overflow:hidden;transition:opacity 0.2s,transform 0.2s;}
+    .btn-primary::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.2) 0%,transparent 55%);pointer-events:none;}
+    .btn-primary:hover{opacity:0.88;transform:translateY(-1px);}
+    .btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:12px;border:1px solid rgba(255,255,255,0.09);background:rgba(255,255,255,0.025);color:#666;font-weight:500;font-size:0.84rem;text-decoration:none;transition:border-color 0.2s,color 0.2s,background 0.2s,transform 0.2s;}
+    .btn-ghost:hover{border-color:rgba(255,255,255,0.16);color:#aaa;background:rgba(255,255,255,0.045);transform:translateY(-1px);}
+    .media-logo{height:16px;width:auto;filter:brightness(0) invert(1);opacity:0.28;transition:opacity 0.2s;}
+    .media-logo:hover{opacity:0.5;}
     @keyframes mL{from{transform:translateX(0)}to{transform:translateX(-50%)}}
     @keyframes mR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
     .mL{display:flex;width:max-content;white-space:nowrap;will-change:transform;animation:mL 40s linear infinite;}
@@ -50,8 +74,15 @@
 <div style="background:#0b0b0b;color:#efefef;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',sans-serif;">
 
   <!-- NAV -->
-  <nav style="display:flex;align-items:center;justify-content:space-between;padding:20px 48px;border-bottom:1px solid rgba(255,255,255,0.06);position:relative;z-index:10;">
+  <nav style="display:flex;align-items:center;justify-content:space-between;padding:20px 48px;border-bottom:1px solid rgba(255,255,255,0.05);position:relative;z-index:10;">
     <img class="logo" src="/Huddle.png" alt="Huddle" />
+    <div style="display:flex;align-items:center;gap:28px;">
+      <img src="/Business_Insider_Logo.png" class="media-logo" alt="Business Insider" style="height:14px;" />
+      <img src="/Bloomberg_logo.png" class="media-logo" alt="Bloomberg" style="height:18px;" />
+      <img src="/Yahoo%20Logo.png" class="media-logo" alt="Yahoo" style="height:18px;" />
+      <img src="/south-china-morning-post-logo-300x300.png" class="media-logo" alt="South China Morning Post" style="height:20px;" />
+      <img src="/CNA.png" class="media-logo" alt="CNA" style="height:15px;" />
+    </div>
     <div style="display:flex;gap:32px;">
       <a href="/blog/" style="color:#555;font-size:0.85rem;text-decoration:none;font-weight:500;">Blog</a>
       <a href="/contact/" style="color:#555;font-size:0.85rem;text-decoration:none;font-weight:500;">Contact Us</a>
@@ -59,79 +90,29 @@
   </nav>
 
   <!-- HERO -->
-  <section style="position:relative;overflow:hidden;padding:120px 48px 170px;display:flex;flex-direction:column;align-items:center;text-align:center;">
-    <!-- BACKGROUND SLIDESHOW -->
-    <video id="vid0" autoplay muted playsinline preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;"></video>
-    <video id="vid1" muted playsinline preload="auto" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;"></video>
-    <div style="position:absolute;inset:0;background:rgba(0,0,0,0.48);z-index:2;"></div>
-    <div style="position:absolute;bottom:0;left:0;right:0;height:340px;background:linear-gradient(to bottom,transparent 0%,rgba(11,11,11,0.6) 50%,#0b0b0b 100%);z-index:3;pointer-events:none;"></div>
-    <script>
-      (function(){
-        var B="/landing%20page%20background%20assets/";
-        var list=[
-          "98870-650523168.mp4",
-          "kling_20260419_\u4f5c\u54c1_Just_cinem_5965_0.mp4",
-          "112905-696336308.mp4",
-          "kling_20260419_\u4f5c\u54c1_Just_pan_s_6019_0.mp4",
-          "213042.mp4",
-          "kling_20260419_\u4f5c\u54c1_Just_cinem_5966_0.mp4",
-          "266512.mp4",
-          "kling_20260419_\u4f5c\u54c1_Just_pan_a_6033_0.mp4",
-          "kling_20260419_\u4f5c\u54c1_Just_slowl_5640_0.mp4",
-          "kling_20260419_\u4f5c\u54c1_Just_pan_s_6029_0.mp4",
-          "kling_20260419_\u4f5c\u54c1_Slowly_pan_5715_0.mp4",
-          "kling_20260419_\u4f5c\u54c1_Just_slowl_5658_0%20(1).mp4"
-        ];
-        var vids=[document.getElementById("vid0"),document.getElementById("vid1")];
-        var idx=0,active=0,timer=null;
-
-        function prepareHidden(nextIdx){
-          var h=vids[1-active];
-          h.src=B+list[nextIdx];
-          h.load();
-        }
-
-        function trySwitch(){
-          clearTimeout(timer);
-          var h=1-active;
-          if(vids[h].readyState<3){
-            timer=setTimeout(trySwitch,80);
-            return;
-          }
-          vids[h].currentTime=0;
-          vids[active].style.zIndex="0";
-          vids[h].style.zIndex="1";
-          vids[h].play().catch(function(){});
-          vids[active].pause();
-          active=h;
-          idx=(idx+1)%list.length;
-          prepareHidden((idx+1)%list.length);
-          timer=setTimeout(trySwitch,3500);
-        }
-
-        vids[0].addEventListener("ended",function(){if(active===0)trySwitch();});
-        vids[1].addEventListener("ended",function(){if(active===1)trySwitch();});
-
-        vids[0].src=B+list[0];
-        vids[0].play().catch(function(){});
-        prepareHidden(1);
-        timer=setTimeout(trySwitch,3500);
-      })();
-    </script>
-    <div style="position:relative;z-index:4;display:flex;flex-direction:column;align-items:center;max-width:700px;">
-      <h1 class="fade1" style="font-size:clamp(3.4rem,8vw,6.8rem);font-weight:900;letter-spacing:-0.05em;line-height:1.05;margin:0 0 24px;color:#f0f0f0;">
-        The <span class="grad-text">home</span><br>for fandoms.
-      </h1>
-      <p class="fade2" style="font-size:1rem;color:#555;max-width:380px;margin:0 auto 44px;line-height:1.7;font-weight:400;">
-        The fandom app where you find your people and talk about what you love.
-      </p>
-      <div class="fade3" style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
-        <a href="#" class="dl-btn" style="display:inline-flex;align-items:center;gap:9px;padding:13px 22px;border-radius:13px;background:linear-gradient(135deg,#fd6a00,#ffcd00);color:#000;font-weight:800;font-size:0.88rem;text-decoration:none;letter-spacing:-0.01em;">
-          <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+  <section style="position:relative;min-height:calc(100vh - 73px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 32px 100px;overflow:hidden;">
+    <div class="bg-grid"></div>
+    <div class="bg-orb-center"></div>
+    <div class="bg-orb-gold"></div>
+    <div class="bg-orb-purple"></div>
+    <div class="bg-ring-outer"></div>
+    <div class="bg-ring-inner"></div>
+    <div class="bg-vignette"></div>
+    <div class="bg-grain"></div>
+    <div style="position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;max-width:860px;width:100%;">
+      <div class="badge">
+        <span class="badge-dot"></span>
+        <span class="badge-text">130,000+ fans already home</span>
+      </div>
+      <h1 class="hero-h1">The <span class="gt">home</span><br>for fandoms.</h1>
+      <p class="hero-sub">Anime, K-pop, and gaming fans \u2014 one place to find your people and go deep on what you love.</p>
+      <div class="cta-row">
+        <a href="#" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
           App Store
         </a>
-        <a href="#" class="dl-btn" style="display:inline-flex;align-items:center;gap:9px;padding:13px 22px;border-radius:13px;border:1px solid rgba(255,255,255,0.11);color:#e0e0e0;font-weight:600;font-size:0.88rem;text-decoration:none;background:rgba(255,255,255,0.04);">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;">
+        <a href="#" class="btn-ghost">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" style="flex-shrink:0;">
             <path d="M1.22 0C.89.19.67.6.67 1.14v21.72c0 .54.22.95.55 1.14l.12.07 12.16-12.16v-.29L1.34-.07z" fill="#4285F4"/>
             <path d="M18.12 16.65l-4.05-4.06v-.29l4.06-4.06.09.05 4.81 2.73c1.37.78 1.37 2.05 0 2.83l-4.81 2.73z" fill="#FBBC04"/>
             <path d="M18.22 16.58L14.11 12.5 1.22 25.38c.45.48 1.2.54 2.04.06z" fill="#34A853"/>
