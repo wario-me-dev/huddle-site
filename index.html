@@ -81,6 +81,9 @@
     /* Scroll-driven network glow */
     .sg{opacity:0;transition:opacity 0.85s cubic-bezier(0.16,1,0.3,1);}
     .sg.lit{opacity:1;}
+    .nn{position:absolute;border-radius:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:2;}
+    .gnn{position:absolute;border-radius:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:3;opacity:0;transition:opacity 0.85s cubic-bezier(0.16,1,0.3,1);}
+    .gnn.lit{opacity:1;}
   </style>
 </head>
 <body>
@@ -214,11 +217,16 @@
       </div>
     </section>
 
-    <!-- CONNECTED SECTIONS WRAPPER -->
-    <div style="position:relative;z-index:1;">
+      <!-- TAGLINE — before SVG-covered wrapper so lines don't overlap text -->
+      <div style="position:relative;z-index:1;max-width:860px;margin:0 auto;padding:80px 48px 60px;text-align:center;">
+        <p style="font-size:clamp(1.9rem,3.8vw,3rem);font-weight:900;letter-spacing:-0.04em;line-height:1.15;color:#f0f0f0;">Express who you really are and find <span class="gt">fandoms</span> that feel like <span class="gt">home.</span></p>
+      </div>
 
-      <!-- SECTION NETWORK LINES -->
-      <svg style="position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:hidden;" viewBox="0 0 100 100" preserveAspectRatio="none" fill="none">
+    <!-- CONNECTED SECTIONS WRAPPER -->
+    <div id="csw" style="position:relative;z-index:1;">
+
+      <!-- Base network lines (no SVG circles — CSS divs below are always perfectly round) -->
+      <svg style="position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;overflow:visible;" viewBox="0 0 100 100" preserveAspectRatio="none" fill="none">
         <g stroke="rgba(255,255,255,0.042)" stroke-width="0.14">
           <line x1="50" y1="4" x2="72" y2="13"/>
           <line x1="72" y1="13" x2="72" y2="54"/>
@@ -230,56 +238,36 @@
           <line x1="50" y1="4" x2="28" y2="23"/>
           <line x1="72" y1="54" x2="28" y2="85"/>
         </g>
-        <circle cx="50" cy="4" r="0.7" fill="rgba(255,255,255,0.18)"/>
-        <circle cx="28" cy="23" r="1.1" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.13)" stroke-width="0.4"/>
-        <circle cx="72" cy="54" r="1.1" fill="rgba(253,106,0,0.1)" stroke="rgba(253,106,0,0.22)" stroke-width="0.4"/>
-        <circle cx="28" cy="85" r="1.1" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.13)" stroke-width="0.4"/>
-        <circle cx="72" cy="13" r="0.6" fill="rgba(255,255,255,0.12)"/>
-        <circle cx="50" cy="96" r="0.6" fill="rgba(255,255,255,0.1)"/>
       </svg>
 
-      <!-- Scroll-illuminated glow layer — same coordinate space as network SVG above -->
-      <svg style="position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;overflow:hidden;" viewBox="0 0 100 100" preserveAspectRatio="none" fill="none">
-        <defs>
-          <filter id="sg-blur" x="-80%" y="-80%" width="260%" height="260%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="1.4"/>
-          </filter>
-        </defs>
-        <!-- Feature 1: top node (50,4) → F1 node (28,23) -->
-        <g id="sg1" class="sg">
-          <line x1="50" y1="4" x2="28" y2="23" stroke="rgba(253,106,0,0.55)" stroke-width="0.5" filter="url(#sg-blur)"/>
-          <line x1="50" y1="4" x2="28" y2="23" stroke="rgba(255,180,40,0.7)" stroke-width="0.2"/>
-          <circle cx="50" cy="4" r="1.5" fill="rgba(255,205,0,0.5)" filter="url(#sg-blur)"/>
-          <circle cx="50" cy="4" r="0.7" fill="#ffcd00"/>
-          <circle cx="28" cy="23" r="2.8" fill="rgba(253,106,0,0.2)" filter="url(#sg-blur)"/>
-          <circle cx="28" cy="23" r="1.15" fill="none" stroke="#fd6a00" stroke-width="0.6"/>
-          <circle cx="28" cy="23" r="0.45" fill="#ffcd00"/>
+      <!-- Glow lines (CSS drop-shadow replaces SVG filter — no rectangle artifacts) -->
+      <svg style="position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;overflow:visible;" viewBox="0 0 100 100" preserveAspectRatio="none" fill="none">
+        <g id="sg1" class="sg" style="filter:drop-shadow(0 0 3px rgba(253,106,0,0.9));">
+          <line x1="50" y1="4" x2="28" y2="23" stroke="rgba(255,170,30,0.85)" stroke-width="0.3"/>
         </g>
-        <!-- Feature 2: F1 node (28,23) → F2 node (72,54) diagonal -->
-        <g id="sg2" class="sg">
-          <line x1="28" y1="23" x2="72" y2="54" stroke="rgba(253,106,0,0.55)" stroke-width="0.5" filter="url(#sg-blur)"/>
-          <line x1="28" y1="23" x2="72" y2="54" stroke="rgba(255,180,40,0.7)" stroke-width="0.2"/>
-          <circle cx="72" cy="54" r="2.8" fill="rgba(255,205,0,0.18)" filter="url(#sg-blur)"/>
-          <circle cx="72" cy="54" r="1.15" fill="none" stroke="#ffcd00" stroke-width="0.6"/>
-          <circle cx="72" cy="54" r="0.45" fill="#ffcd00"/>
+        <g id="sg2" class="sg" style="filter:drop-shadow(0 0 3px rgba(253,106,0,0.9));">
+          <line x1="28" y1="23" x2="72" y2="54" stroke="rgba(255,170,30,0.85)" stroke-width="0.3"/>
         </g>
-        <!-- Feature 3: F2 node (72,54) → F3 node (28,85) → tail (50,96) -->
-        <g id="sg3" class="sg">
-          <line x1="72" y1="54" x2="28" y2="85" stroke="rgba(253,106,0,0.55)" stroke-width="0.5" filter="url(#sg-blur)"/>
-          <line x1="72" y1="54" x2="28" y2="85" stroke="rgba(255,180,40,0.7)" stroke-width="0.2"/>
-          <line x1="28" y1="85" x2="50" y2="96" stroke="rgba(255,205,0,0.4)" stroke-width="0.3" filter="url(#sg-blur)"/>
-          <line x1="28" y1="85" x2="50" y2="96" stroke="rgba(255,205,0,0.65)" stroke-width="0.15"/>
-          <circle cx="28" cy="85" r="2.8" fill="rgba(253,106,0,0.2)" filter="url(#sg-blur)"/>
-          <circle cx="28" cy="85" r="1.15" fill="none" stroke="#fd6a00" stroke-width="0.6"/>
-          <circle cx="28" cy="85" r="0.45" fill="#fd6a00"/>
-          <circle cx="50" cy="96" r="1.2" fill="rgba(255,205,0,0.4)" filter="url(#sg-blur)"/>
+        <g id="sg3" class="sg" style="filter:drop-shadow(0 0 3px rgba(253,106,0,0.9));">
+          <line x1="72" y1="54" x2="28" y2="85" stroke="rgba(255,170,30,0.85)" stroke-width="0.3"/>
+          <line x1="28" y1="85" x2="50" y2="96" stroke="rgba(255,205,0,0.75)" stroke-width="0.22"/>
         </g>
       </svg>
 
-      <!-- TAGLINE -->
-      <div style="position:relative;z-index:1;max-width:860px;margin:0 auto;padding:80px 48px 20px;text-align:center;">
-        <p style="font-size:clamp(1.9rem,3.8vw,3rem);font-weight:900;letter-spacing:-0.04em;line-height:1.15;color:#f0f0f0;">Express who you really are and find <span class="gt">fandoms</span> that feel like <span class="gt">home.</span></p>
-      </div>
+      <!-- Base nodes: CSS divs always round (SVG circles stretch with preserveAspectRatio=none) -->
+      <div class="nn" style="left:50%;top:4%;width:9px;height:9px;background:rgba(255,255,255,0.18);"></div>
+      <div class="nn" style="left:72%;top:13%;width:9px;height:9px;background:rgba(255,255,255,0.12);"></div>
+      <div class="nn" style="left:28%;top:23%;width:18px;height:18px;background:rgba(255,255,255,0.04);border:0.5px solid rgba(255,255,255,0.13);"></div>
+      <div class="nn" style="left:72%;top:54%;width:18px;height:18px;background:rgba(253,106,0,0.09);border:0.5px solid rgba(253,106,0,0.22);"></div>
+      <div class="nn" style="left:28%;top:85%;width:18px;height:18px;background:rgba(255,255,255,0.04);border:0.5px solid rgba(255,255,255,0.13);"></div>
+      <div class="nn" style="left:50%;top:96%;width:9px;height:9px;background:rgba(255,255,255,0.1);"></div>
+
+      <!-- Glow nodes: scroll-activated perfectly round orbs -->
+      <div class="gnn" data-for="sg1" style="left:50%;top:4%;width:14px;height:14px;background:rgba(255,205,0,0.55);box-shadow:0 0 10px 4px rgba(255,205,0,0.5),0 0 22px 8px rgba(253,106,0,0.25);"></div>
+      <div class="gnn" data-for="sg1" style="left:28%;top:23%;width:26px;height:26px;background:rgba(253,106,0,0.14);border:1.5px solid #fd6a00;box-shadow:0 0 16px 5px rgba(253,106,0,0.55),0 0 34px 10px rgba(253,106,0,0.2);"></div>
+      <div class="gnn" data-for="sg2" style="left:72%;top:54%;width:26px;height:26px;background:rgba(255,205,0,0.11);border:1.5px solid #ffcd00;box-shadow:0 0 16px 5px rgba(255,205,0,0.5),0 0 34px 10px rgba(253,106,0,0.18);"></div>
+      <div class="gnn" data-for="sg3" style="left:28%;top:85%;width:26px;height:26px;background:rgba(253,106,0,0.14);border:1.5px solid #fd6a00;box-shadow:0 0 16px 5px rgba(253,106,0,0.55),0 0 34px 10px rgba(253,106,0,0.2);"></div>
+      <div class="gnn" data-for="sg3" style="left:50%;top:96%;width:14px;height:14px;background:rgba(255,205,0,0.55);box-shadow:0 0 10px 4px rgba(255,205,0,0.48),0 0 22px 8px rgba(253,106,0,0.22);"></div>
 
       <!-- FEATURE 1 -->
       <section data-glow="sg1" style="position:relative;z-index:1;padding:120px 64px;display:flex;align-items:center;gap:80px;max-width:1160px;margin:0 auto;flex-wrap:wrap;">
@@ -513,14 +501,14 @@
       entries.forEach(function(e){
         var gid = e.target.getAttribute('data-glow');
         var el = document.getElementById(gid);
-        if(!el) return;
+        var nodes = document.querySelectorAll('[data-for="'+gid+'"]');
         if(e.isIntersecting){
-          el.classList.add('lit');
+          if(el) el.classList.add('lit');
+          nodes.forEach(function(n){ n.classList.add('lit'); });
         } else if(e.boundingClientRect.top > 0){
-          // Element is below viewport (user hasn't scrolled to it yet) — keep dark
-          el.classList.remove('lit');
+          if(el) el.classList.remove('lit');
+          nodes.forEach(function(n){ n.classList.remove('lit'); });
         }
-        // Element above viewport (already scrolled past) — leave lit
       });
     }, {threshold: 0.18, rootMargin: '0px 0px -8% 0px'});
     document.querySelectorAll('[data-glow]').forEach(function(el){ obs.observe(el); });
