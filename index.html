@@ -82,8 +82,6 @@
     .orbit-icon:nth-child(3){animation:orb 14s -5.6s linear infinite;}
     .orbit-icon:nth-child(4){animation:orb 14s -8.4s linear infinite;}
     .orbit-icon:nth-child(5){animation:orb 14s -11.2s linear infinite;}
-    /* Video hero */
-    .hero-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
   </style>
 </head>
 <body>
@@ -102,21 +100,8 @@
   <!-- HERO — video cycling background -->
   <section style="position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 48px 170px;overflow:hidden;">
 
-    <!-- Video stack — all playing simultaneously, z-index swap creates hard cut -->
-    <div style="position:absolute;inset:0;z-index:0;">
-      <video class="hero-vid" autoplay muted loop playsinline><source src="/landing%20page%20background%20assets/kling_20260419_%E4%BD%9C%E5%93%81_Just_cinem_5965_0.mp4" type="video/mp4"></video>
-      <video class="hero-vid" autoplay muted loop playsinline><source src="/landing%20page%20background%20assets/kling_20260419_%E4%BD%9C%E5%93%81_Just_cinem_5966_0.mp4" type="video/mp4"></video>
-      <video class="hero-vid" autoplay muted loop playsinline><source src="/landing%20page%20background%20assets/kling_20260419_%E4%BD%9C%E5%93%81_Just_slowl_5640_0.mp4" type="video/mp4"></video>
-      <video class="hero-vid" autoplay muted loop playsinline><source src="/landing%20page%20background%20assets/kling_20260419_%E4%BD%9C%E5%93%81_Just_slowl_5658_0%20%281%29.mp4" type="video/mp4"></video>
-      <video class="hero-vid" autoplay muted loop playsinline><source src="/landing%20page%20background%20assets/kling_20260419_%E4%BD%9C%E5%93%81_Slowly_pan_5715_0.mp4" type="video/mp4"></video>
-      <video class="hero-vid" autoplay muted loop playsinline><source src="/landing%20page%20background%20assets/kling_20260419_%E4%BD%9C%E5%93%81_Just_pan_s_6019_0.mp4" type="video/mp4"></video>
-      <video class="hero-vid" autoplay muted loop playsinline><source src="/landing%20page%20background%20assets/kling_20260419_%E4%BD%9C%E5%93%81_Just_pan_s_6029_0.mp4" type="video/mp4"></video>
-      <video class="hero-vid" autoplay muted loop playsinline><source src="/landing%20page%20background%20assets/kling_20260419_%E4%BD%9C%E5%93%81_Just_pan_a_6033_0.mp4" type="video/mp4"></video>
-      <video class="hero-vid" autoplay muted loop playsinline><source src="/landing%20page%20background%20assets/213042.mp4" type="video/mp4"></video>
-      <video class="hero-vid" autoplay muted loop playsinline><source src="/landing%20page%20background%20assets/266512.mp4" type="video/mp4"></video>
-      <video class="hero-vid" autoplay muted loop playsinline><source src="/landing%20page%20background%20assets/112905-696336308.mp4" type="video/mp4"></video>
-      <video class="hero-vid" autoplay muted loop playsinline><source src="/landing%20page%20background%20assets/98870-650523168.mp4" type="video/mp4"></video>
-    </div>
+    <!-- Video container — JS manages 2 elements max: current + preloading next -->
+    <div id="hero-vid-wrap" style="position:absolute;inset:0;z-index:0;overflow:hidden;contain:strict;"></div>
 
     <!-- Dark overlay so text is readable -->
     <div style="position:absolute;inset:0;z-index:1;background:rgba(7,7,7,0.52);pointer-events:none;"></div>
@@ -388,16 +373,87 @@
 
 <script>
   (function(){
-    var vids = document.querySelectorAll('.hero-vid');
-    var cur = 0;
-    vids.forEach(function(v, i){
-      v.style.zIndex = i === 0 ? '2' : '1';
-    });
-    setInterval(function(){
-      vids[cur].style.zIndex = '1';
-      cur = (cur + 1) % vids.length;
-      vids[cur].style.zIndex = '2';
-    }, 4000);
+    var SRCS = [
+      '/landing%20page%20background%20assets/op4s.mp4',
+      '/landing%20page%20background%20assets/ds4s.mp4',
+      '/landing%20page%20background%20assets/at4s.mp4',
+      '/landing%20page%20background%20assets/genshin4s.mp4',
+      '/landing%20page%20background%20assets/mc4s.mp4',
+      '/landing%20page%20background%20assets/bt4s.mp4',
+      '/landing%20page%20background%20assets/bp4s.mp4',
+      '/landing%20page%20background%20assets/nm4s.mp4',
+      '/landing%20page%20background%20assets/gen4s.mp4',
+      '/landing%20page%20background%20assets/evade4s.mp4',
+      '/landing%20page%20background%20assets/attt4s.mp4',
+      '/landing%20page%20background%20assets/s4s.mp4'
+    ];
+
+    var wrap = document.getElementById('hero-vid-wrap');
+    var idx = 0;
+    var cur = null;   // currently showing
+    var nxt = null;   // preloaded and ready
+
+    function mkv(src) {
+      var v = document.createElement('video');
+      v.muted = true;
+      v.playsInline = true;
+      v.setAttribute('playsinline', '');
+      v.preload = 'auto';
+      v.src = src;
+      v.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;';
+      return v;
+    }
+
+    function release(v) {
+      if (!v) return;
+      v.pause();
+      v.removeAttribute('src');
+      v.load(); // releases decoder memory
+      if (v.parentNode) v.parentNode.removeChild(v);
+    }
+
+    function advance() {
+      idx = (idx + 1) % SRCS.length;
+
+      // Use preloaded element, or create one if not ready yet
+      var incoming = nxt || mkv(SRCS[idx]);
+      nxt = null;
+      incoming.style.zIndex = '2';
+      if (!incoming.parentNode) wrap.appendChild(incoming);
+
+      var old = cur;
+      cur = incoming;
+
+      incoming.play().catch(function(){});
+      // Drive next switch from the ended event — clips are exactly 4s so this is reliable
+      incoming.addEventListener('ended', advance, {once: true});
+
+      // Wait two animation frames so incoming is composited before removing old (prevents 1-frame flash)
+      requestAnimationFrame(function(){
+        requestAnimationFrame(function(){
+          release(old);
+        });
+      });
+
+      // Immediately start buffering the one after
+      var ni = (idx + 1) % SRCS.length;
+      nxt = mkv(SRCS[ni]);
+      nxt.style.zIndex = '1';
+      wrap.appendChild(nxt);
+      nxt.load();
+    }
+
+    // Bootstrap: start first video, preload second
+    cur = mkv(SRCS[0]);
+    cur.style.zIndex = '2';
+    wrap.appendChild(cur);
+    cur.play().catch(function(){});
+    cur.addEventListener('ended', advance, {once: true});
+
+    nxt = mkv(SRCS[1]);
+    nxt.style.zIndex = '1';
+    wrap.appendChild(nxt);
+    nxt.load();
   })();
 </script>
 </body>
