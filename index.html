@@ -283,19 +283,11 @@
       </section>
 
     </div>
-  </div>
-  <!-- END ATMOSPHERIC SECTION WRAPPER -->
 
-  <!-- FINAL CTA — atmospheric background matching section above -->
-  <section style="position:relative;overflow:hidden;padding:120px 48px;text-align:center;border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05);">
-    <div class="bg-grid"></div>
-    <div class="bg-orb-center"></div>
-    <div class="bg-orb-gold"></div>
-    <div class="bg-orb-purple"></div>
-    <div class="bg-vignette"></div>
-    <div class="bg-grain"></div>
+  <!-- FINAL CTA — inside the same atmospheric wrapper, no separate bg -->
+  <section style="position:relative;z-index:1;overflow:hidden;padding:120px 48px;text-align:center;">
 
-    <!-- Social graph layered over atmospheric bg -->
+    <!-- Social graph floats over the shared atmospheric bg -->
     <div style="position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden;animation:sg-drift 55s ease-in-out infinite;will-change:transform;transform-origin:center;opacity:0.45;">
       <svg style="position:absolute;inset:0;width:100%;height:100%;" viewBox="0 0 100 100" preserveAspectRatio="none" fill="none">
         <g stroke="rgba(255,255,255,0.05)" stroke-width="0.14">
@@ -361,8 +353,13 @@
     </div>
   </section>
 
+  <!-- Gradient fade — atmospheric bg dissolves to dark at the bottom of the single wrapper -->
+  <div style="height:200px;background:linear-gradient(to bottom,transparent 0%,#0b0b0b 100%);position:relative;z-index:1;pointer-events:none;margin-top:-60px;"></div>
+</div>
+<!-- END SINGLE ATMOSPHERIC WRAPPER -->
+
   <!-- FOOTER -->
-  <footer style="padding:28px 48px;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:28px;">
+  <footer style="background:#0b0b0b;padding:28px 48px;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:28px;">
     <a href="/blog/" style="color:#383838;font-size:0.76rem;text-decoration:none;">Blog</a>
     <a href="/guidelines/" style="color:#383838;font-size:0.76rem;text-decoration:none;">Guidelines</a>
     <a href="/privacy/" style="color:#383838;font-size:0.76rem;text-decoration:none;">Privacy</a>
