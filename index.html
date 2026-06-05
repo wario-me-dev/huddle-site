@@ -16,18 +16,14 @@
     /* Atmospheric bg animations */
     @keyframes glow-breathe{0%,100%{opacity:0.4;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}
     @keyframes glow-breathe-2{0%,100%{opacity:0.25;transform:scale(1)}50%{opacity:0.7;transform:scale(1.12)}}
-    @keyframes rotate-ring{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
-    @keyframes rotate-ring-rev{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(-360deg)}}
     @keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.6)}}
     @keyframes reveal-up{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
     @keyframes badge-in{from{opacity:0;transform:translateY(16px) scale(0.97)}to{opacity:1;transform:translateY(0) scale(1)}}
-    .bg-grid{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.07) 1px,transparent 1px);background-size:36px 36px;mask-image:radial-gradient(ellipse 90% 80% at 50% 42%,black 10%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 90% 80% at 50% 42%,black 10%,transparent 75%);pointer-events:none;}
+    .bg-grid{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.04) 1px,transparent 1px);background-size:36px 36px;mask-image:radial-gradient(ellipse 90% 80% at 50% 42%,black 10%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 90% 80% at 50% 42%,black 10%,transparent 75%);pointer-events:none;}
     .bg-grain{position:absolute;inset:0;opacity:0.032;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px;pointer-events:none;z-index:1;}
     .bg-orb-center{position:absolute;top:-10%;left:50%;transform:translateX(-50%);width:min(700px,110vw);height:min(700px,110vw);border-radius:50%;background:radial-gradient(circle,rgba(253,106,0,0.16) 0%,rgba(253,106,0,0.04) 45%,transparent 72%);filter:blur(2px);animation:glow-breathe 8s ease-in-out infinite;pointer-events:none;}
     .bg-orb-gold{position:absolute;bottom:5%;left:-5%;width:min(480px,70vw);height:min(480px,70vw);border-radius:50%;background:radial-gradient(circle,rgba(255,205,0,0.07) 0%,transparent 65%);filter:blur(40px);animation:glow-breathe-2 11s ease-in-out infinite 3s;pointer-events:none;}
     .bg-orb-purple{position:absolute;bottom:0%;right:-8%;width:min(420px,60vw);height:min(420px,60vw);border-radius:50%;background:radial-gradient(circle,rgba(150,40,255,0.06) 0%,transparent 65%);filter:blur(40px);animation:glow-breathe-2 9s ease-in-out infinite 6s;pointer-events:none;}
-    .bg-ring-outer{position:absolute;top:50%;left:50%;width:min(1100px,160vw);height:min(1100px,160vw);border-radius:50%;border:0.5px solid rgba(255,255,255,0.013);animation:rotate-ring 100s linear infinite;pointer-events:none;}
-    .bg-ring-inner{position:absolute;top:50%;left:50%;width:min(720px,110vw);height:min(720px,110vw);border-radius:50%;border:0.5px solid rgba(253,106,0,0.018);animation:rotate-ring-rev 70s linear infinite;pointer-events:none;}
     .bg-vignette{position:absolute;inset:0;background:radial-gradient(ellipse 100% 100% at 50% 50%,transparent 40%,rgba(6,6,6,0.7) 100%);pointer-events:none;}
     /* Social graph */
     @keyframes sgf1{0%,100%{transform:translate(-50%,-50%) translate(0,0)}33%{transform:translate(-50%,-50%) translate(5px,-8px)}66%{transform:translate(-50%,-50%) translate(-4px,6px)}}
@@ -82,6 +78,9 @@
     .orbit-icon:nth-child(3){animation:orb 14s -5.6s linear infinite;}
     .orbit-icon:nth-child(4){animation:orb 14s -8.4s linear infinite;}
     .orbit-icon:nth-child(5){animation:orb 14s -11.2s linear infinite;}
+    /* Scroll-driven network glow */
+    .sg{opacity:0;transition:opacity 0.85s cubic-bezier(0.16,1,0.3,1);}
+    .sg.lit{opacity:1;}
   </style>
 </head>
 <body>
@@ -153,8 +152,6 @@
     <div class="bg-orb-center"></div>
     <div class="bg-orb-gold"></div>
     <div class="bg-orb-purple"></div>
-    <div class="bg-ring-outer"></div>
-    <div class="bg-ring-inner"></div>
     <div class="bg-vignette"></div>
     <div class="bg-grain"></div>
 
@@ -241,13 +238,51 @@
         <circle cx="50" cy="96" r="0.6" fill="rgba(255,255,255,0.1)"/>
       </svg>
 
+      <!-- Scroll-illuminated glow layer — same coordinate space as network SVG above -->
+      <svg style="position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;overflow:hidden;" viewBox="0 0 100 100" preserveAspectRatio="none" fill="none">
+        <defs>
+          <filter id="sg-blur" x="-80%" y="-80%" width="260%" height="260%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="1.4"/>
+          </filter>
+        </defs>
+        <!-- Feature 1: top node (50,4) → F1 node (28,23) -->
+        <g id="sg1" class="sg">
+          <line x1="50" y1="4" x2="28" y2="23" stroke="rgba(253,106,0,0.55)" stroke-width="0.5" filter="url(#sg-blur)"/>
+          <line x1="50" y1="4" x2="28" y2="23" stroke="rgba(255,180,40,0.7)" stroke-width="0.2"/>
+          <circle cx="50" cy="4" r="1.5" fill="rgba(255,205,0,0.5)" filter="url(#sg-blur)"/>
+          <circle cx="50" cy="4" r="0.7" fill="#ffcd00"/>
+          <circle cx="28" cy="23" r="2.8" fill="rgba(253,106,0,0.2)" filter="url(#sg-blur)"/>
+          <circle cx="28" cy="23" r="1.15" fill="none" stroke="#fd6a00" stroke-width="0.6"/>
+          <circle cx="28" cy="23" r="0.45" fill="#ffcd00"/>
+        </g>
+        <!-- Feature 2: F1 node (28,23) → F2 node (72,54) diagonal -->
+        <g id="sg2" class="sg">
+          <line x1="28" y1="23" x2="72" y2="54" stroke="rgba(253,106,0,0.55)" stroke-width="0.5" filter="url(#sg-blur)"/>
+          <line x1="28" y1="23" x2="72" y2="54" stroke="rgba(255,180,40,0.7)" stroke-width="0.2"/>
+          <circle cx="72" cy="54" r="2.8" fill="rgba(255,205,0,0.18)" filter="url(#sg-blur)"/>
+          <circle cx="72" cy="54" r="1.15" fill="none" stroke="#ffcd00" stroke-width="0.6"/>
+          <circle cx="72" cy="54" r="0.45" fill="#ffcd00"/>
+        </g>
+        <!-- Feature 3: F2 node (72,54) → F3 node (28,85) → tail (50,96) -->
+        <g id="sg3" class="sg">
+          <line x1="72" y1="54" x2="28" y2="85" stroke="rgba(253,106,0,0.55)" stroke-width="0.5" filter="url(#sg-blur)"/>
+          <line x1="72" y1="54" x2="28" y2="85" stroke="rgba(255,180,40,0.7)" stroke-width="0.2"/>
+          <line x1="28" y1="85" x2="50" y2="96" stroke="rgba(255,205,0,0.4)" stroke-width="0.3" filter="url(#sg-blur)"/>
+          <line x1="28" y1="85" x2="50" y2="96" stroke="rgba(255,205,0,0.65)" stroke-width="0.15"/>
+          <circle cx="28" cy="85" r="2.8" fill="rgba(253,106,0,0.2)" filter="url(#sg-blur)"/>
+          <circle cx="28" cy="85" r="1.15" fill="none" stroke="#fd6a00" stroke-width="0.6"/>
+          <circle cx="28" cy="85" r="0.45" fill="#fd6a00"/>
+          <circle cx="50" cy="96" r="1.2" fill="rgba(255,205,0,0.4)" filter="url(#sg-blur)"/>
+        </g>
+      </svg>
+
       <!-- TAGLINE -->
       <div style="position:relative;z-index:1;max-width:860px;margin:0 auto;padding:80px 48px 20px;text-align:center;">
         <p style="font-size:clamp(1.9rem,3.8vw,3rem);font-weight:900;letter-spacing:-0.04em;line-height:1.15;color:#f0f0f0;">Express who you really are and find <span class="gt">fandoms</span> that feel like <span class="gt">home.</span></p>
       </div>
 
       <!-- FEATURE 1 -->
-      <section style="position:relative;z-index:1;padding:120px 64px;display:flex;align-items:center;gap:80px;max-width:1160px;margin:0 auto;flex-wrap:wrap;">
+      <section data-glow="sg1" style="position:relative;z-index:1;padding:120px 64px;display:flex;align-items:center;gap:80px;max-width:1160px;margin:0 auto;flex-wrap:wrap;">
         <div style="flex-shrink:0;position:relative;display:flex;justify-content:center;">
           <div style="position:absolute;inset:-60px;background:radial-gradient(ellipse at center,rgba(253,106,0,0.15) 0%,transparent 65%);pointer-events:none;z-index:0;"></div>
           <img src="/Find%20your%20people%20in%20seconds..png" alt="Find your people" style="position:relative;z-index:1;height:560px;width:auto;display:block;" />
@@ -259,7 +294,7 @@
       </section>
 
       <!-- FEATURE 2 -->
-      <section style="position:relative;z-index:1;padding:120px 64px;display:flex;align-items:center;gap:80px;max-width:1160px;margin:0 auto;flex-direction:row-reverse;flex-wrap:wrap;">
+      <section data-glow="sg2" style="position:relative;z-index:1;padding:120px 64px;display:flex;align-items:center;gap:80px;max-width:1160px;margin:0 auto;flex-direction:row-reverse;flex-wrap:wrap;">
         <div style="flex-shrink:0;position:relative;display:flex;justify-content:center;">
           <div style="position:absolute;inset:-60px;background:radial-gradient(ellipse at center,rgba(255,205,0,0.12) 0%,transparent 65%);pointer-events:none;z-index:0;"></div>
           <img src="/Spaces%20built%20for%20your%20fandom.png" alt="Spaces built for your fandom" style="position:relative;z-index:1;height:560px;width:auto;display:block;" />
@@ -271,7 +306,7 @@
       </section>
 
       <!-- FEATURE 3 -->
-      <section style="position:relative;z-index:1;padding:120px 64px;display:flex;align-items:center;gap:80px;max-width:1160px;margin:0 auto;flex-wrap:wrap;">
+      <section data-glow="sg3" style="position:relative;z-index:1;padding:120px 64px;display:flex;align-items:center;gap:80px;max-width:1160px;margin:0 auto;flex-wrap:wrap;">
         <div style="flex-shrink:0;position:relative;display:flex;justify-content:center;">
           <div style="position:absolute;inset:-60px;background:radial-gradient(ellipse at center,rgba(253,106,0,0.15) 0%,transparent 65%);pointer-events:none;z-index:0;"></div>
           <img src="/Real%20talk..png" alt="Join the chaos" style="position:relative;z-index:1;height:560px;width:auto;display:block;" />
@@ -467,6 +502,28 @@
     nxt.style.zIndex = '1';
     wrap.appendChild(nxt);
     nxt.load();
+  })();
+</script>
+
+<script>
+  // Scroll-driven network glow — lights up each path segment as its feature section enters viewport
+  (function(){
+    if(!window.IntersectionObserver) return;
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        var gid = e.target.getAttribute('data-glow');
+        var el = document.getElementById(gid);
+        if(!el) return;
+        if(e.isIntersecting){
+          el.classList.add('lit');
+        } else if(e.boundingClientRect.top > 0){
+          // Element is below viewport (user hasn't scrolled to it yet) — keep dark
+          el.classList.remove('lit');
+        }
+        // Element above viewport (already scrolled past) — leave lit
+      });
+    }, {threshold: 0.18, rootMargin: '0px 0px -8% 0px'});
+    document.querySelectorAll('[data-glow]').forEach(function(el){ obs.observe(el); });
   })();
 </script>
 </body>
