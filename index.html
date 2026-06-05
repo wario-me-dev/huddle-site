@@ -82,8 +82,7 @@
     .sg{opacity:0;transition:opacity 0.85s cubic-bezier(0.16,1,0.3,1);}
     .sg.lit{opacity:1;}
     .nn{position:absolute;border-radius:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:2;}
-    .gnn{position:absolute;border-radius:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:3;opacity:0;transition:opacity 0.85s cubic-bezier(0.16,1,0.3,1);}
-    .gnn.lit{opacity:1;}
+    nav a:visited,nav a:active{color:#555;}
   </style>
 </head>
 <body>
@@ -218,7 +217,7 @@
     </section>
 
       <!-- TAGLINE — before SVG-covered wrapper so lines don't overlap text -->
-      <div style="position:relative;z-index:1;max-width:860px;margin:0 auto;padding:80px 48px 60px;text-align:center;">
+      <div style="position:relative;z-index:1;max-width:860px;margin:0 auto;padding:80px 48px 20px;text-align:center;">
         <p style="font-size:clamp(1.9rem,3.8vw,3rem);font-weight:900;letter-spacing:-0.04em;line-height:1.15;color:#f0f0f0;">Express who you really are and find <span class="gt">fandoms</span> that feel like <span class="gt">home.</span></p>
       </div>
 
@@ -262,15 +261,9 @@
       <div class="nn" style="left:28%;top:85%;width:18px;height:18px;background:rgba(255,255,255,0.04);border:0.5px solid rgba(255,255,255,0.13);"></div>
       <div class="nn" style="left:50%;top:96%;width:9px;height:9px;background:rgba(255,255,255,0.1);"></div>
 
-      <!-- Glow nodes: scroll-activated perfectly round orbs -->
-      <div class="gnn" data-for="sg1" style="left:50%;top:4%;width:14px;height:14px;background:rgba(255,205,0,0.55);box-shadow:0 0 10px 4px rgba(255,205,0,0.5),0 0 22px 8px rgba(253,106,0,0.25);"></div>
-      <div class="gnn" data-for="sg1" style="left:28%;top:23%;width:26px;height:26px;background:rgba(253,106,0,0.14);border:1.5px solid #fd6a00;box-shadow:0 0 16px 5px rgba(253,106,0,0.55),0 0 34px 10px rgba(253,106,0,0.2);"></div>
-      <div class="gnn" data-for="sg2" style="left:72%;top:54%;width:26px;height:26px;background:rgba(255,205,0,0.11);border:1.5px solid #ffcd00;box-shadow:0 0 16px 5px rgba(255,205,0,0.5),0 0 34px 10px rgba(253,106,0,0.18);"></div>
-      <div class="gnn" data-for="sg3" style="left:28%;top:85%;width:26px;height:26px;background:rgba(253,106,0,0.14);border:1.5px solid #fd6a00;box-shadow:0 0 16px 5px rgba(253,106,0,0.55),0 0 34px 10px rgba(253,106,0,0.2);"></div>
-      <div class="gnn" data-for="sg3" style="left:50%;top:96%;width:14px;height:14px;background:rgba(255,205,0,0.55);box-shadow:0 0 10px 4px rgba(255,205,0,0.48),0 0 22px 8px rgba(253,106,0,0.22);"></div>
 
       <!-- FEATURE 1 -->
-      <section data-glow="sg1" style="position:relative;z-index:1;padding:120px 64px;display:flex;align-items:center;gap:80px;max-width:1160px;margin:0 auto;flex-wrap:wrap;">
+      <section data-glow="sg1" style="position:relative;z-index:1;padding:60px 64px 120px;display:flex;align-items:center;gap:80px;max-width:1160px;margin:0 auto;flex-wrap:wrap;">
         <div style="flex-shrink:0;position:relative;display:flex;justify-content:center;">
           <div style="position:absolute;inset:-60px;background:radial-gradient(ellipse at center,rgba(253,106,0,0.15) 0%,transparent 65%);pointer-events:none;z-index:0;"></div>
           <img src="/Find%20your%20people%20in%20seconds..png" alt="Find your people" style="position:relative;z-index:1;height:560px;width:auto;display:block;" />
@@ -413,15 +406,14 @@
 <script>
   (function(){
     var SRCS = [
-      '/landing%20page%20background%20assets/op4s.mp4',
-      '/landing%20page%20background%20assets/ds4s.mp4',
-      '/landing%20page%20background%20assets/genshin4s.mp4',
-      '/landing%20page%20background%20assets/mc4s.mp4',
-      '/landing%20page%20background%20assets/bt4s.mp4',
-      '/landing%20page%20background%20assets/bp4s.mp4',
-      '/landing%20page%20background%20assets/nm4s.mp4',
-      '/landing%20page%20background%20assets/attt4s.mp4',
-      '/landing%20page%20background%20assets/s4s.mp4'
+      '/landing%20page%20background%20assets/1_bp2s.mp4',
+      '/landing%20page%20background%20assets/2_ds4s.mp4',
+      '/landing%20page%20background%20assets/3_genshin4s.mp4',
+      '/landing%20page%20background%20assets/4_bt4s.mp4',
+      '/landing%20page%20background%20assets/5_mc4s.mp4',
+      '/landing%20page%20background%20assets/6_aot3s.mp4',
+      '/landing%20page%20background%20assets/7_gag3s.mp4',
+      '/landing%20page%20background%20assets/8_ha3s.mp4'
     ];
 
     var wrap = document.getElementById('hero-vid-wrap');
