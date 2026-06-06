@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Introducing Worlds - dedicated spaces for your fandom - Huddle Blog</title>
-  <meta name="description" content="Today we're launching Worlds - dedicated spaces built entirely around a single fandom. Your community, your channels, your World." />
+  <title>Mutuals-Only Posting Is Finally Here! - Huddle Blog</title>
+  <meta name="description" content="The most-requested feature from the Huddle community is now live - post privately to only your mutuals, with a revamped Journals experience." />
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png" />
@@ -13,14 +13,15 @@
     *{box-sizing:border-box;margin:0;padding:0;}html{scrollbar-gutter:stable;}html,body{background:#0b0b0b;min-height:100%;}
     nav a:visited,nav a:active,nav a:focus{color:#555!important;}nav a{-webkit-tap-highlight-color:transparent;}
     .prose{display:flex;flex-direction:column;gap:20px;font-size:0.97rem;color:#888;line-height:1.88;}
+    .prose h2{font-size:1.22rem;font-weight:800;letter-spacing:-0.03em;color:#e8e8e8;margin-top:12px;}
+    .prose ul,.prose ol{padding-left:22px;display:flex;flex-direction:column;gap:7px;}
     .prose a{color:#fd6a00;text-decoration:none;}.prose a:hover{text-decoration:underline;}
     .prose strong{color:#c8c8c8;font-weight:600;}
-    .prose h2{font-size:1.22rem;font-weight:800;letter-spacing:-0.03em;color:#f0f0f0;margin-top:8px;}
-    .prose blockquote{border-left:2px solid #fd6a00;padding-left:20px;color:#666;font-style:italic;font-size:0.9rem;}
+    .toc-a{display:block;font-size:0.8rem;color:#404040;text-decoration:none;padding:7px 0 7px 14px;border-left:2px solid #1e1e1e;line-height:1.4;transition:color 0.15s,border-color 0.15s;}
+    .toc-a:hover{color:#888;border-left-color:#484848;}
     .bo{background:rgba(253,106,0,0.12);border:1px solid rgba(253,106,0,0.22);color:#fd6a00;font-size:0.6rem;font-weight:700;padding:3px 9px;border-radius:20px;letter-spacing:0.07em;text-transform:uppercase;}
+    .bg{background:rgba(255,205,0,0.08);border:1px solid rgba(255,205,0,0.18);color:#ffcd00;font-size:0.6rem;font-weight:700;padding:3px 9px;border-radius:20px;letter-spacing:0.07em;text-transform:uppercase;}
     .bc{background:rgba(0,200,100,0.08);border:1px solid rgba(0,200,100,0.18);color:#00c864;font-size:0.6rem;font-weight:700;padding:3px 9px;border-radius:20px;letter-spacing:0.07em;text-transform:uppercase;}
-    .toc-a{display:block;font-size:0.78rem;color:#383838;text-decoration:none;padding:6px 0;border-left:2px solid transparent;padding-left:12px;transition:color 0.15s,border-color 0.15s;line-height:1.4;}
-    .toc-a:hover,.toc-a.active{color:#f0f0f0;border-left-color:#fd6a00;}
   </style>
 </head>
 <body>
@@ -39,74 +40,75 @@
   <!-- Article header -->
   <div style="max-width:900px;margin:0 auto;padding:52px 24px 0;width:100%;">
     <a href="/blog/" style="display:inline-flex;align-items:center;gap:6px;font-size:0.78rem;color:#383838;text-decoration:none;margin-bottom:30px;transition:color 0.15s;" onmouseover="this.style.color='#888'" onmouseout="this.style.color='#383838'">← All posts</a>
-    <div style="max-width:720px;">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
-        <span class="bo">Product Update</span>
-        <span style="color:#2e2e2e;font-size:0.75rem;">April 18, 2026</span>
-      </div>
-      <h1 style="font-size:2.65rem;font-weight:900;letter-spacing:-0.045em;line-height:1.08;color:#f0f0f0;margin-bottom:24px;">Introducing Worlds - dedicated spaces for your fandom</h1>
-      <div style="display:flex;align-items:center;gap:16px;">
-        <span style="display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:5px 14px;font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#4a4a4a;">2 min read</span>
-        <span style="font-size:0.82rem;color:#333;">The Huddle Team</span>
-      </div>
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
+      <span class="bo">Product Update</span>
+      <span style="color:#2e2e2e;font-size:0.75rem;">May 23, 2025</span>
+    </div>
+    <h1 style="font-size:2.65rem;font-weight:900;letter-spacing:-0.045em;line-height:1.08;color:#f0f0f0;margin-bottom:24px;">Mutuals-Only Posting Is Finally Here!</h1>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <span style="display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:5px 14px;font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#4a4a4a;">3 min read</span>
+      <span style="font-size:0.82rem;color:#333;">The Huddle Team</span>
     </div>
   </div>
 
   <!-- Feature image -->
   <div style="max-width:900px;margin:36px auto 0;padding:0 24px;width:100%;">
-    <div style="border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.07);aspect-ratio:16/9;background:#141414;position:relative;">
-      <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(253,106,0,0.28) 0%,rgba(255,205,0,0.16) 50%,rgba(14,14,14,0.85) 100%);display:flex;align-items:center;justify-content:center;">
-        <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:0.28;"><circle cx="36" cy="36" r="35" stroke="#fd6a00" stroke-width="2"/><circle cx="36" cy="36" r="22" stroke="#fd6a00" stroke-width="1.5"/><circle cx="36" cy="36" r="9" fill="rgba(253,106,0,0.3)"/><line x1="36" y1="1" x2="36" y2="71" stroke="#fd6a00" stroke-width="1" stroke-dasharray="4 4"/><line x1="1" y1="36" x2="71" y2="36" stroke="#fd6a00" stroke-width="1" stroke-dasharray="4 4"/></svg>
-      </div>
-      <div style="position:absolute;bottom:24px;left:32px;right:32px;">
-        <p style="font-size:1.4rem;font-weight:900;letter-spacing:-0.04em;color:rgba(240,240,240,0.18);line-height:1.2;">Your fandom. Your World.</p>
-      </div>
+    <div style="border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.07);">
+      <img src="/blog/images/mutuals-posting.png" alt="Mutuals-Only Posting" style="width:100%;display:block;" />
     </div>
   </div>
 
   <!-- Body + TOC sidebar -->
   <div style="max-width:1060px;margin:0 auto;padding:52px 24px 88px;width:100%;display:flex;gap:68px;align-items:flex-start;">
 
-    <!-- Main body -->
+    <!-- Article body -->
     <div style="flex:1;min-width:0;">
+
       <!-- Summary box -->
       <div style="background:rgba(253,106,0,0.04);border:1px solid rgba(253,106,0,0.18);border-radius:16px;padding:24px 28px;margin-bottom:40px;">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
           <span style="color:#fd6a00;font-size:0.8rem;">✦</span>
           <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#fd6a00;">Summary</span>
         </div>
-        <p style="font-size:0.93rem;color:#999;line-height:1.78;margin:0;">Fandoms finally have a real home. Worlds are dedicated spaces built around a single fandom - with custom channels, roles, and discoverability built in. Live now on iOS and Android.</p>
+        <p style="font-size:0.93rem;color:#999;line-height:1.78;margin:0;">The most-requested feature from the Huddle community is now live - post privately to only your mutuals, with a revamped Journals experience that unlocks more character space, photos, videos, and threaded comments.</p>
       </div>
 
       <!-- Prose -->
       <div class="prose">
-        <p>Fandoms have always deserved a real home - not a scattered group chat, not a hashtag, not a subreddit bolted onto a platform that doesn't really understand them. Today, we're taking the biggest step yet toward building that home.</p>
-        <p>We're introducing <strong>Worlds</strong> - dedicated spaces built entirely around a single fandom. Whether you're into Elden Ring speedruns, BLACKPINK comebacks, or every frame of Demon Slayer, your World is yours.</p>
+        <p>You asked. You waited. We listened. Mutuals-Only Posting is here - the most requested feature from our community - now live and fully integrated into an upgraded Journals experience. Update your Huddle app to the latest version on both the iOS App Store and Google Play Store to get it now.</p>
 
-        <h2 id="whats-inside">What's inside a World</h2>
-        <p>Each World comes with custom channels so your community can split conversations by topic - lore, clips, memes, spoilers - without everything collapsing into one noisy feed. You can set roles, welcome new fans, and shape the vibe exactly how you want it.</p>
-        <p>Worlds are discoverable. Fans can search by fandom, browse what's active, and join in seconds. No invite link required. No gatekeeping.</p>
+        <h2 id="journals">What's New in Journals</h2>
+        <p>We've taken everything you loved about Journals and made it more powerful, more expressive, and more private:</p>
+        <ul>
+          <li><strong>Character limit raised from 369 to 2,000</strong> - say what you actually want to say.</li>
+          <li><strong>Photo and video attachments are now live</strong> - share moments alongside your words.</li>
+          <li><strong>Comments and threads</strong> - your mutuals can now engage and respond more deeply in your journals.</li>
+        </ul>
+        <p>When you select the <strong>Journal</strong> option while creating a post, only your mutuals - the people you're already friends with - will be able to see it. It's the perfect space for intimate, personal sharing.</p>
+        <p>Journals = Mutuals-Only Posting.</p>
 
-        <h2 id="available-now">Available now</h2>
-        <p>Worlds are live today on iOS and Android. Open Huddle, tap Explore, and find your World - or create one and be the first to plant your flag.</p>
-        <blockquote>This is just the beginning. More World features are coming over the next few weeks - we'll keep you posted right here.</blockquote>
+        <h2 id="more">More Improvements</h2>
+        <p>This update also brings a handful of quality-of-life improvements across the app:</p>
+        <ul>
+          <li><strong>Thread-smart notifications</strong> - tapping a notification for replies, comments, awards, or thanks now takes you straight to the relevant thread.</li>
+          <li><strong>Revised notifications</strong> - cleaner, clearer, and better at surfacing what matters most to you.</li>
+          <li>And many more improvements under the hood.</li>
+        </ul>
+        <p>We're just getting started. Thank you for growing with us and for being part of this community. We love all of you.</p>
       </div>
 
       <!-- Signature -->
       <div style="margin-top:52px;padding-top:28px;border-top:1px solid rgba(255,255,255,0.06);">
-        <p style="font-size:0.88rem;color:#383838;">- The Huddle Team</p>
+        <p style="font-size:0.88rem;color:#383838;line-height:1.7;">Keep huddling!</p>
+        <p style="font-size:0.88rem;color:#383838;margin-top:6px;">- The Huddle Team</p>
       </div>
     </div>
 
-    <!-- TOC sidebar -->
-    <div style="width:194px;flex-shrink:0;">
-      <div style="position:sticky;top:40px;">
-        <p style="font-size:0.58rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#2a2a2a;margin-bottom:14px;">On this page</p>
-        <nav>
-          <a class="toc-a" href="#whats-inside">What's inside a World</a>
-          <a class="toc-a" href="#available-now">Available now</a>
-        </nav>
-      </div>
+    <!-- TOC Sidebar -->
+    <div style="width:194px;flex-shrink:0;position:sticky;top:40px;">
+      <p style="font-size:0.6rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:#2a2a2a;margin-bottom:14px;">On this page</p>
+      <a href="#journals" class="toc-a">What's New in Journals</a>
+      <a href="#more" class="toc-a">More Improvements</a>
     </div>
   </div>
 
@@ -130,7 +132,7 @@
           </div>
           <div style="display:flex;align-items:center;gap:10px;"><span class="bc">Community</span><span style="color:#333;font-size:0.75rem;">November 18, 2025</span></div>
           <h2 style="font-size:1.05rem;font-weight:800;letter-spacing:-0.03em;color:#f0f0f0;line-height:1.3;">Huddle Partners With the Largest KATSEYE Fandom</h2>
-          <p style="font-size:0.82rem;color:#484848;line-height:1.65;">90K+ EYEKONs strong - the biggest KATSEYE community in the world has found its Huddle home.</p>
+          <p style="font-size:0.82rem;color:#484848;line-height:1.65;">We've teamed up with the largest KATSEYE fan community - 90K+ EYEKONs - and we're thrilled to welcome them.</p>
           <a href="/blog/katseye-partnership/" style="font-size:0.78rem;font-weight:600;color:#fd6a00;text-decoration:none;">Read more -></a>
         </article>
       </div>
