@@ -19,8 +19,9 @@
     .prose blockquote{border-left:2px solid #fd6a00;padding-left:20px;color:#666;font-style:italic;font-size:0.9rem;}
     .bo{background:rgba(253,106,0,0.12);border:1px solid rgba(253,106,0,0.22);color:#fd6a00;font-size:0.6rem;font-weight:700;padding:3px 9px;border-radius:20px;letter-spacing:0.07em;text-transform:uppercase;}
     .bc{background:rgba(0,200,100,0.08);border:1px solid rgba(0,200,100,0.18);color:#00c864;font-size:0.6rem;font-weight:700;padding:3px 9px;border-radius:20px;letter-spacing:0.07em;text-transform:uppercase;}
-    .toc-a{display:block;font-size:0.78rem;color:#383838;text-decoration:none;padding:6px 0;border-left:2px solid transparent;padding-left:12px;transition:color 0.15s,border-color 0.15s;line-height:1.4;}
-    .toc-a:hover,.toc-a.active{color:#f0f0f0;border-left-color:#fd6a00;}
+    .toc-a{display:block;font-size:0.8rem;color:#404040;text-decoration:none;padding:7px 0 7px 14px;border-left:2px solid #1e1e1e;line-height:1.4;transition:color 0.15s,border-color 0.15s;}
+    .toc-a:hover{color:#888;border-left-color:#484848;}
+    .toc-a.active{color:#e8e8e8;border-left-color:#fd6a00;}
   </style>
 </head>
 <body>
@@ -36,10 +37,16 @@
     </div>
   </nav>
 
-  <!-- Article header -->
-  <div style="max-width:900px;margin:0 auto;padding:52px 24px 0;width:100%;">
-    <a href="/blog/" style="display:inline-flex;align-items:center;gap:6px;font-size:0.78rem;color:#383838;text-decoration:none;margin-bottom:30px;transition:color 0.15s;" onmouseover="this.style.color='#888'" onmouseout="this.style.color='#383838'">← All posts</a>
-    <div style="max-width:720px;">
+  <!-- Article: main col + TOC col, unified flex row -->
+  <div style="max-width:960px;margin:0 auto;padding:52px 24px 88px;width:100%;display:flex;gap:52px;align-items:flex-start;">
+
+    <!-- Main content column -->
+    <div style="flex:1;min-width:0;">
+
+      <!-- Back link -->
+      <a href="/blog/" style="display:inline-flex;align-items:center;gap:6px;font-size:0.78rem;color:#383838;text-decoration:none;margin-bottom:30px;transition:color 0.15s;" onmouseover="this.style.color='#888'" onmouseout="this.style.color='#383838'">← All posts</a>
+
+      <!-- Article header -->
       <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
         <span class="bo">Product Update</span>
         <span style="color:#2e2e2e;font-size:0.75rem;">April 18, 2026</span>
@@ -49,28 +56,19 @@
         <span style="display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:5px 14px;font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#4a4a4a;">2 min read</span>
         <span style="font-size:0.82rem;color:#333;">The Huddle Team</span>
       </div>
-    </div>
-  </div>
 
-  <!-- Feature image -->
-  <div style="max-width:900px;margin:36px auto 0;padding:0 24px;width:100%;">
-    <div style="border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.07);aspect-ratio:16/9;background:#141414;position:relative;">
-      <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(253,106,0,0.28) 0%,rgba(255,205,0,0.16) 50%,rgba(14,14,14,0.85) 100%);display:flex;align-items:center;justify-content:center;">
-        <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:0.28;"><circle cx="36" cy="36" r="35" stroke="#fd6a00" stroke-width="2"/><circle cx="36" cy="36" r="22" stroke="#fd6a00" stroke-width="1.5"/><circle cx="36" cy="36" r="9" fill="rgba(253,106,0,0.3)"/><line x1="36" y1="1" x2="36" y2="71" stroke="#fd6a00" stroke-width="1" stroke-dasharray="4 4"/><line x1="1" y1="36" x2="71" y2="36" stroke="#fd6a00" stroke-width="1" stroke-dasharray="4 4"/></svg>
+      <!-- Feature image -->
+      <div style="margin-top:36px;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.07);aspect-ratio:16/9;background:#141414;position:relative;">
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(253,106,0,0.28) 0%,rgba(255,205,0,0.16) 50%,rgba(14,14,14,0.85) 100%);display:flex;align-items:center;justify-content:center;">
+          <svg width="64" height="64" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:0.28;"><circle cx="36" cy="36" r="35" stroke="#fd6a00" stroke-width="2"/><circle cx="36" cy="36" r="22" stroke="#fd6a00" stroke-width="1.5"/><circle cx="36" cy="36" r="9" fill="rgba(253,106,0,0.3)"/><line x1="36" y1="1" x2="36" y2="71" stroke="#fd6a00" stroke-width="1" stroke-dasharray="4 4"/><line x1="1" y1="36" x2="71" y2="36" stroke="#fd6a00" stroke-width="1" stroke-dasharray="4 4"/></svg>
+        </div>
+        <div style="position:absolute;bottom:20px;left:28px;right:28px;">
+          <p style="font-size:1.2rem;font-weight:900;letter-spacing:-0.04em;color:rgba(240,240,240,0.15);line-height:1.2;">Your fandom. Your World.</p>
+        </div>
       </div>
-      <div style="position:absolute;bottom:24px;left:32px;right:32px;">
-        <p style="font-size:1.4rem;font-weight:900;letter-spacing:-0.04em;color:rgba(240,240,240,0.18);line-height:1.2;">Your fandom. Your World.</p>
-      </div>
-    </div>
-  </div>
 
-  <!-- Body + TOC sidebar -->
-  <div style="max-width:1060px;margin:0 auto;padding:52px 24px 88px;width:100%;display:flex;gap:68px;align-items:flex-start;">
-
-    <!-- Main body -->
-    <div style="flex:1;min-width:0;">
       <!-- Summary box -->
-      <div style="background:rgba(253,106,0,0.04);border:1px solid rgba(253,106,0,0.18);border-radius:16px;padding:24px 28px;margin-bottom:40px;">
+      <div style="background:rgba(253,106,0,0.04);border:1px solid rgba(253,106,0,0.18);border-radius:16px;padding:24px 28px;margin-top:40px;margin-bottom:40px;">
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
           <span style="color:#fd6a00;font-size:0.8rem;">✦</span>
           <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#fd6a00;">Summary</span>
@@ -89,7 +87,7 @@
 
         <h2 id="available-now">Available now</h2>
         <p>Worlds are live today on iOS and Android. Open Huddle, tap Explore, and find your World - or create one and be the first to plant your flag.</p>
-        <blockquote>This is just the beginning. More World features are coming over the next few weeks - we'll keep you posted right here.</blockquote>
+        <blockquote style="border-left:2px solid #fd6a00;padding-left:20px;color:#666;font-style:italic;font-size:0.9rem;">This is just the beginning. More World features are coming over the next few weeks - we'll keep you posted right here.</blockquote>
       </div>
 
       <!-- Signature -->
@@ -98,15 +96,11 @@
       </div>
     </div>
 
-    <!-- TOC sidebar -->
-    <div style="width:194px;flex-shrink:0;">
-      <div style="position:sticky;top:40px;">
-        <p style="font-size:0.58rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#2a2a2a;margin-bottom:14px;">On this page</p>
-        <nav>
-          <a class="toc-a" href="#whats-inside">What's inside a World</a>
-          <a class="toc-a" href="#available-now">Available now</a>
-        </nav>
-      </div>
+    <!-- TOC Sidebar -->
+    <div style="width:194px;flex-shrink:0;position:sticky;top:80px;align-self:flex-start;">
+      <p style="font-size:0.58rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#2a2a2a;margin-bottom:14px;">On this page</p>
+      <a class="toc-a active" href="#whats-inside">What's inside a World</a>
+      <a class="toc-a" href="#available-now">Available now</a>
     </div>
   </div>
 
@@ -145,6 +139,21 @@
     </div>
   </div>
 </div>
-<script>(function(){var w=document.getElementById('wm-wrap'),g=document.getElementById('wm-glow');if(!w||!g)return;w.addEventListener('mousemove',function(e){var r=w.getBoundingClientRect();var x=((e.clientX-r.left)/r.width*100).toFixed(1)+'%';var y=((e.clientY-r.top)/r.height*100).toFixed(1)+'%';var m='radial-gradient(circle 200px at '+x+' '+y+',black 0%,transparent 100%)';g.style.webkitMaskImage=m;g.style.maskImage=m;g.style.opacity='1';});w.addEventListener('mouseleave',function(){g.style.opacity='0';});})();</script>
+<script>
+(function(){
+  var w=document.getElementById('wm-wrap'),g=document.getElementById('wm-glow');
+  if(w&&g){w.addEventListener('mousemove',function(e){var r=w.getBoundingClientRect();var x=((e.clientX-r.left)/r.width*100).toFixed(1)+'%';var y=((e.clientY-r.top)/r.height*100).toFixed(1)+'%';var m='radial-gradient(circle 200px at '+x+' '+y+',black 0%,transparent 100%)';g.style.webkitMaskImage=m;g.style.maskImage=m;g.style.opacity='1';});w.addEventListener('mouseleave',function(){g.style.opacity='0';});}
+  var headings=document.querySelectorAll('.prose h2[id]');
+  var links=document.querySelectorAll('.toc-a');
+  if(!headings.length||!links.length)return;
+  function setActive(id){links.forEach(function(l){l.classList.toggle('active',l.getAttribute('href')==='#'+id);});}
+  function update(){
+    var active=null;
+    headings.forEach(function(h){if(h.getBoundingClientRect().top<=120)active=h.id;});
+    if(active){setActive(active);}else{links.forEach(function(l){l.classList.remove('active');});if(links[0])links[0].classList.add('active');}
+  }
+  window.addEventListener('scroll',update,{passive:true});
+})();
+</script>
 </body>
 </html>
