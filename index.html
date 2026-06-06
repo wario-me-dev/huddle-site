@@ -11,6 +11,7 @@
   <link rel="shortcut icon" href="/favicon_io/favicon.ico" />
   <style>
     *{box-sizing:border-box;margin:0;padding:0;}
+    html{scrollbar-gutter:stable;}
     html,body{-webkit-font-smoothing:antialiased;}
     .logo{height:40px;width:auto;}
     /* Atmospheric bg animations */
@@ -91,7 +92,7 @@
 
   <!-- NAV -->
   <nav style="display:flex;align-items:center;justify-content:space-between;padding:22px 48px;position:absolute;top:0;left:0;right:0;z-index:20;background:transparent;">
-    <img class="logo" src="/Huddle.png" alt="Huddle" />
+    <a href="/" style="display:inline-flex;"><img class="logo" src="/Huddle.png" alt="Huddle" /></a>
     <div style="display:flex;gap:36px;align-items:center;">
       <a href="https://discord.gg/huddle" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;opacity:0.45;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='0.45'"><img src="/discord_logo.png" alt="Discord" style="height:22px;width:auto;filter:brightness(0) invert(1);" /></a>
       <a href="/blog/" style="color:#555;font-size:0.92rem;text-decoration:none;font-weight:500;">Blog</a>
@@ -257,9 +258,6 @@
       <!-- Base nodes: CSS divs always round (SVG circles stretch with preserveAspectRatio=none) -->
       <div class="nn" style="left:50%;top:4%;width:12px;height:12px;background:rgba(255,255,255,0.22);"></div>
       <div class="nn" style="left:72%;top:13%;width:12px;height:12px;background:rgba(255,255,255,0.16);"></div>
-      <div class="nn" style="left:28%;top:23%;width:22px;height:22px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.22);"></div>
-      <div class="nn" style="left:72%;top:54%;width:22px;height:22px;background:rgba(253,106,0,0.12);border:1px solid rgba(253,106,0,0.32);"></div>
-      <div class="nn" style="left:28%;top:85%;width:22px;height:22px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.22);"></div>
       <div class="nn" style="left:50%;top:96%;width:12px;height:12px;background:rgba(255,255,255,0.18);"></div>
 
 
