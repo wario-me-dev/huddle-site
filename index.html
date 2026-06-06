@@ -54,9 +54,9 @@
     @keyframes mR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
     .mL{display:flex;width:max-content;white-space:nowrap;will-change:transform;animation:mL 52s linear infinite;}
     .mR{display:flex;width:max-content;white-space:nowrap;will-change:transform;animation:mR 44s linear infinite;}
-    .mi{display:inline-flex;flex-shrink:0;align-items:center;gap:12px;padding:0 20px;font-size:0.67rem;font-weight:600;color:rgba(255,255,255,0.18);letter-spacing:0.1em;text-transform:uppercase;}
-    .mi::after{content:'';width:2px;height:2px;border-radius:50%;background:rgba(253,106,0,0.35);flex-shrink:0;}
-    .fl{height:20px;width:auto;display:block;flex-shrink:0;object-fit:contain;opacity:0.55;}
+    .mi{display:inline-flex;flex-shrink:0;align-items:center;gap:0;padding:0;font-size:0.67rem;font-weight:600;color:rgba(255,255,255,0.18);letter-spacing:0.1em;text-transform:uppercase;}
+    .mi::after{content:'';width:2px;height:2px;border-radius:50%;background:rgba(253,106,0,0.35);flex-shrink:0;margin-left:14px;margin-right:14px;}
+    .fl{height:20px;width:auto;display:block;flex-shrink:0;object-fit:contain;opacity:0.55;margin-right:10px;}
     @keyframes float{0%,100%{transform:translateY(0px)}50%{transform:translateY(-8px)}}
     @keyframes orb{from{transform:rotate(0deg) translateY(-88px) rotate(0deg)}to{transform:rotate(360deg) translateY(-88px) rotate(-360deg)}}
     @keyframes pulse-ring{0%,100%{opacity:0.12;transform:translate(-50%,-50%) scale(1)}50%{opacity:0.22;transform:translate(-50%,-50%) scale(1.04)}}
