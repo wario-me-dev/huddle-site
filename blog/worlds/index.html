@@ -17,7 +17,7 @@
     <a href="/" style="display:inline-flex;"><img src="/Huddle.png" alt="Huddle" style="height:40px;width:auto;" /></a>
     <div style="display:flex;gap:36px;align-items:center;">
       <a href="https://discord.gg/huddle" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;opacity:0.45;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='0.45'"><img src="/discord_logo.png" alt="Discord" style="height:22px;width:auto;filter:brightness(0) invert(1);" /></a>
-      <a href="/blog/" style="color:#fd6a00;font-size:0.92rem;text-decoration:none;font-weight:600;">Blog</a>
+      <a href="/blog/" style="color:#555;font-size:0.92rem;text-decoration:none;font-weight:500;">Blog</a>
       <a href="https://wiki.huddle.so/" target="_blank" rel="noopener" style="color:#555;font-size:0.92rem;text-decoration:none;font-weight:500;">Wiki</a>
       <a href="/contact/" style="color:#555;font-size:0.92rem;text-decoration:none;font-weight:500;">Contact Us</a>
     </div>
@@ -90,7 +90,7 @@
 
   <!-- WORDMARK -->
   <div style="background:#0b0b0b;padding:32px 0 36px;">
-    <div style="position:relative;width:100%;padding-bottom:14.31%;">
+    <div id="wm-wrap" style="position:relative;width:100%;padding-bottom:14.31%;">
     <svg viewBox="98.3 373.7 669.6 95.8" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;display:block;fill:white;opacity:0.08;" preserveAspectRatio="xMidYMid meet">
       <polygon points="176.3,380.3 176.3,407.5 140,407.5 140,380.3 98.3,380.3 98.3,461.3 140,461.3 140,434.1 176.3,434.1 176.3,461.3 218,461.3 218,380.3"/>
       <path d="M336.1,394.2h-35.6v34.1c0,7.9-6.4,14.3-14.3,14.3s-14.3-6.4-14.3-14.3v-34.1h-36.7c0,0,0,25.5,0.1,38.2c0.1,3.9,0.2,7.9,1.3,11.6c1.1,4.4,2.9,8.8,5.8,12.4c4.8,6.2,11.8,10.3,19.4,12c8.7,2.1,17.9,2.3,26.5-0.1c5.5-1.4,10.8-3.8,15.5-6.9c4.3-3,8.4-6.6,11.4-11.1c-0.7,3.6-1.5,7.1-2.6,10.6c-1,3-2.3,5.9-3.4,8.9c1.9-0.1,3.7-0.7,5.5-1.3c3.7-1.3,7.5-2.9,10.8-5.1c3.5-2.3,6.5-5.6,8.2-9.5c1.9-4,2.3-8.4,2.4-12.7C336.2,425.6,336.1,394.2,336.1,394.2z"/>
@@ -99,8 +99,18 @@
       <rect x="604.8" y="375.7" width="41.7" height="90.8"/>
       <path d="M715.1,394.2c-29.1,0-52.7,17-52.7,38c0,42.2,62.4,42.7,98.9,31.7c-1.8-6-2.9-13.9-2.9-20.8c-11.1,4.6-51.2,9.4-56-3.4h64.2C767.9,430.6,771.2,394.2,715.1,394.2z M701.7,425.4c1.8-12.2,27.7-14,29.3,0H701.7z"/>
     </svg>
+    <svg id="wm-glow" viewBox="98.3 373.7 669.6 95.8" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;pointer-events:none;transition:opacity 0.2s;" preserveAspectRatio="xMidYMid meet">
+      <defs><linearGradient id="wm-gr" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#fd6a00"/><stop offset="100%" stop-color="#ffcd00"/></linearGradient></defs>
+      <polygon fill="url(#wm-gr)" points="176.3,380.3 176.3,407.5 140,407.5 140,380.3 98.3,380.3 98.3,461.3 140,461.3 140,434.1 176.3,434.1 176.3,461.3 218,461.3 218,380.3"/>
+      <path fill="url(#wm-gr)" d="M336.1,394.2h-35.6v34.1c0,7.9-6.4,14.3-14.3,14.3s-14.3-6.4-14.3-14.3v-34.1h-36.7c0,0,0,25.5,0.1,38.2c0.1,3.9,0.2,7.9,1.3,11.6c1.1,4.4,2.9,8.8,5.8,12.4c4.8,6.2,11.8,10.3,19.4,12c8.7,2.1,17.9,2.3,26.5-0.1c5.5-1.4,10.8-3.8,15.5-6.9c4.3-3,8.4-6.6,11.4-11.1c-0.7,3.6-1.5,7.1-2.6,10.6c-1,3-2.3,5.9-3.4,8.9c1.9-0.1,3.7-0.7,5.5-1.3c3.7-1.3,7.5-2.9,10.8-5.1c3.5-2.3,6.5-5.6,8.2-9.5c1.9-4,2.3-8.4,2.4-12.7C336.2,425.6,336.1,394.2,336.1,394.2z"/>
+      <path fill="url(#wm-gr)" d="M421.4,375.7v29.6c-7.9-6.8-18.9-11.1-31.1-11.1c-24.1,0-43.7,16.6-43.7,37.1s19.6,37.1,43.7,37.1c12.2,0,23.2-4.2,31.1-11.1v9.1H463v-90.8L421.4,375.7L421.4,375.7z M404,442.5c-9.6,0-17.4-5-17.4-11.2s7.8-11.2,17.4-11.2s17.4,5,17.4,11.2S413.6,442.5,404,442.5z"/>
+      <path fill="url(#wm-gr)" d="M546.8,375.7v29.6c-7.9-6.8-18.9-11.1-31.1-11.1c-24.1,0-43.7,16.6-43.7,37.1s19.6,37.1,43.7,37.1c12.2,0,23.2-4.2,31.1-11.1v9.1h41.7v-90.8L546.8,375.7L546.8,375.7z M529.4,442.5c-9.6,0-17.4-5-17.4-11.2s7.8-11.2,17.4-11.2c9.6,0,17.4,5,17.4,11.2S539,442.5,529.4,442.5z"/>
+      <rect fill="url(#wm-gr)" x="604.8" y="375.7" width="41.7" height="90.8"/>
+      <path fill="url(#wm-gr)" d="M715.1,394.2c-29.1,0-52.7,17-52.7,38c0,42.2,62.4,42.7,98.9,31.7c-1.8-6-2.9-13.9-2.9-20.8c-11.1,4.6-51.2,9.4-56-3.4h64.2C767.9,430.6,771.2,394.2,715.1,394.2z M701.7,425.4c1.8-12.2,27.7-14,29.3,0H701.7z"/>
+    </svg>
     </div>
   </div>
 </div>
+<script>(function(){var w=document.getElementById('wm-wrap'),g=document.getElementById('wm-glow');if(!w||!g)return;w.addEventListener('mousemove',function(e){var r=w.getBoundingClientRect();var x=((e.clientX-r.left)/r.width*100).toFixed(1)+'%';var y=((e.clientY-r.top)/r.height*100).toFixed(1)+'%';var m='radial-gradient(circle 200px at '+x+' '+y+',black 0%,transparent 100%)';g.style.webkitMaskImage=m;g.style.maskImage=m;g.style.opacity='1';});w.addEventListener('mouseleave',function(){g.style.opacity='0';});})();</script>
 </body>
 </html>
