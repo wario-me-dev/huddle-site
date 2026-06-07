@@ -96,6 +96,44 @@
     @keyframes fnet-pulse{0%,100%{box-shadow:0 0 10px 3px rgba(253,106,0,0.65),0 0 22px 6px rgba(253,106,0,0.22)}50%{box-shadow:0 0 20px 7px rgba(253,106,0,0.88),0 0 40px 14px rgba(253,106,0,0.36)}}
     nav a:visited,nav a:active,nav a:focus{color:#555!important;}
     nav a{-webkit-tap-highlight-color:transparent;}
+    /* Smaller orbit radius for narrow screens */
+    @keyframes fnet-orb-sm{from{transform:translate(-50%,-50%) rotate(0deg) translateY(-80px) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg) translateY(-80px) rotate(-360deg)}}
+    /* ===================== MOBILE ===================== */
+    @media(max-width:768px){
+      /* NAV */
+      nav{padding:16px 20px!important;}
+      nav>div{gap:18px!important;}
+      nav a[href="/contact/"]{display:none!important;}
+      /* HERO */
+      #hero-section{padding:96px 24px 72px!important;}
+      .hero-sub{max-width:100%!important;}
+      .cta-row{flex-direction:column;align-items:stretch;max-width:300px;margin-left:auto;margin-right:auto;}
+      .btn-primary,.btn-ghost{justify-content:center;}
+      /* TICKER */
+      .mi{font-size:0.56rem!important;letter-spacing:0.06em!important;}
+      .fl{height:14px!important;margin-right:7px!important;}
+      /* BENTO SECTION WRAPPER */
+      #bento-section{padding:40px 16px 44px!important;}
+      /* BENTO HEADING: remove nowrap so it wraps on mobile */
+      #bento-title{white-space:normal!important;font-size:clamp(1.55rem,7.2vw,2.2rem)!important;}
+      /* BENTO GRID: single column */
+      .bento{grid-template-columns:1fr!important;grid-template-rows:auto!important;gap:10px!important;}
+      .tile-tall{grid-row:span 1!important;height:460px!important;}
+      .tile:not(.tile-tall){height:200px!important;}
+      .tile-foot h3{font-size:1.15rem!important;}
+      .tile-foot p{font-size:0.68rem!important;}
+      /* FANDOM NETWORK: tighter orbit on small screens */
+      #fni-0,#fni-1,#fni-2,#fni-3,#fni-4{animation-name:fnet-orb-sm!important;}
+      #fnet-wrap{bottom:114px!important;}
+      /* FEATURE SECTIONS: stack vertically */
+      section[data-glow]{padding:40px 24px 52px!important;gap:28px!important;flex-direction:column!important;}
+      section[data-glow]>div{flex-shrink:1!important;}
+      section[data-glow] img{height:auto!important;width:100%!important;max-width:320px!important;margin:0 auto;}
+      /* FINAL CTA */
+      #cta-section{padding:64px 24px!important;}
+      /* FOOTER */
+      footer{padding:18px 20px!important;gap:16px!important;flex-wrap:wrap!important;justify-content:center!important;}
+    }
   </style>
 </head>
 <body>
@@ -113,7 +151,7 @@
   </nav>
 
   <!-- HERO — video cycling background -->
-  <section style="position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 48px 170px;overflow:hidden;">
+  <section id="hero-section" style="position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 48px 170px;overflow:hidden;">
 
     <!-- Video container — JS manages 2 elements max: current + preloading next -->
     <div id="hero-vid-wrap" style="position:absolute;inset:0;z-index:0;overflow:hidden;contain:strict;"></div>
@@ -171,9 +209,9 @@
     <div class="bg-grain"></div>
 
     <!-- BENTO GRID -->
-    <section style="position:relative;z-index:1;padding:72px 48px 64px;max-width:980px;margin:0 auto;width:100%;">
+    <section id="bento-section" style="position:relative;z-index:1;padding:72px 48px 64px;max-width:980px;margin:0 auto;width:100%;">
       <div style="margin-bottom:48px;text-align:center;overflow:hidden;">
-        <h2 style="font-size:clamp(2rem,4.8vw,3.1rem);font-weight:900;letter-spacing:-0.05em;line-height:1;color:#f2f2f2;white-space:nowrap;"><span class="gt">Huddle</span> is where fandoms live.</h2>
+        <h2 id="bento-title" style="font-size:clamp(2rem,4.8vw,3.1rem);font-weight:900;letter-spacing:-0.05em;line-height:1;color:#f2f2f2;white-space:nowrap;"><span class="gt">Huddle</span> is where fandoms live.</h2>
       </div>
       <div class="bento">
 
@@ -315,7 +353,7 @@
   <!-- END ATMOSPHERIC SECTION WRAPPER -->
 
   <!-- FINAL CTA — atmospheric background matching section above -->
-  <section style="position:relative;overflow:hidden;padding:120px 48px;text-align:center;border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05);">
+  <section id="cta-section" style="position:relative;overflow:hidden;padding:120px 48px;text-align:center;border-top:1px solid rgba(255,255,255,0.05);border-bottom:1px solid rgba(255,255,255,0.05);">
     <div class="bg-grid"></div>
     <div class="bg-orb-center"></div>
     <div class="bg-orb-gold"></div>

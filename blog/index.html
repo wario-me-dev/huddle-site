@@ -22,6 +22,22 @@
     .card-title{font-size:1.05rem;font-weight:800;letter-spacing:-0.03em;color:#f0f0f0;line-height:1.3;transition:color 0.15s;}
     .read-more{font-size:0.78rem;font-weight:600;color:#383838;text-decoration:none;transition:color 0.15s;}
     .card-link:hover .read-more{color:#fd6a00;}
+    /* ===================== MOBILE ===================== */
+    @media(max-width:768px){
+      /* NAV */
+      nav{padding:16px 20px!important;}
+      nav>div{gap:18px!important;}
+      nav a[href="/contact/"]{display:none!important;}
+      /* PAGE HEADER */
+      #blog-header h1{font-size:2.2rem!important;}
+      /* FEATURED CARD: stack vertically, image on top */
+      #featured-grid{grid-template-columns:1fr!important;min-height:auto!important;}
+      #featured-img-side{height:220px!important;order:-1;}
+      #featured-text{padding:28px 24px 36px!important;}
+      #featured-text h2{font-size:1.55rem!important;}
+      /* ARTICLE GRID: single column */
+      #blog-grid{grid-template-columns:1fr!important;gap:40px 0!important;}
+    }
   </style>
 </head>
 <body>
@@ -38,7 +54,7 @@
   </nav>
 
   <!-- Page header -->
-  <div style="max-width:1080px;margin:0 auto;padding:64px 24px 0;width:100%;">
+  <div id="blog-header" style="max-width:1080px;margin:0 auto;padding:64px 24px 0;width:100%;">
     <h1 style="font-size:3rem;font-weight:900;letter-spacing:-0.05em;color:#f0f0f0;line-height:1.05;margin-bottom:10px;">What's new at Huddle</h1>
     <p style="font-size:1rem;color:#444;line-height:1.6;max-width:520px;">Product updates, community stories, and everything happening inside the Huddle universe.</p>
   </div>
@@ -46,9 +62,9 @@
   <!-- Featured article - Tagging Streaks -->
   <div style="max-width:1080px;margin:52px auto 0;padding:0 24px;width:100%;">
     <a href="/blog/tagging-streaks/" style="display:block;text-decoration:none;border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,0.07);background:#111;position:relative;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(253,106,0,0.25)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">
-      <div style="display:grid;grid-template-columns:1fr 58%;gap:0;min-height:400px;">
+      <div id="featured-grid" style="display:grid;grid-template-columns:1fr 58%;gap:0;min-height:400px;">
         <!-- Text side -->
-        <div style="padding:52px 52px 92px 52px;display:flex;flex-direction:column;justify-content:center;">
+        <div id="featured-text" style="padding:52px 52px 92px 52px;display:flex;flex-direction:column;justify-content:center;">
           <div>
             <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;">
               <span class="bo">Product Update</span>
@@ -60,7 +76,7 @@
           </div>
         </div>
         <!-- Image side -->
-        <div style="background:#0e0e0e;position:relative;overflow:hidden;">
+        <div id="featured-img-side" style="background:#0e0e0e;position:relative;overflow:hidden;">
           <img src="/blog/images/tagging-streaks.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;" />
         </div>
       </div>
@@ -69,7 +85,7 @@
 
   <!-- Article grid -->
   <div style="max-width:1080px;margin:64px auto 0;padding:0 24px;width:100%;">
-    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:52px 48px;">
+    <div id="blog-grid" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:52px 48px;">
 
       <!-- KATSEYE Partnership -->
       <a href="/blog/katseye-partnership/" class="card-link">
