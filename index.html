@@ -84,6 +84,20 @@
     .sg{opacity:0;transition:opacity 0.85s cubic-bezier(0.16,1,0.3,1);}
     .sg.lit{opacity:1;}
     .nn{position:absolute;border-radius:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:5;}
+    /* Fandom network card */
+    .fnet-icon{position:absolute;transform:translate(-50%,-50%);width:54px;height:54px;z-index:5;}
+    .fnet-icon img{display:block;width:100%;height:100%;object-fit:contain;border-radius:13px;background:rgba(12,12,12,0.88);padding:7px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.55);}
+    @keyframes fi-fl-0{0%,100%{transform:translate(-50%,-50%) translate(0px,0px)}50%{transform:translate(-50%,-50%) translate(2px,-4px)}}
+    @keyframes fi-fl-1{0%,100%{transform:translate(-50%,-50%) translate(0px,0px)}50%{transform:translate(-50%,-50%) translate(3px,2px)}}
+    @keyframes fi-fl-2{0%,100%{transform:translate(-50%,-50%) translate(0px,0px)}50%{transform:translate(-50%,-50%) translate(-2px,4px)}}
+    @keyframes fi-fl-3{0%,100%{transform:translate(-50%,-50%) translate(0px,0px)}50%{transform:translate(-50%,-50%) translate(-3px,2px)}}
+    @keyframes fi-fl-4{0%,100%{transform:translate(-50%,-50%) translate(0px,0px)}50%{transform:translate(-50%,-50%) translate(1px,-3px)}}
+    #fni-0{animation:fi-fl-0 5.5s ease-in-out infinite;}
+    #fni-1{animation:fi-fl-1 6.3s ease-in-out infinite 0.8s;}
+    #fni-2{animation:fi-fl-2 5.8s ease-in-out infinite 1.6s;}
+    #fni-3{animation:fi-fl-3 6.7s ease-in-out infinite 2.4s;}
+    #fni-4{animation:fi-fl-4 5.2s ease-in-out infinite 3.2s;}
+    @keyframes fnet-pulse{0%,100%{box-shadow:0 0 10px 3px rgba(253,106,0,0.65),0 0 22px 6px rgba(253,106,0,0.22)}50%{box-shadow:0 0 20px 7px rgba(253,106,0,0.88),0 0 40px 14px rgba(253,106,0,0.36)}}
     nav a:visited,nav a:active,nav a:focus{color:#555!important;}
     nav a{-webkit-tap-highlight-color:transparent;}
   </style>
@@ -167,18 +181,20 @@
       </div>
       <div class="bento">
 
-        <!-- Tall tile: orbital carousel -->
-        <div class="tile tile-tall">
-          <div style="position:absolute;inset:0;background:linear-gradient(145deg,rgba(253,106,0,0.06) 0%,transparent 55%);pointer-events:none;"></div>
-          <div style="position:absolute;top:50%;left:50%;width:180px;height:180px;border-radius:50%;border:1px solid rgba(253,106,0,0.1);transform:translate(-50%,-60%);animation:pulse-ring 4s ease-in-out infinite;"></div>
-          <div style="position:absolute;top:50%;left:50%;width:120px;height:120px;border-radius:50%;border:1px solid rgba(253,106,0,0.07);transform:translate(-50%,-60%);animation:pulse-ring 4s ease-in-out infinite 0.5s;"></div>
-          <div class="orbit-wrap" style="margin-bottom:80px;">
-            <div class="orbit-icon"><img src="/bento1.png" alt="" /></div>
-            <div class="orbit-icon"><img src="/bento2.png" alt="" /></div>
-            <div class="orbit-icon"><img src="/Live.png" alt="" /></div>
-            <div class="orbit-icon"><img src="/bento4.png" alt="" /></div>
-            <div class="orbit-icon"><img src="/bento5.png" alt="" /></div>
-            <div style="position:absolute;width:10px;height:10px;border-radius:50%;background:rgba(253,106,0,0.6);box-shadow:0 0 18px 4px rgba(253,106,0,0.3);top:50%;left:50%;transform:translate(-50%,-50%);"></div>
+        <!-- Tall tile: fandom network -->
+        <div class="tile tile-tall" id="fnet-tile">
+          <div style="position:absolute;inset:0;background:radial-gradient(ellipse 78% 55% at 50% 40%,rgba(253,106,0,0.05) 0%,transparent 68%);pointer-events:none;"></div>
+          <!-- Animation region (above the text footer) -->
+          <div id="fnet-wrap" style="position:absolute;left:0;right:0;top:0;bottom:136px;overflow:hidden;">
+            <canvas id="fnet-canvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
+            <!-- Pentagon icons — positions are approximate pentagon vertices; JS reads actual positions each frame -->
+            <div class="fnet-icon" id="fni-0" style="left:50%;top:19%;"><img src="/bento1.png" alt="" /></div>
+            <div class="fnet-icon" id="fni-1" style="left:79%;top:42%;"><img src="/bento2.png" alt="" /></div>
+            <div class="fnet-icon" id="fni-2" style="left:67%;top:73%;"><img src="/Live.png" alt="" /></div>
+            <div class="fnet-icon" id="fni-3" style="left:33%;top:73%;"><img src="/bento4.png" alt="" /></div>
+            <div class="fnet-icon" id="fni-4" style="left:21%;top:42%;"><img src="/bento5.png" alt="" /></div>
+            <!-- Center hub dot -->
+            <div id="fnet-dot" style="position:absolute;left:50%;top:51%;width:10px;height:10px;border-radius:50%;background:#fd6a00;transform:translate(-50%,-50%);z-index:10;animation:fnet-pulse 2.6s ease-in-out infinite;"></div>
           </div>
           <div class="tile-inner">
             <div class="tile-foot">
@@ -514,6 +530,134 @@
     }, {threshold: 0.18, rootMargin: '0px 0px -8% 0px'});
     document.querySelectorAll('[data-glow]').forEach(function(el){ obs.observe(el); });
   })();
+</script>
+<script>
+/* Fandom network card — canvas line animation */
+(function(){
+  var canvas=document.getElementById('fnet-canvas');
+  if(!canvas) return;
+  var ctx=canvas.getContext('2d');
+  var dotEl=document.getElementById('fnet-dot');
+  var iconEls=[0,1,2,3,4].map(function(i){return document.getElementById('fni-'+i);});
+
+  /* Cycle timing (ms) */
+  var CYCLE=9200;
+  /* Hub lines: stagger 300ms apart, 860ms each */
+  var HS=[160,460,760,1060,1360], HD=860;
+  /* Ring lines: start after hubs, stagger 420ms, 720ms each */
+  var RS=[2340,2760,3180,3600,4020], RD=720;
+  /* Fade out at 6.2s over 1.5s, then pause to 9.2s */
+  var FADE_AT=6200, FADE_D=1500;
+
+  function ease(t){return t<0.5?2*t*t:-1+(4-2*t)*t;}
+  function cl(v,a,b){return Math.max(a,Math.min(b,v));}
+
+  function resize(){
+    var r=canvas.getBoundingClientRect();
+    if(!r.width) return;
+    var d=window.devicePixelRatio||1;
+    canvas.width=Math.round(r.width*d);
+    canvas.height=Math.round(r.height*d);
+  }
+  resize();
+  var rt; window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(resize,80);},{passive:true});
+
+  function pos(el){
+    var cr=canvas.getBoundingClientRect(), er=el.getBoundingClientRect();
+    if(!cr.width) return {x:0,y:0};
+    var d=window.devicePixelRatio||1;
+    return {x:(er.left+er.width/2-cr.left)*d, y:(er.top+er.height/2-cr.top)*d};
+  }
+
+  /* Draw a line segment from (x1,y1) growing toward (x2,y2) by progress p */
+  function seg(x1,y1,x2,y2,p,alpha,style,glow,lw){
+    if(p<=0||alpha<=0) return;
+    var d=window.devicePixelRatio||1;
+    var tx=x1+(x2-x1)*p, ty=y1+(y2-y1)*p;
+    ctx.save();
+    /* Glowing stroke */
+    ctx.globalAlpha=alpha;
+    ctx.lineWidth=lw*d;
+    ctx.lineCap='round';
+    ctx.shadowBlur=16*d;
+    ctx.shadowColor=glow;
+    ctx.strokeStyle=style;
+    ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(tx,ty); ctx.stroke();
+    /* Bright white core */
+    ctx.shadowBlur=0;
+    ctx.globalAlpha=alpha*0.42;
+    ctx.lineWidth=lw*0.26*d;
+    ctx.strokeStyle='rgba(255,255,255,0.95)';
+    ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(tx,ty); ctx.stroke();
+    /* Travel particle — bright dot at the drawing tip */
+    if(p<1){
+      ctx.globalAlpha=alpha*0.95;
+      ctx.shadowBlur=14*d;
+      ctx.shadowColor='rgba(255,255,255,0.9)';
+      ctx.fillStyle='rgba(255,255,255,0.92)';
+      ctx.beginPath(); ctx.arc(tx,ty,1.6*d,0,Math.PI*2); ctx.fill();
+    }
+    ctx.restore();
+  }
+
+  /* Radial glow halo drawn around an icon */
+  function halo(x,y,r,alpha){
+    if(alpha<=0) return;
+    var d=window.devicePixelRatio||1;
+    ctx.save();
+    var g=ctx.createRadialGradient(x,y,2*d,x,y,r*d);
+    g.addColorStop(0,'rgba(253,106,0,'+(0.42*alpha)+')');
+    g.addColorStop(0.45,'rgba(253,106,0,'+(0.14*alpha)+')');
+    g.addColorStop(1,'rgba(253,106,0,0)');
+    ctx.fillStyle=g;
+    ctx.beginPath(); ctx.arc(x,y,r*d,0,Math.PI*2); ctx.fill();
+    ctx.restore();
+  }
+
+  var t0=null;
+  function frame(ts){
+    if(!t0) t0=ts;
+    var t=(ts-t0)%CYCLE;
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    /* Master fade envelope: fade in first 300ms, fade out from FADE_AT */
+    var env=1;
+    if(t<300) env=t/300;
+    else if(t>=FADE_AT) env=cl(1-(t-FADE_AT)/FADE_D,0,1);
+    if(env<=0.008){requestAnimationFrame(frame);return;}
+
+    var d=window.devicePixelRatio||1;
+    var C=pos(dotEl);
+    var IC=iconEls.map(pos);
+
+    /* 1. Hub lines: center → each icon (orange→gold gradient) */
+    for(var i=0;i<5;i++){
+      var hp=t<HS[i]?0:t>=HS[i]+HD?1:ease((t-HS[i])/HD);
+      if(hp<=0) continue;
+      var gr=ctx.createLinearGradient(C.x,C.y,IC[i].x,IC[i].y);
+      gr.addColorStop(0,'rgba(253,106,0,0.95)');
+      gr.addColorStop(1,'rgba(255,192,0,0.58)');
+      seg(C.x,C.y,IC[i].x,IC[i].y, hp, env*0.92, gr,'rgba(253,106,0,0.85)',1.5);
+    }
+
+    /* 2. Ring lines: icon → next icon around the pentagon (gold) */
+    for(var j=0;j<5;j++){
+      var rp=t<RS[j]?0:t>=RS[j]+RD?1:ease((t-RS[j])/RD);
+      if(rp<=0) continue;
+      var A=IC[j], B=IC[(j+1)%5];
+      seg(A.x,A.y,B.x,B.y, rp, env*0.78,'rgba(255,182,12,0.84)','rgba(255,208,0,0.92)',1.2);
+    }
+
+    /* 3. Icon halos: light up once the hub line arrives */
+    for(var k=0;k<5;k++){
+      var ka=t<HS[k]+HD?0:cl((t-HS[k]-HD)/480,0,1)*env;
+      halo(IC[k].x,IC[k].y,30,ka);
+    }
+
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
 </script>
 <script>
 (function(){var w=document.getElementById('wm-wrap'),g=document.getElementById('wm-glow');if(!w||!g)return;w.addEventListener('mousemove',function(e){var r=w.getBoundingClientRect();var x=((e.clientX-r.left)/r.width*100).toFixed(1)+'%';var y=((e.clientY-r.top)/r.height*100).toFixed(1)+'%';var m='radial-gradient(circle 200px at '+x+' '+y+',black 0%,transparent 100%)';g.style.webkitMaskImage=m;g.style.maskImage=m;g.style.opacity='1';});w.addEventListener('mouseleave',function(){g.style.opacity='0';});})();
