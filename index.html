@@ -85,18 +85,14 @@
     .sg.lit{opacity:1;}
     .nn{position:absolute;border-radius:50%;transform:translate(-50%,-50%);pointer-events:none;z-index:5;}
     /* Fandom network card */
-    .fnet-icon{position:absolute;transform:translate(-50%,-50%);width:54px;height:54px;z-index:5;}
+    .fnet-icon{position:absolute;z-index:5;width:52px;height:52px;}
     .fnet-icon img{display:block;width:100%;height:100%;object-fit:contain;border-radius:13px;background:rgba(12,12,12,0.88);padding:7px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.55);}
-    @keyframes fi-fl-0{0%,100%{transform:translate(-50%,-50%) translate(0px,0px)}50%{transform:translate(-50%,-50%) translate(2px,-4px)}}
-    @keyframes fi-fl-1{0%,100%{transform:translate(-50%,-50%) translate(0px,0px)}50%{transform:translate(-50%,-50%) translate(3px,2px)}}
-    @keyframes fi-fl-2{0%,100%{transform:translate(-50%,-50%) translate(0px,0px)}50%{transform:translate(-50%,-50%) translate(-2px,4px)}}
-    @keyframes fi-fl-3{0%,100%{transform:translate(-50%,-50%) translate(0px,0px)}50%{transform:translate(-50%,-50%) translate(-3px,2px)}}
-    @keyframes fi-fl-4{0%,100%{transform:translate(-50%,-50%) translate(0px,0px)}50%{transform:translate(-50%,-50%) translate(1px,-3px)}}
-    #fni-0{animation:fi-fl-0 5.5s ease-in-out infinite;}
-    #fni-1{animation:fi-fl-1 6.3s ease-in-out infinite 0.8s;}
-    #fni-2{animation:fi-fl-2 5.8s ease-in-out infinite 1.6s;}
-    #fni-3{animation:fi-fl-3 6.7s ease-in-out infinite 2.4s;}
-    #fni-4{animation:fi-fl-4 5.2s ease-in-out infinite 3.2s;}
+    @keyframes fnet-orb{from{transform:translate(-50%,-50%) rotate(0deg) translateY(-88px) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg) translateY(-88px) rotate(-360deg)}}
+    #fni-0{animation:fnet-orb 14s 0s linear infinite;}
+    #fni-1{animation:fnet-orb 14s -2.8s linear infinite;}
+    #fni-2{animation:fnet-orb 14s -5.6s linear infinite;}
+    #fni-3{animation:fnet-orb 14s -8.4s linear infinite;}
+    #fni-4{animation:fnet-orb 14s -11.2s linear infinite;}
     @keyframes fnet-pulse{0%,100%{box-shadow:0 0 10px 3px rgba(253,106,0,0.65),0 0 22px 6px rgba(253,106,0,0.22)}50%{box-shadow:0 0 20px 7px rgba(253,106,0,0.88),0 0 40px 14px rgba(253,106,0,0.36)}}
     nav a:visited,nav a:active,nav a:focus{color:#555!important;}
     nav a{-webkit-tap-highlight-color:transparent;}
@@ -187,12 +183,12 @@
           <!-- Animation region (above the text footer) -->
           <div id="fnet-wrap" style="position:absolute;left:0;right:0;top:0;bottom:136px;overflow:hidden;">
             <canvas id="fnet-canvas" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;"></canvas>
-            <!-- Pentagon icons — positions are approximate pentagon vertices; JS reads actual positions each frame -->
-            <div class="fnet-icon" id="fni-0" style="left:50%;top:19%;"><img src="/bento1.png" alt="" /></div>
-            <div class="fnet-icon" id="fni-1" style="left:79%;top:42%;"><img src="/bento2.png" alt="" /></div>
-            <div class="fnet-icon" id="fni-2" style="left:67%;top:73%;"><img src="/Live.png" alt="" /></div>
-            <div class="fnet-icon" id="fni-3" style="left:33%;top:73%;"><img src="/bento4.png" alt="" /></div>
-            <div class="fnet-icon" id="fni-4" style="left:21%;top:42%;"><img src="/bento5.png" alt="" /></div>
+            <!-- Orbiting icons — all anchored at orbit center, CSS transform handles revolution -->
+            <div class="fnet-icon" id="fni-0" style="left:50%;top:51%;"><img src="/bento1.png" alt="" /></div>
+            <div class="fnet-icon" id="fni-1" style="left:50%;top:51%;"><img src="/bento2.png" alt="" /></div>
+            <div class="fnet-icon" id="fni-2" style="left:50%;top:51%;"><img src="/Live.png" alt="" /></div>
+            <div class="fnet-icon" id="fni-3" style="left:50%;top:51%;"><img src="/bento4.png" alt="" /></div>
+            <div class="fnet-icon" id="fni-4" style="left:50%;top:51%;"><img src="/bento5.png" alt="" /></div>
             <!-- Center hub dot -->
             <div id="fnet-dot" style="position:absolute;left:50%;top:51%;width:10px;height:10px;border-radius:50%;background:#fd6a00;transform:translate(-50%,-50%);z-index:10;animation:fnet-pulse 2.6s ease-in-out infinite;"></div>
           </div>
