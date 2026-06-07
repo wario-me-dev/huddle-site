@@ -97,7 +97,7 @@
     nav a:visited,nav a:active,nav a:focus{color:#555!important;}
     nav a{-webkit-tap-highlight-color:transparent;}
     /* Smaller orbit radius for narrow screens */
-    @keyframes fnet-orb-sm{from{transform:translate(-50%,-50%) rotate(0deg) translateY(-80px) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg) translateY(-80px) rotate(-360deg)}}
+    @keyframes fnet-orb-sm{from{transform:translate(-50%,-50%) rotate(0deg) translateY(-105px) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg) translateY(-105px) rotate(-360deg)}}
     /* ===================== MOBILE ===================== */
     @media(max-width:768px){
       /* NAV */
@@ -109,28 +109,32 @@
       .hero-sub{max-width:100%!important;}
       .cta-row{flex-direction:column;align-items:stretch;max-width:300px;margin-left:auto;margin-right:auto;}
       .btn-primary,.btn-ghost{justify-content:center;}
-      /* TICKER */
+      /* TICKER: disable will-change so max-content width recomputes correctly after images load */
       .mi{font-size:0.56rem!important;letter-spacing:0.06em!important;}
       .fl{height:14px!important;margin-right:7px!important;}
+      .mL,.mR{will-change:auto!important;}
       /* BENTO SECTION WRAPPER */
       #bento-section{padding:40px 16px 44px!important;}
-      /* BENTO HEADING: remove nowrap so it wraps on mobile */
-      #bento-title{white-space:normal!important;font-size:clamp(1.55rem,7.2vw,2.2rem)!important;}
+      /* BENTO HEADING: keep single line, scale font to fit */
+      #bento-title{white-space:nowrap!important;font-size:clamp(0.9rem,4.2vw,2.2rem)!important;}
       /* BENTO GRID: single column */
       .bento{grid-template-columns:1fr!important;grid-template-rows:auto!important;gap:10px!important;}
       .tile-tall{grid-row:span 1!important;height:460px!important;}
       .tile:not(.tile-tall){height:200px!important;}
       .tile-foot h3{font-size:1.15rem!important;}
       .tile-foot p{font-size:0.68rem!important;}
-      /* FANDOM NETWORK: tighter orbit on small screens */
+      /* FANDOM NETWORK: balanced orbit for mobile */
       #fni-0,#fni-1,#fni-2,#fni-3,#fni-4{animation-name:fnet-orb-sm!important;}
       #fnet-wrap{bottom:114px!important;}
+      /* TAGLINE */
+      #tagline-div{padding:40px 24px 20px!important;}
+      #tagline-div p{font-size:clamp(1.1rem,5.5vw,3rem)!important;line-height:1.25!important;}
       /* FEATURE SECTIONS: stack vertically */
       section[data-glow]{padding:40px 24px 52px!important;gap:28px!important;flex-direction:column!important;}
       section[data-glow]>div{flex-shrink:1!important;}
       section[data-glow] img{height:auto!important;width:100%!important;max-width:320px!important;margin:0 auto;}
-      /* FINAL CTA */
-      #cta-section{padding:64px 24px!important;}
+      /* FINAL CTA: spacious layout preserved */
+      #cta-section{padding:100px 28px!important;}
       /* FOOTER */
       footer{padding:18px 20px!important;gap:16px!important;flex-wrap:wrap!important;justify-content:center!important;}
     }
@@ -270,7 +274,7 @@
     </section>
 
       <!-- TAGLINE — before SVG-covered wrapper so lines don't overlap text -->
-      <div style="position:relative;z-index:1;max-width:860px;margin:0 auto;padding:80px 48px 20px;text-align:center;">
+      <div id="tagline-div" style="position:relative;z-index:1;max-width:860px;margin:0 auto;padding:80px 48px 20px;text-align:center;">
         <p style="font-size:clamp(1.9rem,3.8vw,3rem);font-weight:900;letter-spacing:-0.04em;line-height:1.15;color:#f0f0f0;">Express who you really are and find <span class="gt">fandoms</span> that feel like <span class="gt">home.</span></p>
       </div>
 
@@ -695,6 +699,18 @@
 </script>
 <script>
 (function(){var w=document.getElementById('wm-wrap'),g=document.getElementById('wm-glow');if(!w||!g)return;w.addEventListener('mousemove',function(e){var r=w.getBoundingClientRect();var x=((e.clientX-r.left)/r.width*100).toFixed(1)+'%';var y=((e.clientY-r.top)/r.height*100).toFixed(1)+'%';var m='radial-gradient(circle 200px at '+x+' '+y+',black 0%,transparent 100%)';g.style.webkitMaskImage=m;g.style.maskImage=m;g.style.opacity='1';});w.addEventListener('mouseleave',function(){g.style.opacity='0';});})();
+</script>
+<script>
+(function(){
+  if(window.innerWidth>768)return;
+  window.addEventListener('load',function(){
+    document.querySelectorAll('.mL,.mR').forEach(function(el){
+      el.style.animation='none';
+      void el.offsetWidth;
+      el.style.animation='';
+    });
+  });
+})();
 </script>
 </body>
 </html>

@@ -37,6 +37,9 @@
       #featured-text h2{font-size:1.55rem!important;}
       /* ARTICLE GRID: single column */
       #blog-grid{grid-template-columns:1fr!important;gap:40px 0!important;}
+      /* FEATURED CARD CHIPS: wrap and hide date */
+      #feat-chips{flex-wrap:wrap!important;gap:6px!important;}
+      #feat-chips span:last-child{display:none!important;}
     }
   </style>
 </head>
@@ -66,7 +69,7 @@
         <!-- Text side -->
         <div id="featured-text" style="padding:52px 52px 92px 52px;display:flex;flex-direction:column;justify-content:center;">
           <div>
-            <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;">
+            <div id="feat-chips" style="display:flex;align-items:center;gap:12px;margin-bottom:24px;">
               <span class="bo">Product Update</span>
               <span style="font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#3a3a3a;border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:3px 10px;">2 min read</span>
               <span style="color:#2e2e2e;font-size:0.75rem;">April 15, 2026</span>

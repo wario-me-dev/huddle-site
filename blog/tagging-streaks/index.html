@@ -23,6 +23,7 @@
     .bo{background:rgba(253,106,0,0.12);border:1px solid rgba(253,106,0,0.22);color:#fd6a00;font-size:0.6rem;font-weight:700;padding:3px 9px;border-radius:20px;letter-spacing:0.07em;text-transform:uppercase;}
     .bg{background:rgba(255,205,0,0.08);border:1px solid rgba(255,205,0,0.18);color:#ffcd00;font-size:0.6rem;font-weight:700;padding:3px 9px;border-radius:20px;letter-spacing:0.07em;text-transform:uppercase;}
     .bc{background:rgba(0,200,100,0.08);border:1px solid rgba(0,200,100,0.18);color:#00c864;font-size:0.6rem;font-weight:700;padding:3px 9px;border-radius:20px;letter-spacing:0.07em;text-transform:uppercase;}
+    @media(max-width:768px){nav{padding:16px 20px!important;}nav>div{gap:18px!important;}nav a[href="/contact/"]{display:none!important;}h1{font-size:clamp(1.55rem,6.5vw,2.65rem)!important;line-height:1.1!important;}.article-wrap{flex-direction:column!important;gap:0!important;padding:32px 20px 64px!important;}.toc-sidebar{display:none!important;}.more-grid{grid-template-columns:1fr!important;gap:20px!important;}}
   </style>
 </head>
 <body>
@@ -39,7 +40,7 @@
   </nav>
 
   <!-- Article: main col + TOC col, unified flex row -->
-  <div style="max-width:960px;margin:0 auto;padding:52px 24px 88px;width:100%;display:flex;gap:52px;align-items:flex-start;">
+  <div class="article-wrap" style="max-width:960px;margin:0 auto;padding:52px 24px 88px;width:100%;display:flex;gap:52px;align-items:flex-start;">
 
     <!-- Main content column — same width as feature image -->
     <div style="flex:1;min-width:0;">
@@ -95,7 +96,7 @@
     </div>
 
     <!-- TOC Sidebar — sticky, beside the image from the top -->
-    <div style="width:194px;flex-shrink:0;position:sticky;top:80px;align-self:flex-start;">
+    <div class="toc-sidebar" style="width:194px;flex-shrink:0;position:sticky;top:80px;align-self:flex-start;">
       <p style="font-size:0.58rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#2a2a2a;margin-bottom:14px;">On this page</p>
       <a href="#tagging" class="toc-a active">Tagging &amp; Mentioning</a>
       <a href="#streaks" class="toc-a">Chat Streaks</a>
@@ -107,7 +108,7 @@
   <div style="border-top:1px solid rgba(255,255,255,0.06);padding:52px 24px 80px;">
     <div style="max-width:900px;margin:0 auto;">
       <p style="font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;color:#282828;margin-bottom:28px;font-weight:700;text-align:center;">More from Huddle</p>
-      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;">
+      <div class="more-grid" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;">
         <article style="display:flex;flex-direction:column;gap:14px;">
           <div style="width:100%;aspect-ratio:16/10;border-radius:14px;overflow:hidden;background:#141414;border:1px solid rgba(255,255,255,0.06);">
             <img src="/blog/images/mutuals-posting.png" alt="" style="width:100%;height:100%;object-fit:cover;display:block;" />
