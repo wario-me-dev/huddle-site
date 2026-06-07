@@ -87,7 +87,7 @@
     /* Fandom network card */
     .fnet-icon{position:absolute;z-index:5;width:52px;height:52px;}
     .fnet-icon img{display:block;width:100%;height:100%;object-fit:contain;border-radius:13px;background:rgba(12,12,12,0.88);padding:7px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.55);}
-    @keyframes fnet-orb{from{transform:translate(-50%,-50%) rotate(0deg) translateY(-96px) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg) translateY(-96px) rotate(-360deg)}}
+    @keyframes fnet-orb{from{transform:translate(-50%,-50%) rotate(0deg) translateY(-122px) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg) translateY(-122px) rotate(-360deg)}}
     #fni-0{animation:fnet-orb 17s 0s linear infinite;}
     #fni-1{animation:fnet-orb 17s -3.4s linear infinite;}
     #fni-2{animation:fnet-orb 17s -6.8s linear infinite;}
@@ -537,13 +537,13 @@
   var iconEls=[0,1,2,3,4].map(function(i){return document.getElementById('fni-'+i);});
 
   /* Cycle timing (ms) */
-  var CYCLE=12000;
-  /* Hub lines: stagger 400ms apart, 1100ms each */
-  var HS=[180,580,980,1380,1780], HD=1100;
-  /* Ring lines: start after hubs, stagger 540ms, 900ms each */
-  var RS=[3000,3540,4080,4620,5160], RD=900;
-  /* Fade out at 7.8s over 1.8s, then pause to 12s */
-  var FADE_AT=7800, FADE_D=1800;
+  var CYCLE=13000;
+  /* Hub lines: stagger 400ms apart, 1300ms each */
+  var HS=[180,580,980,1380,1780], HD=1300;
+  /* Ring lines: start after hubs, stagger 540ms, 1060ms each */
+  var RS=[3300,3840,4380,4920,5460], RD=1060;
+  /* Fade out at 8s over 1.8s, then pause to 13s */
+  var FADE_AT=8000, FADE_D=1800;
 
   function ease(t){return t<0.5?2*t*t:-1+(4-2*t)*t;}
   function cl(v,a,b){return Math.max(a,Math.min(b,v));}
