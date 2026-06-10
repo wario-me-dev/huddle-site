@@ -487,7 +487,17 @@
 
 <script>
   (function(){
-    var SRCS = [
+    var isAndroid = /android/i.test(navigator.userAgent);
+    var SRCS = isAndroid ? [
+      '/landing%20page%20background%20assets/1_bp2s_web.mp4',
+      '/landing%20page%20background%20assets/2_ds4s_web.mp4',
+      '/landing%20page%20background%20assets/3_genshin4s_web.mp4',
+      '/landing%20page%20background%20assets/4_bt4s_web.mp4',
+      '/landing%20page%20background%20assets/5_mc4s_web.mp4',
+      '/landing%20page%20background%20assets/6_aot3s_web.mp4',
+      '/landing%20page%20background%20assets/7_gag3s_web.mp4',
+      '/landing%20page%20background%20assets/8_ha3s_web.mp4'
+    ] : [
       '/landing%20page%20background%20assets/1_bp2s.mp4',
       '/landing%20page%20background%20assets/2_ds4s.mp4',
       '/landing%20page%20background%20assets/3_genshin4s.mp4',
