@@ -33,10 +33,11 @@
     .breadcrumb a:hover{color:#888;}
     .meta-pills{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 28px;}
     .pill{font-size:0.72rem;padding:5px 12px;border-radius:20px;border:1px solid rgba(255,255,255,0.08);color:#444;font-weight:500;}
+    .pill-accent{border-color:rgba(253,106,0,0.28);color:#fd6a00;background:rgba(253,106,0,0.07);}
     .intro{font-size:0.95rem;color:#555;line-height:1.8;margin-bottom:48px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,0.06);}
     .intro-sig{font-size:0.85rem;color:#444;margin-top:16px;font-style:italic;}
-    .section{padding:36px 0;border-bottom:1px solid rgba(255,255,255,0.05);}
-    .section:last-child{border-bottom:none;}
+    .section{padding:40px 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+    section.section:last-of-type{border-bottom:none;}
     .section-label{font-size:0.67rem;letter-spacing:0.18em;text-transform:uppercase;color:#fd6a00;font-weight:700;margin-bottom:8px;}
     p{margin-bottom:14px;}
     p:last-child{margin-bottom:0;}
@@ -51,8 +52,8 @@
     .rule-card p{font-size:0.87rem;color:#555;margin-bottom:0;line-height:1.75;}
 
     /* Not Allowed items (warning styling) */
-    .rules-warn{display:flex;flex-direction:column;gap:10px;margin-top:8px;}
-    .rule-warn{background:rgba(255,200,50,0.03);border:1px solid rgba(255,200,50,0.08);border-radius:10px;padding:14px 18px;border-left:3px solid rgba(255,200,50,0.2);}
+    .rules-warn{display:flex;flex-direction:column;gap:12px;margin-top:8px;}
+    .rule-warn{background:rgba(255,200,50,0.03);border:1px solid rgba(255,200,50,0.08);border-radius:10px;padding:16px 20px;border-left:3px solid rgba(255,200,50,0.2);}
     .rule-warn-title{font-size:0.9rem;font-weight:700;color:#c8a040;margin-bottom:5px;}
     .rule-warn p{font-size:0.87rem;color:#555;margin-bottom:0;line-height:1.75;}
 
@@ -65,24 +66,42 @@
     .callout-critical p:last-child{margin-bottom:0;}
 
     /* Remove items (other than CSAE) */
-    .rules-remove{display:flex;flex-direction:column;gap:10px;margin-top:8px;}
-    .rule-remove{background:rgba(255,255,255,0.018);border:1px solid rgba(255,255,255,0.055);border-radius:10px;padding:14px 18px;}
+    .rules-remove{display:flex;flex-direction:column;gap:12px;margin-top:8px;}
+    .rule-remove{background:rgba(255,255,255,0.018);border:1px solid rgba(255,255,255,0.055);border-radius:10px;padding:16px 20px;}
     .rule-remove-title{font-size:0.9rem;font-weight:700;color:#c0a060;margin-bottom:5px;}
     .rule-remove p{font-size:0.87rem;color:#555;margin-bottom:0;line-height:1.75;}
 
-    .footer-links{margin-top:64px;padding-top:36px;border-top:1px solid rgba(255,255,255,0.06);}
+    .footer-links{margin-top:52px;padding-top:0;}
     .footer-links-title{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:#2a2a2a;margin-bottom:16px;font-weight:700;}
     .footer-links-row{display:flex;flex-wrap:wrap;gap:10px;}
     .footer-link{padding:9px 18px;border-radius:10px;border:1px solid rgba(255,255,255,0.07);color:#555;font-size:0.8rem;text-decoration:none;font-weight:500;transition:border-color 0.15s,color 0.15s;}
     .footer-link:hover{color:#d0d0d0;border-color:rgba(255,255,255,0.15);text-decoration:none;}
     @media(max-width:900px){
       .toc{display:none;}
-      .layout{flex-direction:column;gap:0;padding:36px 20px 72px;}
+      .layout{flex-direction:column;gap:0;padding:32px 24px 72px;}
       h1{font-size:2rem;}
+      .section{padding:30px 0;}
+      .intro{margin-bottom:36px;padding-bottom:28px;}
+      .rule-card,.rule-warn,.rule-remove{padding:14px 16px;}
+      .callout-critical{padding:18px 20px;}
       nav{padding:16px 20px!important;}
       nav>div{gap:18px!important;}
       nav a[href="/contact/"]{display:none!important;}
       #wm-wrap{max-width:calc(100% - 24px)!important;margin:0 auto!important;}
+    }
+    @media(max-width:560px){
+      .layout{padding:24px 18px 60px;}
+      h1{font-size:1.75rem;}
+      h2{font-size:1.05rem;}
+      .section{padding:24px 0;}
+      .meta-pills{gap:6px;margin:14px 0 22px;}
+      .pill{font-size:0.68rem;padding:4px 10px;}
+      .rule-card,.rule-warn,.rule-remove{padding:12px 14px;}
+      .rule-card-title,.rule-warn-title,.rule-remove-title{font-size:0.86rem;}
+      .callout-critical{padding:14px 16px;}
+      .footer-links{margin-top:36px;}
+      .footer-links-row{gap:8px;}
+      .footer-link{padding:8px 14px;font-size:0.76rem;}
     }
   </style>
 </head>
@@ -120,7 +139,7 @@
       <div class="breadcrumb"><a href="/">Huddle</a> › <a href="#">Legal</a> › Community Guidelines</div>
       <h1>Community Guidelines</h1>
       <div class="meta-pills">
-        <span class="pill">Last revised June 10, 2026</span>
+        <span class="pill pill-accent">Last revised June 10, 2026</span>
       </div>
 
       <div id="intro" class="intro">
