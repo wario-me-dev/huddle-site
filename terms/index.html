@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="scroll-behavior:smooth;">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,12 +8,74 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png" />
   <link rel="shortcut icon" href="/favicon_io/favicon.ico" />
-  <style>*{box-sizing:border-box;margin:0;padding:0;}html{scrollbar-gutter:stable;}html,body{background:#0b0b0b;min-height:100%;}body>div{min-height:100vh;display:flex;flex-direction:column;}body>div>div[style*="max-width"]{flex:1;}nav a:visited,nav a:active,nav a:focus{color:#555!important;}nav a{-webkit-tap-highlight-color:transparent;}@media(max-width:768px){nav{padding:16px 20px!important;position:sticky!important;top:0!important;background:#0b0b0b!important;z-index:20!important;}nav>div{gap:18px!important;}nav a[href="/contact/"]{display:none!important;}#wm-wrap{max-width:calc(100% - 24px)!important;margin:0 auto!important;}}</style>
-    <script defer src="/_vercel/insights/script.js"></script>
+  <script defer src="/_vercel/insights/script.js"></script>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html{scrollbar-gutter:stable;}
+    html,body{background:#0b0b0b;min-height:100%;}
+    body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',sans-serif;color:#606060;line-height:1.85;font-size:0.93rem;}
+    nav a:visited,nav a:active,nav a:focus{color:#555!important;}
+    nav a{-webkit-tap-highlight-color:transparent;}
+    a{color:#fd6a00;text-decoration:none;}
+    a:hover{text-decoration:underline;}
+    h1{font-size:2.6rem;font-weight:900;letter-spacing:-0.045em;line-height:1.05;color:#f0f0f0;}
+    h2{font-size:1.15rem;font-weight:800;letter-spacing:-0.02em;color:#f0f0f0;margin:0 0 12px;}
+    h3{font-size:0.97rem;font-weight:700;color:#d0d0d0;margin:18px 0 8px;}
+    .layout{display:flex;gap:64px;max-width:1020px;margin:0 auto;padding:56px 24px 96px;align-items:flex-start;}
+    .toc{width:220px;flex-shrink:0;position:sticky;top:88px;max-height:calc(100vh - 108px);overflow-y:auto;}
+    .toc-title{font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:#333;font-weight:700;margin-bottom:14px;}
+    .toc a{display:block;font-size:0.8rem;color:#444;text-decoration:none;padding:5px 10px;border-radius:6px;margin-bottom:2px;transition:color 0.15s,background 0.15s;line-height:1.4;border-left:2px solid transparent;}
+    .toc a:hover{color:#d0d0d0;}
+    .toc a.active{color:#fd6a00;background:rgba(253,106,0,0.08);border-left-color:#fd6a00;}
+    .content{flex:1;min-width:0;max-width:700px;}
+    .breadcrumb{font-size:0.75rem;color:#333;margin-bottom:22px;letter-spacing:0.01em;}
+    .breadcrumb a{color:#444;text-decoration:none;}
+    .breadcrumb a:hover{color:#888;}
+    .meta-pills{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 28px;}
+    .pill{font-size:0.72rem;padding:5px 12px;border-radius:20px;border:1px solid rgba(255,255,255,0.08);color:#444;font-weight:500;}
+    .intro{font-size:0.95rem;color:#555;line-height:1.8;margin-bottom:48px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,0.06);}
+    .section{padding:36px 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+    .section:last-child{border-bottom:none;}
+    .section-label{font-size:0.67rem;letter-spacing:0.18em;text-transform:uppercase;color:#fd6a00;font-weight:700;margin-bottom:8px;}
+    p{margin-bottom:14px;}
+    p:last-child{margin-bottom:0;}
+    ul,ol{padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:14px;}
+    ul li,ol li{padding-left:1.4em;position:relative;color:#606060;}
+    ul li::before{content:"—";color:#fd6a00;position:absolute;left:0;font-weight:700;}
+    ol{counter-reset:ol-counter;}
+    ol li{counter-increment:ol-counter;}
+    ol li::before{content:counter(ol-counter)".";color:#fd6a00;position:absolute;left:0;font-weight:700;font-size:0.85rem;}
+    dl{display:flex;flex-direction:column;gap:10px;margin-bottom:14px;}
+    dt{color:#d0d0d0;font-weight:700;font-size:0.88rem;}
+    dd{margin-left:0;color:#606060;padding-left:16px;border-left:2px solid rgba(253,106,0,0.3);}
+    .age-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:0.85rem;}
+    .age-table th{text-align:left;padding:10px 14px;font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:#333;font-weight:700;border-bottom:1px solid rgba(255,255,255,0.07);}
+    .age-table td{padding:9px 14px;border-bottom:1px solid rgba(255,255,255,0.04);color:#555;vertical-align:top;}
+    .age-table tr:last-child td{border-bottom:none;}
+    .age-table td:first-child{color:#888;font-weight:600;width:180px;}
+    .age-badge{display:inline-block;background:rgba(253,106,0,0.12);color:#fd6a00;border:1px solid rgba(253,106,0,0.25);border-radius:12px;font-size:0.7rem;font-weight:700;padding:2px 8px;margin:2px 3px 2px 0;white-space:nowrap;}
+    .region-group{font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:#444;font-weight:700;padding:8px 14px 4px;background:rgba(255,255,255,0.02);}
+    .footer-links{margin-top:64px;padding-top:36px;border-top:1px solid rgba(255,255,255,0.06);}
+    .footer-links-title{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:#2a2a2a;margin-bottom:16px;font-weight:700;}
+    .footer-links-row{display:flex;flex-wrap:wrap;gap:10px;}
+    .footer-link{padding:9px 18px;border-radius:10px;border:1px solid rgba(255,255,255,0.07);color:#555;font-size:0.8rem;text-decoration:none;font-weight:500;transition:border-color 0.15s,color 0.15s;}
+    .footer-link:hover{color:#d0d0d0;border-color:rgba(255,255,255,0.15);text-decoration:none;}
+    @media(max-width:900px){
+      .toc{display:none;}
+      .layout{flex-direction:column;gap:0;padding:36px 20px 72px;}
+      h1{font-size:2rem;}
+      nav{padding:16px 20px!important;}
+      nav>div{gap:18px!important;}
+      nav a[href="/contact/"]{display:none!important;}
+      #wm-wrap{max-width:calc(100% - 24px)!important;margin:0 auto!important;}
+    }
+  </style>
 </head>
 <body>
-<div style="background:#0b0b0b;color:#efefef;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',sans-serif;min-height:100vh;display:flex;flex-direction:column;">
-  <nav style="display:flex;align-items:center;justify-content:space-between;padding:22px 48px;border-bottom:1px solid rgba(255,255,255,0.06);">
+<div style="background:#0b0b0b;min-height:100vh;display:flex;flex-direction:column;">
+
+  <!-- NAV -->
+  <nav style="display:flex;align-items:center;justify-content:space-between;padding:22px 48px;border-bottom:1px solid rgba(255,255,255,0.06);position:sticky;top:0;background:#0b0b0b;z-index:20;">
     <a href="/" style="display:inline-flex;"><img src="/Huddle.png" alt="Huddle" style="height:40px;width:auto;" /></a>
     <div style="display:flex;gap:36px;align-items:center;">
       <a href="https://discord.gg/huddle" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;opacity:0.45;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='0.45'"><img src="/discord_logo.png" alt="Discord" style="height:22px;width:auto;filter:brightness(0) invert(1);" /></a>
@@ -22,36 +84,298 @@
       <a href="/contact/" style="color:#555;font-size:0.92rem;text-decoration:none;font-weight:500;">Contact Us</a>
     </div>
   </nav>
-  <div style="max-width:660px;margin:0 auto;padding:56px 24px 96px;">
-    <h1 style="font-size:2.4rem;font-weight:900;letter-spacing:-0.04em;line-height:1.05;color:#f0f0f0;margin:0 0 10px;">Terms of Service</h1>
-    <p style="font-size:0.78rem;color:#2e2e2e;margin:0 0 52px;">Last updated April 18, 2026</p>
-    <div style="display:flex;flex-direction:column;gap:36px;font-size:0.92rem;color:#666;line-height:1.85;">
-      <section style="display:flex;flex-direction:column;gap:10px;">
-        <h2 style="font-size:1rem;font-weight:800;letter-spacing:-0.02em;color:#d0d0d0;margin:0;">1. Acceptance</h2>
-        <p>By accessing or using Huddle, you agree to be bound by these Terms of Service. If you do not agree, please do not use the app.</p>
-      </section>
-      <section style="display:flex;flex-direction:column;gap:10px;">
-        <h2 style="font-size:1rem;font-weight:800;letter-spacing:-0.02em;color:#d0d0d0;margin:0;">2. Your account</h2>
-        <p>You are responsible for maintaining the security of your account and for all activity under it. You must be at least 13 years old to use Huddle.</p>
-      </section>
-      <section style="display:flex;flex-direction:column;gap:10px;">
-        <h2 style="font-size:1rem;font-weight:800;letter-spacing:-0.02em;color:#d0d0d0;margin:0;">3. Content</h2>
-        <p>You retain ownership of content you post. By posting, you grant Huddle a licence to display and distribute that content within the app. You may not post content that violates our Community Guidelines.</p>
-      </section>
-      <section style="display:flex;flex-direction:column;gap:10px;">
-        <h2 style="font-size:1rem;font-weight:800;letter-spacing:-0.02em;color:#d0d0d0;margin:0;">4. Contact</h2>
-        <p>Questions? Reach us at <a href="mailto:hello@huddle.so" style="color:#fd6a00;text-decoration:none;">hello@huddle.so</a></p>
-      </section>
-    </div>
-    <div style="margin-top:72px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.06);">
-      <p style="font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:#222;margin-bottom:20px;font-weight:600;">Other pages</p>
-      <div style="display:flex;flex-wrap:wrap;gap:12px;">
-        <a href="/privacy/" style="padding:9px 18px;border-radius:10px;border:1px solid rgba(255,255,255,0.07);color:#555;font-size:0.8rem;text-decoration:none;font-weight:500;">Privacy Policy</a>
-        <a href="/guidelines/" style="padding:9px 18px;border-radius:10px;border:1px solid rgba(255,255,255,0.07);color:#555;font-size:0.8rem;text-decoration:none;font-weight:500;">Community Guidelines</a>
-        <a href="/contact/" style="padding:9px 18px;border-radius:10px;border:1px solid rgba(255,255,255,0.07);color:#555;font-size:0.8rem;text-decoration:none;font-weight:500;">Contact Us</a>
+
+  <!-- LAYOUT -->
+  <div class="layout">
+
+    <!-- TOC -->
+    <aside class="toc" aria-label="Table of contents">
+      <div class="toc-title">On this page</div>
+      <a href="#intro" class="toc-link">Overview</a>
+      <a href="#s1" class="toc-link">1. Definitions</a>
+      <a href="#s2" class="toc-link">2. Who can use Huddle</a>
+      <a href="#s3" class="toc-link">3. Your account</a>
+      <a href="#s4" class="toc-link">4. Your Content</a>
+      <a href="#s5" class="toc-link">5. Acceptable use</a>
+      <a href="#s6" class="toc-link">6. Fan content &amp; IP</a>
+      <a href="#s7" class="toc-link">7. Coins &amp; purchases</a>
+      <a href="#s8" class="toc-link">8. Moderation &amp; termination</a>
+      <a href="#s9" class="toc-link">9. Disclaimers</a>
+      <a href="#s10" class="toc-link">10. Limitation of liability</a>
+      <a href="#s11" class="toc-link">11. Indemnity</a>
+      <a href="#s12" class="toc-link">12. Changes</a>
+      <a href="#s13" class="toc-link">13. Governing law</a>
+      <a href="#s14" class="toc-link">14. General</a>
+      <a href="#s15" class="toc-link">15. Contact us</a>
+    </aside>
+
+    <!-- CONTENT -->
+    <main class="content">
+
+      <div class="breadcrumb"><a href="/">Huddle</a> › <a href="#">Legal</a> › Terms of Service</div>
+      <h1>Terms of Service</h1>
+      <div class="meta-pills">
+        <span class="pill">Effective February 14, 2023</span>
+        <span class="pill">Last revised June 10, 2026</span>
       </div>
-    </div>
+
+      <div id="intro" class="intro">
+        <p>These Terms of Service (the "Terms") are an agreement between you and Huddleverse Pte. Ltd. ("Huddleverse", "Huddle", "we", "us") governing your use of the Huddle app, website, and related services (together, the "Service"). Please read them carefully. By creating an account or using the Service, you agree to these Terms. If you do not agree, please do not use the Service.</p>
+      </div>
+
+      <!-- SECTION 1 -->
+      <section class="section" id="s1">
+        <div class="section-label">Section 1</div>
+        <h2>Definitions</h2>
+        <dl>
+          <div>
+            <dt>"Service"</dt>
+            <dd>The Huddle app, the huddle.so website, and all related features, content, and services provided by Huddleverse.</dd>
+          </div>
+          <div>
+            <dt>"you", "your", or "user"</dt>
+            <dd>Any individual who accesses or uses the Service.</dd>
+          </div>
+          <div>
+            <dt>"minor"</dt>
+            <dd>Any individual under 18 years of age, or under the age of majority in their place of residence if higher.</dd>
+          </div>
+          <div>
+            <dt>"Content"</dt>
+            <dd>The text, posts, comments, photos, videos, audio, links, fan works, and any other material submitted to the Service. "Your Content" means Content that you submit.</dd>
+          </div>
+          <div>
+            <dt>"Coins" and "Virtual Items"</dt>
+            <dd>Digital goods, currency, awards, or features that can be obtained or purchased within the Service.</dd>
+          </div>
+          <div>
+            <dt>"Community Guidelines"</dt>
+            <dd>Our community rules published at <a href="https://huddle.so/guidelines">https://huddle.so/guidelines</a>, which form part of these Terms.</dd>
+          </div>
+          <div>
+            <dt>"Privacy Policy"</dt>
+            <dd>Our privacy policy published at <a href="https://huddle.so/privacy">https://huddle.so/privacy</a>, which forms part of these Terms.</dd>
+          </div>
+        </dl>
+        <p>Headings are for convenience only and do not affect interpretation. Words importing the singular include the plural and vice versa.</p>
+      </section>
+
+      <!-- SECTION 2 -->
+      <section class="section" id="s2">
+        <div class="section-label">Section 2</div>
+        <h2>Who can use Huddle</h2>
+        <p>You must be at least 13 years old to use the Service. If a higher minimum age applies in your country (see the list below), you must meet that higher age. If you are old enough to use the Service but are a minor, you may only use the Service if your parent or legal guardian has read these Terms and agrees to them on your behalf, and you confirm they have done so. For all countries not listed below, 13 is the minimum age to use the Service.</p>
+        <table class="age-table">
+          <thead>
+            <tr>
+              <th>Region / Country</th>
+              <th>Minimum age</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td colspan="2" class="region-group">Asia</td></tr>
+            <tr><td>South Korea</td><td><span class="age-badge">14+</span></td></tr>
+            <tr><td>Vietnam</td><td><span class="age-badge">15+</span></td></tr>
+            <tr><td colspan="2" class="region-group">Caribbean</td></tr>
+            <tr><td>Aruba, Caribbean Netherlands, Curaçao, Sint Maarten</td><td><span class="age-badge">16+</span></td></tr>
+            <tr><td colspan="2" class="region-group">Europe</td></tr>
+            <tr><td>Austria</td><td><span class="age-badge">14+</span></td></tr>
+            <tr><td>Bulgaria</td><td><span class="age-badge">14+</span></td></tr>
+            <tr><td>Croatia</td><td><span class="age-badge">16+</span></td></tr>
+            <tr><td>Cyprus</td><td><span class="age-badge">14+</span></td></tr>
+            <tr><td>Czech Republic</td><td><span class="age-badge">15+</span></td></tr>
+            <tr><td>France</td><td><span class="age-badge">15+</span></td></tr>
+            <tr><td>Germany</td><td><span class="age-badge">16+</span></td></tr>
+            <tr><td>Greece</td><td><span class="age-badge">15+</span></td></tr>
+            <tr><td>Hungary</td><td><span class="age-badge">16+</span></td></tr>
+            <tr><td>Ireland</td><td><span class="age-badge">16+</span></td></tr>
+            <tr><td>Italy</td><td><span class="age-badge">14+</span></td></tr>
+            <tr><td>Lithuania</td><td><span class="age-badge">14+</span></td></tr>
+            <tr><td>Luxembourg</td><td><span class="age-badge">16+</span></td></tr>
+            <tr><td>Netherlands</td><td><span class="age-badge">16+</span></td></tr>
+            <tr><td>Poland</td><td><span class="age-badge">16+</span></td></tr>
+            <tr><td>Romania</td><td><span class="age-badge">16+</span></td></tr>
+            <tr><td>San Marino</td><td><span class="age-badge">16+</span></td></tr>
+            <tr><td>Serbia</td><td><span class="age-badge">15+</span></td></tr>
+            <tr><td>Slovakia</td><td><span class="age-badge">16+</span></td></tr>
+            <tr><td>Slovenia</td><td><span class="age-badge">16+</span></td></tr>
+            <tr><td>Spain</td><td><span class="age-badge">14+</span></td></tr>
+            <tr><td colspan="2" class="region-group">South America</td></tr>
+            <tr><td>Chile</td><td><span class="age-badge">14+</span></td></tr>
+            <tr><td>Colombia</td><td><span class="age-badge">14+</span></td></tr>
+            <tr><td>Peru</td><td><span class="age-badge">14+</span></td></tr>
+            <tr><td>Venezuela</td><td><span class="age-badge">14+</span></td></tr>
+          </tbody>
+        </table>
+        <p>We may suspend or remove accounts that we reasonably believe belong to people under the minimum age. If you believe a child under the minimum age is using the Service, please contact us at <a href="mailto:hello@huddle.so">hello@huddle.so</a>.</p>
+      </section>
+
+      <!-- SECTION 3 -->
+      <section class="section" id="s3">
+        <div class="section-label">Section 3</div>
+        <h2>Your account</h2>
+        <p>You need an account to use the Service. You are responsible for the accuracy of your account information, for maintaining the security of your account, and for all activity that occurs under it. Use a strong, unique password, and notify us immediately at <a href="mailto:hello@huddle.so">hello@huddle.so</a> if you know or suspect that your account has been accessed without your permission. We are not liable for losses caused by unauthorized use of your account that results from your failure to keep your credentials secure. You may not sell, transfer, or share your account, or create accounts by automated means.</p>
+      </section>
+
+      <!-- SECTION 4 -->
+      <section class="section" id="s4">
+        <div class="section-label">Section 4</div>
+        <h2>Your Content</h2>
+
+        <h3>4.1 You own your Content</h3>
+        <p>Your Content belongs to you. Nothing in these Terms transfers ownership of Your Content to us, and we do not claim any ownership rights in it.</p>
+
+        <h3>4.2 The license you give us</h3>
+        <p>To run a social platform, we need your permission to do technical and operational things with Your Content: store it on our servers, back it up, format and display it on different devices, and deliver it to the people you share it with. So, when you submit Content to the Service, you grant Huddleverse a non-exclusive, royalty-free, worldwide license to host, store, reproduce, adapt (for technical purposes such as formatting, resizing, or creating previews), publish, and distribute Your Content solely as needed to operate, provide, and improve the Service.</p>
+        <p>This license comes with commitments from us:</p>
+        <ul>
+          <li>We do not sell Your Content or license it to third parties for their own independent commercial use.</li>
+          <li>We will not use Your Content in our advertising or marketing without asking you first.</li>
+          <li>The license is non-exclusive, meaning you remain free to post, sell, license, or do anything else with your own Content anywhere else, at any time.</li>
+          <li>The license ends when you delete Your Content or your account, except (a) where Your Content has been shared with others and they have not deleted it, (b) for a reasonable period needed to remove it from backups and caches, and (c) where we are required to retain it by law or to enforce these Terms.</li>
+        </ul>
+
+        <h3>4.3 Your responsibilities</h3>
+        <p>You are solely responsible for Your Content. By submitting Content, you confirm that you have the rights necessary to post it and to grant the license above, and that it complies with these Terms and the Community Guidelines. Other users' Content does not represent our views, and we do not endorse it.</p>
+      </section>
+
+      <!-- SECTION 5 -->
+      <section class="section" id="s5">
+        <div class="section-label">Section 5</div>
+        <h2>Acceptable use</h2>
+        <p>Our Community Guidelines describe in detail what is and isn't okay on Huddle, and they form part of these Terms. In addition, by using the Service you agree not to:</p>
+        <ul>
+          <li>Violate any applicable law or regulation, or the rights of any person;</li>
+          <li>Post or share Content that is unlawful, defamatory, pornographic, hateful, harassing, threatening, or that otherwise violates the Community Guidelines;</li>
+          <li>Solicit, groom, sexualize, exploit, or endanger minors in any way, or otherwise contravene the Child Safety Standards stated in our Privacy Policy;</li>
+          <li>Encourage or promote suicide, self-harm, or eating disorders;</li>
+          <li>Share Content that infringes copyright, trademark, or other intellectual property rights, including pirated or leaked material;</li>
+          <li>Attempt to gain unauthorized access to the Service, other users' accounts, or other users' personal information;</li>
+          <li>Circumvent or attempt to circumvent any security or moderation measures of the Service, including bans and suspensions;</li>
+          <li>Upload malware or malicious code, or disrupt any network, equipment, or server connected to the Service;</li>
+          <li>Use bots, scrapers, or other automated means to access the Service or collect data from it, including for training artificial intelligence models, without our prior written consent;</li>
+          <li>Mirror, frame, or manipulate the display of the Service without our prior written consent; or</li>
+          <li>Use the Service for unauthorized commercial activity, spam, or scams.</li>
+        </ul>
+      </section>
+
+      <!-- SECTION 6 -->
+      <section class="section" id="s6">
+        <div class="section-label">Section 6</div>
+        <h2>Fan content and intellectual property</h2>
+
+        <h3>6.1 Fan works</h3>
+        <p>Huddle is a home for fandoms, and fan works (such as fan art, edits, fan fiction, covers, and commentary) are a huge part of that. You are responsible for ensuring your fan works comply with applicable law and these Terms. Rights holders sometimes object to particular uses of their works, and where we receive a valid infringement notice we will act on it as described below, even if the content is non-commercial fan work.</p>
+
+        <h3>6.3 Fan communities are unofficial</h3>
+        <p>Communities, accounts, and content on Huddle are created and operated by fans, not by the artists, studios, publishers, developers, leagues, brands, or individuals they celebrate. Unless expressly stated by the relevant rights holder, no community, account, or content on the Service is created, operated, sponsored, endorsed, or approved by any third party, and no affiliation with any third party is stated or implied. You must not present any community, account, or content as official, authorized, or affiliated with any person or rights holder unless it genuinely is, and we may remove designations, names, or content that falsely suggest official status.</p>
+
+        <h3>6.4 Third-party trademarks and affiliation disclaimer</h3>
+        <p>Fandom names, titles, logos, marks, and other identifiers that appear on the Service, on the huddle.so website, or in our marketing materials — including the fandom logos displayed in the carousels on our website — are the trademarks and property of their respective owners. They are displayed solely for nominative, illustrative, and informational purposes: to identify and describe the kinds of fan communities that users have created or may create on the Service. Their display does not state or imply, and Huddleverse expressly disclaims, any affiliation, association, connection, or partnership with, or any sponsorship, endorsement, licensing, or approval by, any such owner. Huddleverse is an independent company, and the Service is an independent platform. All rights in third-party trademarks and works remain with their respective owners, and nothing in these Terms grants you or us any rights in them.</p>
+
+        <h3>6.5 Huddle's illustrative artwork</h3>
+        <p>The illustrated characters and artwork displayed on our website, app welcome screens, and marketing materials are original works of authorship created by or for Huddleverse as a general celebration of fan culture and of the breadth of communities that fans build. These illustrations are Huddleverse's own creative expression: they do not depict, reproduce, or substitute for any third party's characters or works, are not presented as such, and any resemblance to existing characters, properties, or persons is for illustrative and referential purposes only. Their display does not state or imply any affiliation with, or sponsorship, endorsement, or approval by, any rights holder.</p>
+
+        <h3>6.6 Copyright complaints (notice and takedown)</h3>
+        <p>We respect intellectual property rights and expect users to do the same. If you are a rights holder (or their authorized agent) and believe content on the Service infringes your copyright, send a notice to <a href="mailto:hello@huddle.so">hello@huddle.so</a> including:</p>
+        <ol>
+          <li>Identification of the copyrighted work;</li>
+          <li>The location (URL or sufficient description) of the allegedly infringing material;</li>
+          <li>Your contact information;</li>
+          <li>A statement that you have a good-faith belief the use is not authorized by the rights holder, their agent, or the law;</li>
+          <li>A statement, under penalty of perjury, that the information in your notice is accurate and that you are the rights holder or authorized to act for them; and</li>
+          <li>Your physical or electronic signature.</li>
+        </ol>
+        <p>We will remove or disable access to content in response to valid notices, notify the user who posted it, and accept counter-notices where the user believes the removal was a mistake or misidentification. Where a valid counter-notice is received, we may restore the content unless the complainant informs us they have initiated legal proceedings. We terminate the accounts of repeat infringers. Trademark owners who believe content on the Service infringes their marks may use the same address, and we will review and act on valid complaints.</p>
+
+        <h3>6.7 Huddle's intellectual property</h3>
+        <p>The Service itself — including our software, design, branding, logos, and the content we create — belongs to Huddleverse or our licensors and is protected by intellectual property laws. We grant you a limited, non-exclusive, non-transferable, revocable license to use the Service for personal, non-commercial purposes in accordance with these Terms. Except for Your Content, you may not copy, modify, distribute, sell, or lease any part of the Service without our prior written consent. For clarity, this section applies to our materials, not to Your Content, which is addressed in Section 4.</p>
+      </section>
+
+      <!-- SECTION 7 -->
+      <section class="section" id="s7">
+        <div class="section-label">Section 7</div>
+        <h2>Coins, Virtual Items, and purchases</h2>
+        <p>The Service may offer Coins and other Virtual Items for purchase or as rewards. Virtual Items are licensed to you, not sold: you receive a limited, personal, non-transferable, revocable license to use them within the Service. Virtual Items have no monetary value, cannot be exchanged for cash, and may not be sold, traded, or transferred outside the Service. Purchases are processed by the app store or payment provider through which you buy them (for example, the Apple App Store or Google Play) and are subject to their terms, including their refund policies. Except as required by applicable law or by the relevant platform's policy, all purchases are final and non-refundable, including when an account is terminated for violating these Terms. We may change, manage, or discontinue Virtual Items at any time with reasonable notice where practicable. If you have an active subscription, cancel it before deleting your account to avoid further charges.</p>
+      </section>
+
+      <!-- SECTION 8 -->
+      <section class="section" id="s8">
+        <div class="section-label">Section 8</div>
+        <h2>Moderation, suspension, and termination</h2>
+        <p>We want enforcement to be fair and proportionate. If Content or an account violates these Terms or the Community Guidelines, we may remove Content, apply warnings, restrict features, or suspend or terminate accounts. For severe violations (such as child endangerment or credible threats of violence), we ban immediately and permanently, and where appropriate we report to the relevant authorities. Except where doing so would create risk (for example, in cases involving safety, security, or legal restrictions), we will tell you when we take significant action against your account and give you an opportunity to appeal by contacting <a href="mailto:hello@huddle.so">hello@huddle.so</a>. We retain the right to suspend or terminate access to the Service where reasonably necessary, including for violations of these Terms, legal requirements, or risks to the Service or its users. You may stop using the Service and delete your account at any time. Sections of these Terms that by their nature should survive termination (including Sections 4.2, 9, 10, 11, and 13) will survive.</p>
+      </section>
+
+      <!-- SECTION 9 -->
+      <section class="section" id="s9">
+        <div class="section-label">Section 9</div>
+        <h2>Disclaimers</h2>
+
+        <h3>9.1 The Service is provided "as is"</h3>
+        <p>We work hard to keep Huddle running well, but the Service and all content on it are provided "as is" and "as available", without warranties of any kind, whether express or implied, including warranties of accuracy, reliability, availability, or fitness for a particular purpose, to the maximum extent permitted by law. Content posted by users is theirs, not ours, and we make no representations about it and do not endorse it.</p>
+
+        <h3>9.2 Not professional advice; not an emergency service</h3>
+        <p>Content on the Service — including anything posted by users, moderators, or us — is for general information and entertainment only and is not professional advice of any kind, including medical, mental health, legal, or financial advice. Huddleverse is not a healthcare provider, no patient-client relationship is created by using the Service, and the Service does not provide emergency services. Never disregard or delay seeking professional advice because of something you read on the Service. If you need medical or mental health support, contact a qualified professional; in an emergency, contact your local emergency services or a crisis line immediately.</p>
+
+        <h3>9.3 Third-party links and services</h3>
+        <p>The Service may contain links to third-party websites or services that we do not own or control. We are not responsible for their content, policies, or practices, and a link does not imply our endorsement. Your use of third-party websites and services is at your own risk and subject to their terms. We are not a party to, and are not responsible for, transactions between you and third parties.</p>
+      </section>
+
+      <!-- SECTION 10 -->
+      <section class="section" id="s10">
+        <div class="section-label">Section 10</div>
+        <h2>Limitation of liability</h2>
+        <p>To the maximum extent permitted by applicable law, Huddleverse and its directors, employees, and agents will not be liable for any indirect, incidental, special, consequential, or punitive damages, or for any loss of profits, data, goodwill, or opportunity, arising out of or in connection with your use of (or inability to use) the Service, even if we have been advised of the possibility of such damages. To the maximum extent permitted by applicable law, our total aggregate liability for all claims relating to the Service will not exceed the greater of (a) the amounts you paid us in the twelve (12) months before the event giving rise to the claim, and (b) one hundred Singapore dollars (S$100). Nothing in these Terms excludes or limits liability that cannot be excluded or limited under applicable law, including in some jurisdictions liability for death or personal injury caused by negligence, or for fraud. If you are a consumer, you may have rights under the laws of your country of residence that these Terms do not affect.</p>
+      </section>
+
+      <!-- SECTION 11 -->
+      <section class="section" id="s11">
+        <div class="section-label">Section 11</div>
+        <h2>Indemnity</h2>
+        <p>To the extent permitted by applicable law, you agree to indemnify and hold harmless Huddleverse, its employees, and agents from and against damages, losses, and reasonable expenses (including reasonable legal fees) arising from or relating to: (a) Your Content; (b) your violation of these Terms; or (c) your violation of any law or the rights of any third party. This obligation does not apply to the extent a claim arises from our own breach of these Terms or our negligence.</p>
+      </section>
+
+      <!-- SECTION 12 -->
+      <section class="section" id="s12">
+        <div class="section-label">Section 12</div>
+        <h2>Changes to the Service and these Terms</h2>
+        <p>Huddle will keep evolving, and we may add, change, or remove features of the Service. We may also update these Terms from time to time. If we make material changes, we will give you reasonable advance notice (for example, by email or an in-app notice) before they take effect, except where changes are required by law or address an urgent safety issue. The "Last revised" date at the top reflects the latest version. If you continue to use the Service after updated Terms take effect, you agree to them; if you do not agree, you should stop using the Service and may delete your account.</p>
+      </section>
+
+      <!-- SECTION 13 -->
+      <section class="section" id="s13">
+        <div class="section-label">Section 13</div>
+        <h2>Governing law and disputes</h2>
+        <p>These Terms, and any dispute arising out of or in connection with them or the Service, are governed by the laws of the Republic of Singapore, and you agree to submit to the non-exclusive jurisdiction of the courts of Singapore. If you are a consumer resident in a jurisdiction whose laws grant you mandatory protections or the right to bring proceedings in your local courts, nothing in this section deprives you of those protections or rights.</p>
+      </section>
+
+      <!-- SECTION 14 -->
+      <section class="section" id="s14">
+        <div class="section-label">Section 14</div>
+        <h2>General</h2>
+        <p>These Terms, together with the Community Guidelines and the Privacy Policy, are the entire agreement between you and Huddleverse regarding the Service. By using the Service, you acknowledge that you have read and agreed to our Privacy Policy at <a href="https://huddle.so/privacy">https://huddle.so/privacy</a>, and you consent to our collection, use, and disclosure of your personal information as described there. If any provision of these Terms is found unenforceable, the remaining provisions remain in full effect. Our failure to enforce a provision is not a waiver of our right to do so later. You may not assign these Terms; we may assign them in connection with a merger, acquisition, or sale of assets, with notice to you.</p>
+      </section>
+
+      <!-- SECTION 15 -->
+      <section class="section" id="s15">
+        <div class="section-label">Section 15</div>
+        <h2>Contact us</h2>
+        <p>Questions about these Terms? Email us at <a href="mailto:hello@huddle.so">hello@huddle.so</a></p>
+      </section>
+
+      <!-- FOOTER LINKS -->
+      <div class="footer-links">
+        <div class="footer-links-title">Other legal pages</div>
+        <div class="footer-links-row">
+          <a href="/privacy/" class="footer-link">Privacy Policy</a>
+          <a href="/guidelines/" class="footer-link">Community Guidelines</a>
+          <a href="/contact/" class="footer-link">Contact Us</a>
+        </div>
+      </div>
+
+    </main>
   </div>
+
   <!-- WORDMARK -->
   <div style="background:#0b0b0b;padding:32px 0 36px;">
     <div id="wm-wrap" style="position:relative;width:100%;padding-bottom:14.31%;">
@@ -74,7 +398,43 @@
     </svg>
     </div>
   </div>
+
 </div>
-<script>(function(){var w=document.getElementById('wm-wrap'),g=document.getElementById('wm-glow');if(!w||!g)return;w.addEventListener('mousemove',function(e){var r=w.getBoundingClientRect();var x=((e.clientX-r.left)/r.width*100).toFixed(1)+'%';var y=((e.clientY-r.top)/r.height*100).toFixed(1)+'%';var m='radial-gradient(circle 200px at '+x+' '+y+',black 0%,transparent 100%)';g.style.webkitMaskImage=m;g.style.maskImage=m;g.style.opacity='1';});w.addEventListener('mouseleave',function(){g.style.opacity='0';});})();</script>
+
+<script>
+(function(){
+  // Wordmark hover
+  var w=document.getElementById('wm-wrap'),g=document.getElementById('wm-glow');
+  if(w&&g){
+    w.addEventListener('mousemove',function(e){var r=w.getBoundingClientRect();var x=((e.clientX-r.left)/r.width*100).toFixed(1)+'%';var y=((e.clientY-r.top)/r.height*100).toFixed(1)+'%';var m='radial-gradient(circle 200px at '+x+' '+y+',black 0%,transparent 100%)';g.style.webkitMaskImage=m;g.style.maskImage=m;g.style.opacity='1';});
+    w.addEventListener('mouseleave',function(){g.style.opacity='0';});
+  }
+
+  // TOC scroll spy
+  var links=document.querySelectorAll('.toc-link');
+  var sections=[];
+  links.forEach(function(l){
+    var id=l.getAttribute('href').replace('#','');
+    var el=document.getElementById(id);
+    if(el) sections.push({id:id,el:el,link:l});
+  });
+  if('IntersectionObserver' in window && sections.length){
+    var active=null;
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          var found=sections.find(function(s){return s.el===e.target;});
+          if(found && found.id!==active){
+            active=found.id;
+            links.forEach(function(l){l.classList.remove('active');});
+            found.link.classList.add('active');
+          }
+        }
+      });
+    },{rootMargin:'-10% 0px -80% 0px'});
+    sections.forEach(function(s){obs.observe(s.el);});
+  }
+})();
+</script>
 </body>
 </html>

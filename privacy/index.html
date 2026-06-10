@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="scroll-behavior:smooth;">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,12 +8,77 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png" />
   <link rel="shortcut icon" href="/favicon_io/favicon.ico" />
-  <style>*{box-sizing:border-box;margin:0;padding:0;}html{scrollbar-gutter:stable;}html,body{background:#0b0b0b;min-height:100%;}body>div{min-height:100vh;display:flex;flex-direction:column;}body>div>div[style*="max-width"]{flex:1;}nav a:visited,nav a:active,nav a:focus{color:#555!important;}nav a{-webkit-tap-highlight-color:transparent;}@media(max-width:768px){nav{padding:16px 20px!important;position:sticky!important;top:0!important;background:#0b0b0b!important;z-index:20!important;}nav>div{gap:18px!important;}nav a[href="/contact/"]{display:none!important;}#wm-wrap{max-width:calc(100% - 24px)!important;margin:0 auto!important;}}</style>
-    <script defer src="/_vercel/insights/script.js"></script>
+  <script defer src="/_vercel/insights/script.js"></script>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html{scrollbar-gutter:stable;}
+    html,body{background:#0b0b0b;min-height:100%;}
+    body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',sans-serif;color:#606060;line-height:1.85;font-size:0.93rem;}
+    nav a:visited,nav a:active,nav a:focus{color:#555!important;}
+    nav a{-webkit-tap-highlight-color:transparent;}
+    a{color:#fd6a00;text-decoration:none;}
+    a:hover{text-decoration:underline;}
+    h1{font-size:2.6rem;font-weight:900;letter-spacing:-0.045em;line-height:1.05;color:#f0f0f0;}
+    h2{font-size:1.15rem;font-weight:800;letter-spacing:-0.02em;color:#f0f0f0;margin:0 0 12px;}
+    h3{font-size:0.97rem;font-weight:700;color:#d0d0d0;margin:18px 0 8px;}
+    .layout{display:flex;gap:64px;max-width:1020px;margin:0 auto;padding:56px 24px 96px;align-items:flex-start;}
+    .toc{width:220px;flex-shrink:0;position:sticky;top:88px;max-height:calc(100vh - 108px);overflow-y:auto;}
+    .toc-title{font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:#333;font-weight:700;margin-bottom:14px;}
+    .toc a{display:block;font-size:0.8rem;color:#444;text-decoration:none;padding:5px 10px;border-radius:6px;margin-bottom:2px;transition:color 0.15s,background 0.15s;line-height:1.4;border-left:2px solid transparent;}
+    .toc a:hover{color:#d0d0d0;}
+    .toc a.active{color:#fd6a00;background:rgba(253,106,0,0.08);border-left-color:#fd6a00;}
+    .content{flex:1;min-width:0;max-width:700px;}
+    .breadcrumb{font-size:0.75rem;color:#333;margin-bottom:22px;letter-spacing:0.01em;}
+    .breadcrumb a{color:#444;text-decoration:none;}
+    .breadcrumb a:hover{color:#888;}
+    .meta-pills{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 28px;}
+    .pill{font-size:0.72rem;padding:5px 12px;border-radius:20px;border:1px solid rgba(255,255,255,0.08);color:#444;font-weight:500;}
+    .intro{font-size:0.95rem;color:#555;line-height:1.8;margin-bottom:48px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,0.06);}
+    .section{padding:36px 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+    .section:last-child{border-bottom:none;}
+    .section-label{font-size:0.67rem;letter-spacing:0.18em;text-transform:uppercase;color:#fd6a00;font-weight:700;margin-bottom:8px;}
+    p{margin-bottom:14px;}
+    p:last-child{margin-bottom:0;}
+    ul,ol{padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:14px;}
+    ul li,ol li{padding-left:1.4em;position:relative;color:#606060;}
+    ul li::before{content:"—";color:#fd6a00;position:absolute;left:0;font-weight:700;}
+    ol{counter-reset:ol-counter;}
+    ol li{counter-increment:ol-counter;}
+    ol li::before{content:counter(ol-counter)".";color:#fd6a00;position:absolute;left:0;font-weight:700;font-size:0.85rem;}
+    .callout-critical{background:rgba(180,20,20,0.07);border:1.5px solid rgba(200,40,40,0.35);border-radius:12px;padding:24px 28px;margin:24px 0;}
+    .callout-critical-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+    .callout-critical-icon{width:28px;height:28px;background:rgba(200,40,40,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.85rem;color:#e05050;font-weight:900;border:1.5px solid rgba(200,40,40,0.4);}
+    .callout-critical-title{font-size:0.82rem;letter-spacing:0.14em;text-transform:uppercase;color:#d04040;font-weight:800;}
+    .callout-critical h3{color:#c03030;margin:16px 0 8px;font-size:0.93rem;}
+    .callout-critical p{color:#8a5a5a;font-size:0.88rem;margin-bottom:12px;}
+    .callout-critical p:last-child{margin-bottom:0;}
+    .callout-critical ul li{color:#8a5a5a;font-size:0.88rem;}
+    .callout-critical ul li::before{color:#c03030;}
+    .callout-info{background:rgba(253,106,0,0.05);border:1px solid rgba(253,106,0,0.2);border-radius:10px;padding:20px 24px;margin:20px 0;}
+    .callout-info-title{font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:#fd6a00;font-weight:700;margin-bottom:10px;}
+    .callout-info ul li{color:#7a6050;font-size:0.88rem;}
+    .callout-info ul li::before{color:#fd6a00;}
+    .footer-links{margin-top:64px;padding-top:36px;border-top:1px solid rgba(255,255,255,0.06);}
+    .footer-links-title{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:#2a2a2a;margin-bottom:16px;font-weight:700;}
+    .footer-links-row{display:flex;flex-wrap:wrap;gap:10px;}
+    .footer-link{padding:9px 18px;border-radius:10px;border:1px solid rgba(255,255,255,0.07);color:#555;font-size:0.8rem;text-decoration:none;font-weight:500;transition:border-color 0.15s,color 0.15s;}
+    .footer-link:hover{color:#d0d0d0;border-color:rgba(255,255,255,0.15);text-decoration:none;}
+    @media(max-width:900px){
+      .toc{display:none;}
+      .layout{flex-direction:column;gap:0;padding:36px 20px 72px;}
+      h1{font-size:2rem;}
+      nav{padding:16px 20px!important;}
+      nav>div{gap:18px!important;}
+      nav a[href="/contact/"]{display:none!important;}
+      #wm-wrap{max-width:calc(100% - 24px)!important;margin:0 auto!important;}
+    }
+  </style>
 </head>
 <body>
-<div style="background:#0b0b0b;color:#efefef;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',sans-serif;min-height:100vh;display:flex;flex-direction:column;">
-  <nav style="display:flex;align-items:center;justify-content:space-between;padding:22px 48px;border-bottom:1px solid rgba(255,255,255,0.06);">
+<div style="background:#0b0b0b;min-height:100vh;display:flex;flex-direction:column;">
+
+  <!-- NAV -->
+  <nav style="display:flex;align-items:center;justify-content:space-between;padding:22px 48px;border-bottom:1px solid rgba(255,255,255,0.06);position:sticky;top:0;background:#0b0b0b;z-index:20;">
     <a href="/" style="display:inline-flex;"><img src="/Huddle.png" alt="Huddle" style="height:40px;width:auto;" /></a>
     <div style="display:flex;gap:36px;align-items:center;">
       <a href="https://discord.gg/huddle" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;opacity:0.45;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='0.45'"><img src="/discord_logo.png" alt="Discord" style="height:22px;width:auto;filter:brightness(0) invert(1);" /></a>
@@ -22,36 +87,256 @@
       <a href="/contact/" style="color:#555;font-size:0.92rem;text-decoration:none;font-weight:500;">Contact Us</a>
     </div>
   </nav>
-  <div style="max-width:660px;margin:0 auto;padding:56px 24px 96px;">
-    <h1 style="font-size:2.4rem;font-weight:900;letter-spacing:-0.04em;line-height:1.05;color:#f0f0f0;margin:0 0 10px;">Privacy Policy</h1>
-    <p style="font-size:0.78rem;color:#2e2e2e;margin:0 0 52px;">Last updated April 18, 2026</p>
-    <div style="display:flex;flex-direction:column;gap:36px;font-size:0.92rem;color:#666;line-height:1.85;">
-      <section style="display:flex;flex-direction:column;gap:10px;">
-        <h2 style="font-size:1rem;font-weight:800;letter-spacing:-0.02em;color:#d0d0d0;margin:0;">1. Introduction</h2>
-        <p>Huddle ("we", "our", or "us") is committed to protecting your privacy. This policy explains what information we collect, how we use it, and the choices you have. By using Huddle, you agree to the collection and use of information in accordance with this policy.</p>
-      </section>
-      <section style="display:flex;flex-direction:column;gap:10px;">
-        <h2 style="font-size:1rem;font-weight:800;letter-spacing:-0.02em;color:#d0d0d0;margin:0;">2. Information we collect</h2>
-        <p>We collect information you provide directly - such as your username, email address, and any content you post. We also collect usage data automatically, including device type, operating system, and interactions within the app, to improve your experience.</p>
-      </section>
-      <section style="display:flex;flex-direction:column;gap:10px;">
-        <h2 style="font-size:1rem;font-weight:800;letter-spacing:-0.02em;color:#d0d0d0;margin:0;">3. How we use your information</h2>
-        <p>Your information is used to operate and improve Huddle, personalise your experience, communicate with you about updates, and ensure the safety of our community. We do not sell your data to third parties.</p>
-      </section>
-      <section style="display:flex;flex-direction:column;gap:10px;">
-        <h2 style="font-size:1rem;font-weight:800;letter-spacing:-0.02em;color:#d0d0d0;margin:0;">4. Contact</h2>
-        <p>Questions about this policy? Reach us at <a href="mailto:hello@huddle.so" style="color:#fd6a00;text-decoration:none;">hello@huddle.so</a></p>
-      </section>
-    </div>
-    <div style="margin-top:72px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.06);">
-      <p style="font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:#222;margin-bottom:20px;font-weight:600;">Other pages</p>
-      <div style="display:flex;flex-wrap:wrap;gap:12px;">
-        <a href="/terms/" style="padding:9px 18px;border-radius:10px;border:1px solid rgba(255,255,255,0.07);color:#555;font-size:0.8rem;text-decoration:none;font-weight:500;">Terms of Service</a>
-        <a href="/guidelines/" style="padding:9px 18px;border-radius:10px;border:1px solid rgba(255,255,255,0.07);color:#555;font-size:0.8rem;text-decoration:none;font-weight:500;">Community Guidelines</a>
-        <a href="/contact/" style="padding:9px 18px;border-radius:10px;border:1px solid rgba(255,255,255,0.07);color:#555;font-size:0.8rem;text-decoration:none;font-weight:500;">Contact Us</a>
+
+  <!-- LAYOUT -->
+  <div class="layout">
+
+    <!-- TOC -->
+    <aside class="toc" aria-label="Table of contents">
+      <div class="toc-title">On this page</div>
+      <a href="#intro" class="toc-link">Overview</a>
+      <a href="#s-csae" class="toc-link">Child Safety Standards</a>
+      <a href="#s-collect" class="toc-link">Information we collect</a>
+      <a href="#s-use" class="toc-link">How we use your information</a>
+      <a href="#s-minors" class="toc-link">Protecting minors</a>
+      <a href="#s-share" class="toc-link">How we share information</a>
+      <a href="#s-protect" class="toc-link">Protection &amp; retention</a>
+      <a href="#s-delete" class="toc-link">Deleting your account</a>
+      <a href="#s-transfers" class="toc-link">International transfers</a>
+      <a href="#s-rights" class="toc-link">Your choices &amp; rights</a>
+      <a href="#s-california" class="toc-link">California residents</a>
+      <a href="#s-eea" class="toc-link">EEA &amp; UK users</a>
+      <a href="#s-changes" class="toc-link">Changes to this policy</a>
+      <a href="#s-contact" class="toc-link">Contact us</a>
+    </aside>
+
+    <!-- CONTENT -->
+    <main class="content">
+
+      <div class="breadcrumb"><a href="/">Huddle</a> › <a href="#">Legal</a> › Privacy Policy</div>
+      <h1>Privacy Policy</h1>
+      <div class="meta-pills">
+        <span class="pill">Effective February 14, 2023</span>
+        <span class="pill">Last revised June 10, 2026</span>
       </div>
-    </div>
+
+      <div id="intro" class="intro">
+        <p>Huddle, operated by Huddleverse Pte. Ltd. ("Huddleverse", "we", "us"), is the home of fandoms: a place to find your people and celebrate the things you love. We believe you should be able to share as much, or as little, of yourself as you wish, and this Privacy Policy explains what information we collect, how we use and share it, and the choices and rights you have.</p>
+        <p>This Policy applies to the Huddle app, the huddle.so website, and our related services (together, the "Service"). Capitalized terms not defined here have the meanings given in our Terms of Service at <a href="https://huddle.so/terms">https://huddle.so/terms</a>. If you have any questions, contact us anytime at <a href="mailto:hello@huddle.so">hello@huddle.so</a>.</p>
+      </div>
+
+      <!-- CSAE -->
+      <section class="section" id="s-csae">
+        <div class="section-label">Child Safety</div>
+        <h2>Child Safety Standards</h2>
+
+        <div class="callout-critical">
+          <div class="callout-critical-header">
+            <div class="callout-critical-icon">!</div>
+            <div class="callout-critical-title">Zero Tolerance — Child Safety</div>
+          </div>
+          <p>Huddleverse condemns in the strongest possible terms any use of the Service for child sexual abuse and exploitation ("CSAE"). We are committed to doing everything in our power to keep our users safe and to keep this material off our platform.</p>
+
+          <h3>Prohibition of CSAE material</h3>
+          <p>We strictly and completely prohibit the production, dissemination, discussion, uploading, requesting, or distribution of any material involving child sexual abuse or exploitation. This includes, without limitation:</p>
+          <ul>
+            <li>Inappropriate interaction with a child through images, video, or text</li>
+            <li>Child grooming</li>
+            <li>The sexualization of a minor in any form, including illustrated, animated, or written depictions</li>
+            <li>Sextortion of any user</li>
+            <li>Child trafficking</li>
+            <li>Any other conduct that can reasonably be considered CSAE</li>
+          </ul>
+          <p>Any user found engaging in such conduct will be immediately and permanently banned upon discovery and reported to the relevant authorities, including, where appropriate, the National Center for Missing and Exploited Children (NCMEC). We fully cooperate with criminal investigations and lawful data requests to ensure such conduct is met with the relevant criminal consequences.</p>
+
+          <h3>Reporting CSAE</h3>
+          <p>Users can report suspected CSAE at any time using the in-app reporting tools, or by emailing us at <a href="mailto:hello@huddle.so" style="color:#c03030;">hello@huddle.so</a>. Every report is investigated as quickly as possible. Where material or behavior is found to violate this prohibition, the account is immediately and permanently banned, and the relevant authorities are contacted and provided with all information they may lawfully request.</p>
+        </div>
+      </section>
+
+      <!-- INFORMATION WE COLLECT -->
+      <section class="section" id="s-collect">
+        <div class="section-label">Collection</div>
+        <h2>Information we collect</h2>
+
+        <h3>Account information</h3>
+        <p>To use Huddle, you create an account with a username and password, plus an email address or phone number we use to send a verification code, important service and policy updates, and support replies. After sign-up, you can optionally tell us about your fandoms and interests (for example, music, anime, gaming, K-pop, film and TV, sports, books) so we can personalize your home feed, and add optional profile details (such as pronouns or a bio). All optional information can be changed or removed at any time, and you can skip these steps entirely.</p>
+
+        <h3>Content and activity</h3>
+        <p>We collect the Content you create and share (posts, comments, messages, images, and so on) and information about how you use the Service: the communities you join, your roles in them, the content you like, award, save, report, or hide, the users you add, follow, or block, and your searches. If you use voice features, we process the audio as needed to deliver the feature.</p>
+
+        <h3>Purchases</h3>
+        <p>If you buy something in the app (for example, Coins), the purchase is processed by the relevant app store or payment provider (such as Apple, Google, or PayPal). They collect and store your payment details under their own privacy policies; we receive confirmation of the transaction and limited related information (such as the item purchased), but we do not receive or store your full payment card numbers.</p>
+
+        <h3>Device and technical data</h3>
+        <p>We automatically collect certain data from the device you use to access the Service, including IP address, device and operating system information, browser type, app version, language and time zone, relevant device settings and permissions (such as whether you have enabled the microphone or camera for the app), crash logs and diagnostics, pages visited, links clicked, and search terms. We infer your approximate location from your IP address; we only collect precise location if you explicitly allow it on your device, and you can turn it off at any time.</p>
+
+        <h3>Cookies and similar technologies</h3>
+        <p>We use cookies and similar technologies to keep you signed in, remember your preferences, measure how the Service is used, and improve it. You can disable or limit cookies in your browser or device settings; some features may not work properly without them.</p>
+
+        <h3>Information from other sources</h3>
+        <p>We may receive information about you from other users (for example, reports), from service providers (for example, audience measurement providers that help us understand, in aggregate, who uses the Service), and from your interactions with Huddle on other platforms (for example, if you contact us on social media).</p>
+
+        <h3>Surveys and feedback</h3>
+        <p>From time to time we may invite you to take surveys or give feedback. Participation is always voluntary, and unless we clearly tell you otherwise, responses are collected anonymously.</p>
+      </section>
+
+      <!-- HOW WE USE -->
+      <section class="section" id="s-use">
+        <div class="section-label">Use</div>
+        <h2>How we use your information</h2>
+        <ul>
+          <li><strong style="color:#d0d0d0;">To provide the Service</strong> — operating your account, displaying and delivering Content as you direct, powering messaging and voice features, and processing purchases.</li>
+          <li><strong style="color:#d0d0d0;">To keep Huddle safe</strong> — enforcing our Terms of Service and Community Guidelines, detecting and acting on prohibited, harmful, or illegal content and conduct (including by reviewing reports and proactively scanning uploads and attachments for known harmful or illegal material such as CSAE), preventing spam, fraud, and abuse, and protecting the security of the Service and our users.</li>
+          <li><strong style="color:#d0d0d0;">To personalize your experience</strong> — using your interests and activity to power discovery and show you the communities and Content most relevant to you. You can limit personalization in your settings.</li>
+          <li><strong style="color:#d0d0d0;">To communicate with you</strong> — verification, security notices, policy updates, replies to your support requests, and, if you opt in, news about features and products. Marketing emails always include an unsubscribe link, and we will only send you marketing communications with your consent where the law requires it.</li>
+          <li><strong style="color:#d0d0d0;">To improve the Service</strong> — understanding how features are used, fixing bugs, and developing new features. Where possible we use aggregated or de-identified data for this.</li>
+          <li><strong style="color:#d0d0d0;">To promote the Service</strong> — measuring the effectiveness of our own advertising on other platforms. We do not use your private messages for advertising, and we do not show personalized advertising to users under 18.</li>
+          <li><strong style="color:#d0d0d0;">To meet legal obligations</strong> — complying with applicable law, responding to lawful requests, and handling legal claims, regulatory compliance, and audits.</li>
+          <li><strong style="color:#d0d0d0;">To protect someone's vital interests</strong> — if we reasonably believe someone's life is in danger or they are at imminent risk of serious harm to themselves or others, we may use or share relevant information to help resolve the emergency.</li>
+          <li><strong style="color:#d0d0d0;">With your consent</strong> — for any other purpose we describe to you at the time, which you can withdraw at any time.</li>
+        </ul>
+      </section>
+
+      <!-- PROTECTING MINORS -->
+      <section class="section" id="s-minors">
+        <div class="section-label">Minors</div>
+        <h2>Protecting minors</h2>
+        <p>Many Huddle users are teens, and we design the Service with that in mind:</p>
+        <ul>
+          <li>You must be at least 13 years old to use Huddle (or older where local law requires; see our Terms of Service).</li>
+          <li>We do not knowingly collect personal information from children under the minimum age, and we delete accounts and associated data when we learn they belong to underage users.</li>
+          <li>We do not show personalized advertising to users under 18, and we do not sell anyone's personal information.</li>
+          <li>Accounts identified as belonging to minors receive more protective default settings, and we apply extra care in our moderation of spaces popular with younger fans.</li>
+          <li>Parents and guardians can contact us at <a href="mailto:hello@huddle.so">hello@huddle.so</a> with questions or requests concerning their child's account, and we will respond consistent with applicable law and the safety of the user.</li>
+        </ul>
+      </section>
+
+      <!-- HOW WE SHARE -->
+      <section class="section" id="s-share">
+        <div class="section-label">Sharing</div>
+        <h2>How we share information</h2>
+
+        <h3>Public content and your profile</h3>
+        <p>When you post Content to a public part of the Service, anyone who can see that space can see the Content, your username, and the date and time it was posted. Your profile is public and shows the information you choose to add to it. Think before you share, and use private spaces and messages for things you don't want public.</p>
+
+        <h3>Service providers</h3>
+        <p>We share information with vendors that perform services for us, such as cloud hosting (for example, Amazon Web Services), payment processing (for example, Apple, Google, PayPal), analytics, communications delivery, and content moderation. They receive only the information needed to perform their services for us and are required to protect it.</p>
+
+        <h3>Advertising and measurement</h3>
+        <p>We may share limited information (such as hashed identifiers or aggregated audience data) with advertising platforms solely to advertise Huddle itself and measure those campaigns. We do not sell your personal information, and we do not share minors' personal information for advertising purposes.</p>
+
+        <h3>Legal compliance</h3>
+        <p>We may share information if required by a court, law enforcement, or regulatory body. Where lawful and reasonably possible, we will try to notify you before your information is disclosed in response to such a request.</p>
+
+        <h3>Safety and emergencies</h3>
+        <p>We may share information where necessary to prevent serious harm to you or any other person, including reporting CSAE to NCMEC and other relevant authorities.</p>
+
+        <h3>Enforcing our policies and rights</h3>
+        <p>We may share information as needed to enforce our Terms of Service, Community Guidelines, or other policies, and to protect the rights, property, and safety of our users, the public, and Huddleverse.</p>
+
+        <h3>Aggregated or anonymized information</h3>
+        <p>We may share information that has been aggregated or anonymized so that it can no longer reasonably be used to identify you, for example, statistics describing our user base.</p>
+
+        <h3>Business transfers</h3>
+        <p>If Huddleverse is involved in a merger, acquisition, financing, or sale of assets, your information may be transferred as part of that transaction. We will notify you of any such transaction that changes how your information is handled.</p>
+      </section>
+
+      <!-- PROTECTION & RETENTION -->
+      <section class="section" id="s-protect">
+        <div class="section-label">Security</div>
+        <h2>How we protect and retain your information</h2>
+        <p>We use technical and organizational measures designed to protect your information against loss, theft, misuse, unauthorized access, disclosure, alteration, and destruction, including encryption in transit, access controls that limit which of our employees can access personal information, and logging of such access. No system is perfectly secure, so please also protect your own account with a strong, unique password. We keep personal information only for as long as it is needed for the purposes described in this Policy or as required by law, after which it is deleted or anonymized. Content you delete is removed from public view promptly and purged from our backups within a reasonable period.</p>
+      </section>
+
+      <!-- DELETING YOUR ACCOUNT -->
+      <section class="section" id="s-delete">
+        <div class="section-label">Account deletion</div>
+        <h2>Deleting your account</h2>
+        <p>You may delete your Huddle account at any time, for any reason, from your settings or by contacting us. If you delete your account:</p>
+        <ul>
+          <li>Your account, personal data, posts, awards, and Coins will be permanently removed and cannot be recovered;</li>
+          <li>You will not be able to log in again to retrieve any of your Content; and</li>
+          <li>Any of your past contributions that must remain for the integrity of conversations (for example, replies quoted by others) will be anonymized so they are no longer linked to you.</li>
+        </ul>
+        <p>Before deleting your account, please cancel any active subscriptions to avoid further charges. Account deletion is typically completed within thirty (30) days, and we will confirm once it is done.</p>
+      </section>
+
+      <!-- INTERNATIONAL DATA TRANSFERS -->
+      <section class="section" id="s-transfers">
+        <div class="section-label">International</div>
+        <h2>International data transfers</h2>
+        <p>Huddleverse is based in Singapore, and our servers are primarily located in the United States. Depending on user locations and the availability of service providers, information may also be stored or processed in other countries. Where your information is transferred internationally, we take steps to ensure it receives a comparable standard of protection to that required under Singapore's Personal Data Protection Act 2012 ("PDPA") and other applicable laws, including through contractual safeguards with our service providers. By using the Service, you acknowledge that your information will be transferred to and processed in the United States and other countries, where data protection laws may differ from those in your country of residence. To learn more about the PDPA, visit <a href="https://www.pdpc.gov.sg" target="_blank" rel="noopener">https://www.pdpc.gov.sg</a>.</p>
+      </section>
+
+      <!-- YOUR CHOICES AND RIGHTS -->
+      <section class="section" id="s-rights">
+        <div class="section-label">Your rights</div>
+        <h2>Your choices and rights</h2>
+        <p>Wherever you live, you can use your settings to control personalization, notifications, cookies, and discoverability, and you can edit or remove your optional profile information at any time. In addition, under applicable privacy laws (including the Singapore PDPA and, where they apply to you, laws such as the EU/UK GDPR and the California Consumer Privacy Act), you have rights that may include:</p>
+        <ul>
+          <li><strong style="color:#d0d0d0;">Access</strong> — to obtain a copy of the personal information we hold about you and information about how we use and share it</li>
+          <li><strong style="color:#d0d0d0;">Correction</strong> — to have inaccurate personal information corrected and incomplete information completed</li>
+          <li><strong style="color:#d0d0d0;">Deletion</strong> — to ask us to erase your personal information, for example where it is no longer necessary, where you withdraw consent, or where you believe we are processing it unlawfully</li>
+          <li><strong style="color:#d0d0d0;">Withdrawal of consent</strong> — to withdraw any consent you have given, at any time, without affecting the lawfulness of processing before withdrawal</li>
+          <li><strong style="color:#d0d0d0;">Portability</strong> — where applicable, to receive certain information in a structured, commonly used, machine-readable format</li>
+          <li><strong style="color:#d0d0d0;">Objection and restriction</strong> — where applicable, to object to or ask us to restrict certain processing</li>
+          <li><strong style="color:#d0d0d0;">Complaint</strong> — to lodge a complaint with your local data protection authority (in Singapore, the Personal Data Protection Commission)</li>
+        </ul>
+        <p>To exercise any of these rights, email us at <a href="mailto:hello@huddle.so">hello@huddle.so</a>. To protect your information, we will ask you to verify your identity before acting on a request. We respond within the timeframes required by applicable law; deletion requests are typically completed within thirty (30) days and are permanent.</p>
+      </section>
+
+      <!-- CALIFORNIA -->
+      <section class="section" id="s-california">
+        <div class="section-label">California</div>
+        <h2>California residents</h2>
+        <p>The California Consumer Privacy Act ("CCPA") requires us to provide California residents with additional information. In the preceding twelve (12) months we have collected the categories of personal information described in "Information we collect" above: identifiers (username, email address, phone number if provided, IP address); commercial information (transaction history for in-app purchases); internet or other network activity (how you use and interact with the Service); approximate location (from your IP address, or precise location only if you authorize it on your device); your messages with other users; and the Content you post.</p>
+        <p>We collect and use this information for the business and commercial purposes described in "How we use your information", and we disclose it as described in "How we share information". We do not sell personal information, and we do not share personal information for cross-context behavioral advertising as those terms are defined by the CCPA, and we treat any sensitive personal information consistently with the CCPA's limits.</p>
+        <p>California residents have the rights to know, access, correct, and delete their personal information, and the right not to be discriminated against for exercising those rights. Under California's "Shine the Light" law, California residents may also request information about disclosure of personal information to third parties for their direct marketing purposes; Huddleverse does not share personal information with third parties for such purposes. To exercise your rights, email <a href="mailto:hello@huddle.so">hello@huddle.so</a>.</p>
+      </section>
+
+      <!-- EEA AND UK -->
+      <section class="section" id="s-eea">
+        <div class="section-label">EEA &amp; UK</div>
+        <h2>Users in the EEA and UK</h2>
+        <p>If you are in the European Economic Area or the United Kingdom, we process your personal information on the following legal bases:</p>
+        <ul>
+          <li>Performance of our contract with you (to provide the Service);</li>
+          <li>Our legitimate interests (such as keeping the Service safe, preventing abuse, and improving our features, balanced against your rights);</li>
+          <li>Your consent (for example, for optional personalization or marketing, which you may withdraw at any time);</li>
+          <li>Compliance with legal obligations; and</li>
+          <li>Protection of vital interests in emergencies.</li>
+        </ul>
+        <p>You have the rights described above, including the right to complain to your local supervisory authority.</p>
+      </section>
+
+      <!-- CHANGES -->
+      <section class="section" id="s-changes">
+        <div class="section-label">Updates</div>
+        <h2>Changes to this Privacy Policy</h2>
+        <p>When required or appropriate, we will update this Privacy Policy and revise the "Last revised" date above. If we make important or significant changes, we will notify you (for example, by email or an in-app notice) and highlight what changed before the changes take effect.</p>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="section" id="s-contact">
+        <div class="section-label">Contact</div>
+        <h2>Contact us</h2>
+        <p>If you have any questions, concerns, or requests, email us at <a href="mailto:hello@huddle.so">hello@huddle.so</a></p>
+      </section>
+
+      <!-- FOOTER LINKS -->
+      <div class="footer-links">
+        <div class="footer-links-title">Other legal pages</div>
+        <div class="footer-links-row">
+          <a href="/terms/" class="footer-link">Terms of Service</a>
+          <a href="/guidelines/" class="footer-link">Community Guidelines</a>
+          <a href="/contact/" class="footer-link">Contact Us</a>
+        </div>
+      </div>
+
+    </main>
   </div>
+
   <!-- WORDMARK -->
   <div style="background:#0b0b0b;padding:32px 0 36px;">
     <div id="wm-wrap" style="position:relative;width:100%;padding-bottom:14.31%;">
@@ -74,7 +359,25 @@
     </svg>
     </div>
   </div>
+
 </div>
-<script>(function(){var w=document.getElementById('wm-wrap'),g=document.getElementById('wm-glow');if(!w||!g)return;w.addEventListener('mousemove',function(e){var r=w.getBoundingClientRect();var x=((e.clientX-r.left)/r.width*100).toFixed(1)+'%';var y=((e.clientY-r.top)/r.height*100).toFixed(1)+'%';var m='radial-gradient(circle 200px at '+x+' '+y+',black 0%,transparent 100%)';g.style.webkitMaskImage=m;g.style.maskImage=m;g.style.opacity='1';});w.addEventListener('mouseleave',function(){g.style.opacity='0';});})();</script>
+
+<script>
+(function(){
+  var w=document.getElementById('wm-wrap'),g=document.getElementById('wm-glow');
+  if(w&&g){
+    w.addEventListener('mousemove',function(e){var r=w.getBoundingClientRect();var x=((e.clientX-r.left)/r.width*100).toFixed(1)+'%';var y=((e.clientY-r.top)/r.height*100).toFixed(1)+'%';var m='radial-gradient(circle 200px at '+x+' '+y+',black 0%,transparent 100%)';g.style.webkitMaskImage=m;g.style.maskImage=m;g.style.opacity='1';});
+    w.addEventListener('mouseleave',function(){g.style.opacity='0';});
+  }
+  var links=document.querySelectorAll('.toc-link');
+  var sections=[];
+  links.forEach(function(l){var id=l.getAttribute('href').replace('#','');var el=document.getElementById(id);if(el)sections.push({id:id,el:el,link:l});});
+  if('IntersectionObserver' in window&&sections.length){
+    var active=null;
+    var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){var found=sections.find(function(s){return s.el===e.target;});if(found&&found.id!==active){active=found.id;links.forEach(function(l){l.classList.remove('active');});found.link.classList.add('active');}}});},{rootMargin:'-10% 0px -80% 0px'});
+    sections.forEach(function(s){obs.observe(s.el);});
+  }
+})();
+</script>
 </body>
 </html>

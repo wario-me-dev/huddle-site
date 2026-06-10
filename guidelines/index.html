@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="scroll-behavior:smooth;">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,12 +8,89 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png" />
   <link rel="shortcut icon" href="/favicon_io/favicon.ico" />
-  <style>*{box-sizing:border-box;margin:0;padding:0;}html{scrollbar-gutter:stable;}html,body{background:#0b0b0b;min-height:100%;}body>div{min-height:100vh;display:flex;flex-direction:column;}body>div>div[style*="max-width"]{flex:1;}nav a:visited,nav a:active,nav a:focus{color:#555!important;}nav a{-webkit-tap-highlight-color:transparent;}@media(max-width:768px){nav{padding:16px 20px!important;position:sticky!important;top:0!important;background:#0b0b0b!important;z-index:20!important;}nav>div{gap:18px!important;}nav a[href="/contact/"]{display:none!important;}#wm-wrap{max-width:calc(100% - 24px)!important;margin:0 auto!important;}}</style>
-    <script defer src="/_vercel/insights/script.js"></script>
+  <script defer src="/_vercel/insights/script.js"></script>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html{scrollbar-gutter:stable;}
+    html,body{background:#0b0b0b;min-height:100%;}
+    body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',sans-serif;color:#606060;line-height:1.85;font-size:0.93rem;}
+    nav a:visited,nav a:active,nav a:focus{color:#555!important;}
+    nav a{-webkit-tap-highlight-color:transparent;}
+    a{color:#fd6a00;text-decoration:none;}
+    a:hover{text-decoration:underline;}
+    h1{font-size:2.6rem;font-weight:900;letter-spacing:-0.045em;line-height:1.05;color:#f0f0f0;}
+    h2{font-size:1.15rem;font-weight:800;letter-spacing:-0.02em;color:#f0f0f0;margin:0 0 12px;}
+    h3{font-size:0.97rem;font-weight:700;color:#d0d0d0;margin:18px 0 8px;}
+    .layout{display:flex;gap:64px;max-width:1020px;margin:0 auto;padding:56px 24px 96px;align-items:flex-start;}
+    .toc{width:220px;flex-shrink:0;position:sticky;top:88px;max-height:calc(100vh - 108px);overflow-y:auto;}
+    .toc-title{font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:#333;font-weight:700;margin-bottom:14px;}
+    .toc a{display:block;font-size:0.8rem;color:#444;text-decoration:none;padding:5px 10px;border-radius:6px;margin-bottom:2px;transition:color 0.15s,background 0.15s;line-height:1.4;border-left:2px solid transparent;}
+    .toc a:hover{color:#d0d0d0;}
+    .toc a.active{color:#fd6a00;background:rgba(253,106,0,0.08);border-left-color:#fd6a00;}
+    .content{flex:1;min-width:0;max-width:700px;}
+    .breadcrumb{font-size:0.75rem;color:#333;margin-bottom:22px;letter-spacing:0.01em;}
+    .breadcrumb a{color:#444;text-decoration:none;}
+    .breadcrumb a:hover{color:#888;}
+    .meta-pills{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 28px;}
+    .pill{font-size:0.72rem;padding:5px 12px;border-radius:20px;border:1px solid rgba(255,255,255,0.08);color:#444;font-weight:500;}
+    .intro{font-size:0.95rem;color:#555;line-height:1.8;margin-bottom:48px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,0.06);}
+    .intro-sig{font-size:0.85rem;color:#444;margin-top:16px;font-style:italic;}
+    .section{padding:36px 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+    .section:last-child{border-bottom:none;}
+    .section-label{font-size:0.67rem;letter-spacing:0.18em;text-transform:uppercase;color:#fd6a00;font-weight:700;margin-bottom:8px;}
+    p{margin-bottom:14px;}
+    p:last-child{margin-bottom:0;}
+    ul{padding-left:0;list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:14px;}
+    ul li{padding-left:1.4em;position:relative;color:#606060;}
+    ul li::before{content:"—";color:#fd6a00;position:absolute;left:0;font-weight:700;}
+
+    /* Positive rule cards (The Basics) */
+    .rules-grid{display:flex;flex-direction:column;gap:12px;margin-top:8px;}
+    .rule-card{background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px 20px;}
+    .rule-card-title{font-size:0.9rem;font-weight:700;color:#d0d0d0;margin-bottom:6px;}
+    .rule-card p{font-size:0.87rem;color:#555;margin-bottom:0;line-height:1.75;}
+
+    /* Not Allowed items (warning styling) */
+    .rules-warn{display:flex;flex-direction:column;gap:10px;margin-top:8px;}
+    .rule-warn{background:rgba(255,200,50,0.03);border:1px solid rgba(255,200,50,0.08);border-radius:10px;padding:14px 18px;border-left:3px solid rgba(255,200,50,0.2);}
+    .rule-warn-title{font-size:0.9rem;font-weight:700;color:#c8a040;margin-bottom:5px;}
+    .rule-warn p{font-size:0.87rem;color:#555;margin-bottom:0;line-height:1.75;}
+
+    /* Critical CSAE callout */
+    .callout-critical{background:rgba(180,20,20,0.07);border:1.5px solid rgba(200,40,40,0.35);border-radius:12px;padding:24px 28px;margin:0 0 12px;}
+    .callout-critical-header{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+    .callout-critical-icon{width:28px;height:28px;background:rgba(200,40,40,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.85rem;color:#e05050;font-weight:900;border:1.5px solid rgba(200,40,40,0.4);}
+    .callout-critical-title{font-size:0.82rem;letter-spacing:0.14em;text-transform:uppercase;color:#d04040;font-weight:800;}
+    .callout-critical p{color:#8a5a5a;font-size:0.88rem;margin-bottom:10px;}
+    .callout-critical p:last-child{margin-bottom:0;}
+
+    /* Remove items (other than CSAE) */
+    .rules-remove{display:flex;flex-direction:column;gap:10px;margin-top:8px;}
+    .rule-remove{background:rgba(255,255,255,0.018);border:1px solid rgba(255,255,255,0.055);border-radius:10px;padding:14px 18px;}
+    .rule-remove-title{font-size:0.9rem;font-weight:700;color:#c0a060;margin-bottom:5px;}
+    .rule-remove p{font-size:0.87rem;color:#555;margin-bottom:0;line-height:1.75;}
+
+    .footer-links{margin-top:64px;padding-top:36px;border-top:1px solid rgba(255,255,255,0.06);}
+    .footer-links-title{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:#2a2a2a;margin-bottom:16px;font-weight:700;}
+    .footer-links-row{display:flex;flex-wrap:wrap;gap:10px;}
+    .footer-link{padding:9px 18px;border-radius:10px;border:1px solid rgba(255,255,255,0.07);color:#555;font-size:0.8rem;text-decoration:none;font-weight:500;transition:border-color 0.15s,color 0.15s;}
+    .footer-link:hover{color:#d0d0d0;border-color:rgba(255,255,255,0.15);text-decoration:none;}
+    @media(max-width:900px){
+      .toc{display:none;}
+      .layout{flex-direction:column;gap:0;padding:36px 20px 72px;}
+      h1{font-size:2rem;}
+      nav{padding:16px 20px!important;}
+      nav>div{gap:18px!important;}
+      nav a[href="/contact/"]{display:none!important;}
+      #wm-wrap{max-width:calc(100% - 24px)!important;margin:0 auto!important;}
+    }
+  </style>
 </head>
 <body>
-<div style="background:#0b0b0b;color:#efefef;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',sans-serif;min-height:100vh;display:flex;flex-direction:column;">
-  <nav style="display:flex;align-items:center;justify-content:space-between;padding:22px 48px;border-bottom:1px solid rgba(255,255,255,0.06);">
+<div style="background:#0b0b0b;min-height:100vh;display:flex;flex-direction:column;">
+
+  <!-- NAV -->
+  <nav style="display:flex;align-items:center;justify-content:space-between;padding:22px 48px;border-bottom:1px solid rgba(255,255,255,0.06);position:sticky;top:0;background:#0b0b0b;z-index:20;">
     <a href="/" style="display:inline-flex;"><img src="/Huddle.png" alt="Huddle" style="height:40px;width:auto;" /></a>
     <div style="display:flex;gap:36px;align-items:center;">
       <a href="https://discord.gg/huddle" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;opacity:0.45;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='0.45'"><img src="/discord_logo.png" alt="Discord" style="height:22px;width:auto;filter:brightness(0) invert(1);" /></a>
@@ -22,36 +99,198 @@
       <a href="/contact/" style="color:#555;font-size:0.92rem;text-decoration:none;font-weight:500;">Contact Us</a>
     </div>
   </nav>
-  <div style="max-width:660px;margin:0 auto;padding:56px 24px 96px;">
-    <h1 style="font-size:2.4rem;font-weight:900;letter-spacing:-0.04em;line-height:1.05;color:#f0f0f0;margin:0 0 10px;">Community Guidelines</h1>
-    <p style="font-size:0.78rem;color:#2e2e2e;margin:0 0 52px;">Last updated April 18, 2026</p>
-    <div style="display:flex;flex-direction:column;gap:36px;font-size:0.92rem;color:#666;line-height:1.85;">
-      <section style="display:flex;flex-direction:column;gap:10px;">
-        <h2 style="font-size:1rem;font-weight:800;letter-spacing:-0.02em;color:#d0d0d0;margin:0;">Be kind</h2>
-        <p>Huddle is built for fans. Treat every member with respect, even when you disagree. Harassment, threats, and hate speech are not allowed under any circumstances.</p>
-      </section>
-      <section style="display:flex;flex-direction:column;gap:10px;">
-        <h2 style="font-size:1rem;font-weight:800;letter-spacing:-0.02em;color:#d0d0d0;margin:0;">Keep it real</h2>
-        <p>Don't impersonate other users, celebrities, or brands. Don't spread misinformation. Share content you have the right to share.</p>
-      </section>
-      <section style="display:flex;flex-direction:column;gap:10px;">
-        <h2 style="font-size:1rem;font-weight:800;letter-spacing:-0.02em;color:#d0d0d0;margin:0;">Stay on topic</h2>
-        <p>Each World has a focus. Respect that focus and the community that built it. Spam and off-topic self-promotion will be removed.</p>
-      </section>
-      <section style="display:flex;flex-direction:column;gap:10px;">
-        <h2 style="font-size:1rem;font-weight:800;letter-spacing:-0.02em;color:#d0d0d0;margin:0;">Report, don't retaliate</h2>
-        <p>If you see something that breaks these rules, report it. Don't engage or escalate - let the moderation team handle it. Reach us at <a href="mailto:hello@huddle.so" style="color:#fd6a00;text-decoration:none;">hello@huddle.so</a></p>
-      </section>
-    </div>
-    <div style="margin-top:72px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.06);">
-      <p style="font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:#222;margin-bottom:20px;font-weight:600;">Other pages</p>
-      <div style="display:flex;flex-wrap:wrap;gap:12px;">
-        <a href="/privacy/" style="padding:9px 18px;border-radius:10px;border:1px solid rgba(255,255,255,0.07);color:#555;font-size:0.8rem;text-decoration:none;font-weight:500;">Privacy Policy</a>
-        <a href="/terms/" style="padding:9px 18px;border-radius:10px;border:1px solid rgba(255,255,255,0.07);color:#555;font-size:0.8rem;text-decoration:none;font-weight:500;">Terms of Service</a>
-        <a href="/contact/" style="padding:9px 18px;border-radius:10px;border:1px solid rgba(255,255,255,0.07);color:#555;font-size:0.8rem;text-decoration:none;font-weight:500;">Contact Us</a>
+
+  <!-- LAYOUT -->
+  <div class="layout">
+
+    <!-- TOC -->
+    <aside class="toc" aria-label="Table of contents">
+      <div class="toc-title">On this page</div>
+      <a href="#intro" class="toc-link">Welcome</a>
+      <a href="#s-basics" class="toc-link">The Basics</a>
+      <a href="#s-notallowed" class="toc-link">Not Allowed on Huddle</a>
+      <a href="#s-remove" class="toc-link">Content We Remove</a>
+      <a href="#s-enforce" class="toc-link">How We Enforce</a>
+      <a href="#s-feedback" class="toc-link">Let's Hear From You</a>
+    </aside>
+
+    <!-- CONTENT -->
+    <main class="content">
+
+      <div class="breadcrumb"><a href="/">Huddle</a> › <a href="#">Legal</a> › Community Guidelines</div>
+      <h1>Community Guidelines</h1>
+      <div class="meta-pills">
+        <span class="pill">Last revised June 10, 2026</span>
       </div>
-    </div>
+
+      <div id="intro" class="intro">
+        <p>Welcome to Huddle, the home of fandoms! Whether you live for a k-pop group, an anime series, a game, an artist, a team, or a universe of your own, this is the place to find your people. Fandom is at its best when it feels like a huddle: warm, welcoming, and a little bit obsessed (in the good way). These guidelines exist so every fan, from day-one veterans to people who just finished episode one, can geek out safely. They apply everywhere on Huddle: posts, comments, profiles, usernames, messages, images, and anything else you share.</p>
+        <p>Here's to celebrating the things we love, together.</p>
+        <div class="intro-sig">— Team Huddle</div>
+      </div>
+
+      <!-- THE BASICS -->
+      <section class="section" id="s-basics">
+        <div class="section-label">The Basics</div>
+        <h2>Be a good fan community member</h2>
+
+        <div class="rules-grid">
+          <div class="rule-card">
+            <div class="rule-card-title">Be a good fan to other fans</div>
+            <p>Everyone's way of being a fan is valid. Casual fans, hardcore fans, new fans, fans of the "wrong" character, ship, version, or era — all welcome. Disagree about the canon all you like, but keep it about the content, never about the person. No gatekeeping, no "fake fan" tests, no dogpiling.</p>
+          </div>
+          <div class="rule-card">
+            <div class="rule-card-title">Respect other fandoms</div>
+            <p>Rivalries can be fun; raids, brigading, and fan wars are not. Don't organize or join pile-ons against other communities, on Huddle or anywhere else, and don't bring fights from other platforms here.</p>
+          </div>
+          <div class="rule-card">
+            <div class="rule-card-title">Tag your spoilers</div>
+            <p>Use spoiler tags or a clear "Spoilers" warning for recent releases, new episodes, match results, and major plot points. When in doubt, tag it. Individual communities may set their own spoiler windows — check the community's rules and follow them.</p>
+          </div>
+          <div class="rule-card">
+            <div class="rule-card-title">Fan-made means unofficial</div>
+            <p>Every fandom, community, and account on Huddle is created and run by fans. Unless a rights holder clearly says otherwise, nothing here is operated, sponsored, or endorsed by the artists, studios, brands, teams, or people we celebrate, and all their names, logos, and works belong to them. Celebrate freely, but keep it clearly fan-made.</p>
+          </div>
+          <div class="rule-card">
+            <div class="rule-card-title">Credit creators</div>
+            <p>If you share fan art, edits, fics, or other fan works that aren't yours, credit the creator and link the source where you can. Never claim someone else's work as your own, and respect creators' requests not to repost their work.</p>
+          </div>
+          <div class="rule-card">
+            <div class="rule-card-title">Use content warnings for heavy topics</div>
+            <p>Fandom spaces get personal sometimes, and that's okay. If a post deals with heavy themes (for example self-harm, abuse, or other distressing subject matter), add a clear content warning ("CW" or "TW") at the top so others can choose whether to engage.</p>
+          </div>
+          <div class="rule-card">
+            <div class="rule-card-title">Mind each other's boundaries</div>
+            <p>Be thoughtful about the questions you ask other members, and don't press if someone is hesitant or uncomfortable. Not everyone wants to share personal details, and that's their call.</p>
+          </div>
+          <div class="rule-card">
+            <div class="rule-card-title">Keep profiles appropriate</div>
+            <p>Usernames, profile pictures, and bios must follow these guidelines too. Keep them readable and keep them clean.</p>
+          </div>
+          <div class="rule-card">
+            <div class="rule-card-title">No begging or money requests</div>
+            <p>Don't solicit money, donations, gift cards, or paid follows from other members. Trading and fundraising scams hurt fans most of all, so we keep this rule strict.</p>
+          </div>
+          <div class="rule-card">
+            <div class="rule-card-title">Take breaks</div>
+            <p>We'd love for you to huddle as much as you like, but go touch grass sometimes. The group chat will still be here when you get back.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- NOT ALLOWED -->
+      <section class="section" id="s-notallowed">
+        <div class="section-label">Not Allowed</div>
+        <h2>Not allowed on Huddle</h2>
+
+        <div class="rules-warn">
+          <div class="rule-warn">
+            <div class="rule-warn-title">Hate speech and hateful conduct</div>
+            <p>No content or behavior that demeans, dehumanizes, or attacks people based on race, ethnicity, national origin, religion, sex, gender identity, sexual orientation, disability, or any other personal characteristic. This applies in every fandom, about every person, including public figures.</p>
+          </div>
+          <div class="rule-warn">
+            <div class="rule-warn-title">Harassment and bullying</div>
+            <p>No bullying, stalking, intimidation, sexual harassment, or repeated unwanted contact. This includes coordinated harassment over ships, biases, theories, or anything else, whether the target is a fellow member, a creator, or a celebrity.</p>
+          </div>
+          <div class="rule-warn">
+            <div class="rule-warn-title">Doxxing and invasions of privacy</div>
+            <p>Never share someone's private information without their consent: real names, addresses, schools, workplaces, phone numbers, private photos, or anything similar. This protects fellow fans and the people we're fans of. Tracking or publishing a celebrity's or creator's private location, travel details, accommodation, or other non-public personal information is doxxing too, and it will get you removed.</p>
+          </div>
+          <div class="rule-warn">
+            <div class="rule-warn-title">Violent threats</div>
+            <p>No threats, wishes, or encouragement of violence against anyone, ever, including "jokes". There is no fandom drama worth this, and we treat it seriously.</p>
+          </div>
+          <div class="rule-warn">
+            <div class="rule-warn-title">Trolling and disruption</div>
+            <p>Don't post inflammatory, off-topic, or bad-faith content just to provoke a reaction, derail communities, or ruin the experience for others.</p>
+          </div>
+          <div class="rule-warn">
+            <div class="rule-warn-title">Impersonation</div>
+            <p>Aliases and fan handles are great. Pretending to be another person is not. Don't impersonate other members, celebrities, creators, brands, or Huddle staff, and don't run fake accounts designed to deceive. Clearly-labelled fan accounts, parody, and roleplay are fine as long as no reasonable person would be misled. Remember that communities on Huddle are made by fans, for fans: never present your account or community as official, authorized, or affiliated with an artist, brand, team, or franchise unless it genuinely is.</p>
+          </div>
+          <div class="rule-warn">
+            <div class="rule-warn-title">Scams and fraud</div>
+            <p>No scams of any kind, including fake merch or ticket sales, photocard or collectible trading scams, fake giveaways, phishing, and pyramid or "boosting" schemes.</p>
+          </div>
+          <div class="rule-warn">
+            <div class="rule-warn-title">False reporting</div>
+            <p>Reports exist to keep people safe. Don't file false reports or mass-report someone to get them punished. It harms innocent members and undermines the system for everyone.</p>
+          </div>
+          <div class="rule-warn">
+            <div class="rule-warn-title">Attacks on accounts or the platform</div>
+            <p>Don't attempt to hack, phish, scrape, spam, or otherwise compromise other members' accounts or Huddle itself.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTENT WE REMOVE -->
+      <section class="section" id="s-remove">
+        <div class="section-label">Content We Remove</div>
+        <h2>Content we remove</h2>
+
+        <div class="callout-critical">
+          <div class="callout-critical-header">
+            <div class="callout-critical-icon">!</div>
+            <div class="callout-critical-title">Zero Tolerance — Child Sexual Exploitation</div>
+          </div>
+          <p>Any content that sexualizes, exploits, or endangers minors is banned absolutely. In fandom spaces this includes sexual or sexually suggestive content involving characters who are minors or presented as minors, whether real, illustrated, animated, or written, regardless of the character's "canon" age or the medium. It also includes grooming, sextortion, and any attempt to arrange sexual contact with a minor. Violations result in immediate, permanent bans, and where appropriate we report to the National Center for Missing and Exploited Children (NCMEC) and other relevant authorities.</p>
+        </div>
+
+        <div class="rules-remove">
+          <div class="rule-remove">
+            <div class="rule-remove-title">Sexual content and nudity</div>
+            <p>Huddle is not the place for pornographic or sexually explicit content, whether real, illustrated, or written in detail. Don't share intimate images of any person without their consent, and don't create or share sexualized images or "deepfakes" of real people, including celebrities. Keep your clothes on, too.</p>
+          </div>
+          <div class="rule-remove">
+            <div class="rule-remove-title">Piracy and leaks</div>
+            <p>Support the things you love. Don't post or link to pirated content: unauthorized streams, downloads, scans, rips, or torrents of shows, films, music, games, manga, books, or other works. Don't share leaked or pre-release content, including unreleased music, episodes, scripts, or stolen private material. We respond to valid reports from rights holders and remove infringing content.</p>
+          </div>
+          <div class="rule-remove">
+            <div class="rule-remove-title">Promotion of suicide or self-harm</div>
+            <p>Never encourage, promote, or glorify suicide, self-harm, or eating disorders, and don't share graphic content related to them. Supportive conversations are welcome with appropriate content warnings, but Huddle is a community, not a crisis service. If you or someone you know is struggling, please reach out to a mental health professional or a crisis line, such as the 988 Suicide and Crisis Lifeline (call or text 988) in the US, or your local equivalent. In an emergency, contact your local emergency services.</p>
+          </div>
+          <div class="rule-remove">
+            <div class="rule-remove-title">Terrorism and violent extremism</div>
+            <p>No promoting, glorifying, or organizing terrorism, violent extremism, or hate groups, and no using Huddle to recruit for or further such causes.</p>
+          </div>
+          <div class="rule-remove">
+            <div class="rule-remove-title">Harmful misinformation</div>
+            <p>Theories, rumors, and speculation are part of fandom, so label them as such. What's not allowed is content that misleads people in ways that can cause real harm, including dangerous health misinformation and deceptive media presented as authentic.</p>
+          </div>
+          <div class="rule-remove">
+            <div class="rule-remove-title">Illegal activity</div>
+            <p>Don't use Huddle to commit, facilitate, or promote illegal activity, including the sale of drugs, weapons, or stolen goods.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- HOW WE ENFORCE -->
+      <section class="section" id="s-enforce">
+        <div class="section-label">Enforcement</div>
+        <h2>How we enforce these guidelines</h2>
+        <p>Depending on severity and history, we may remove content, apply warnings, restrict features, suspend accounts, or permanently ban accounts. The most serious violations (such as child endangerment or credible threats of violence) result in immediate permanent bans and, where appropriate, reports to law enforcement. If you see something that breaks these guidelines, report it in the app or email us. If you believe we got an enforcement decision wrong, you can appeal and we'll take another look.</p>
+      </section>
+
+      <!-- LET'S HEAR FROM YOU -->
+      <section class="section" id="s-feedback">
+        <div class="section-label">Feedback</div>
+        <h2>Let's hear from you</h2>
+        <p>We're always looking to improve Huddle and how we serve the community. Send suggestions, questions, or feedback to <a href="mailto:hello@huddle.so">hello@huddle.so</a></p>
+      </section>
+
+      <!-- FOOTER LINKS -->
+      <div class="footer-links">
+        <div class="footer-links-title">Other legal pages</div>
+        <div class="footer-links-row">
+          <a href="/terms/" class="footer-link">Terms of Service</a>
+          <a href="/privacy/" class="footer-link">Privacy Policy</a>
+          <a href="/contact/" class="footer-link">Contact Us</a>
+        </div>
+      </div>
+
+    </main>
   </div>
+
   <!-- WORDMARK -->
   <div style="background:#0b0b0b;padding:32px 0 36px;">
     <div id="wm-wrap" style="position:relative;width:100%;padding-bottom:14.31%;">
@@ -74,7 +313,25 @@
     </svg>
     </div>
   </div>
+
 </div>
-<script>(function(){var w=document.getElementById('wm-wrap'),g=document.getElementById('wm-glow');if(!w||!g)return;w.addEventListener('mousemove',function(e){var r=w.getBoundingClientRect();var x=((e.clientX-r.left)/r.width*100).toFixed(1)+'%';var y=((e.clientY-r.top)/r.height*100).toFixed(1)+'%';var m='radial-gradient(circle 200px at '+x+' '+y+',black 0%,transparent 100%)';g.style.webkitMaskImage=m;g.style.maskImage=m;g.style.opacity='1';});w.addEventListener('mouseleave',function(){g.style.opacity='0';});})();</script>
+
+<script>
+(function(){
+  var w=document.getElementById('wm-wrap'),g=document.getElementById('wm-glow');
+  if(w&&g){
+    w.addEventListener('mousemove',function(e){var r=w.getBoundingClientRect();var x=((e.clientX-r.left)/r.width*100).toFixed(1)+'%';var y=((e.clientY-r.top)/r.height*100).toFixed(1)+'%';var m='radial-gradient(circle 200px at '+x+' '+y+',black 0%,transparent 100%)';g.style.webkitMaskImage=m;g.style.maskImage=m;g.style.opacity='1';});
+    w.addEventListener('mouseleave',function(){g.style.opacity='0';});
+  }
+  var links=document.querySelectorAll('.toc-link');
+  var sections=[];
+  links.forEach(function(l){var id=l.getAttribute('href').replace('#','');var el=document.getElementById(id);if(el)sections.push({id:id,el:el,link:l});});
+  if('IntersectionObserver' in window&&sections.length){
+    var active=null;
+    var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){var found=sections.find(function(s){return s.el===e.target;});if(found&&found.id!==active){active=found.id;links.forEach(function(l){l.classList.remove('active');});found.link.classList.add('active');}}});},{rootMargin:'-10% 0px -80% 0px'});
+    sections.forEach(function(s){obs.observe(s.el);});
+  }
+})();
+</script>
 </body>
 </html>
