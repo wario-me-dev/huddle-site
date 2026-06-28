@@ -30,14 +30,10 @@
     .prose{display:flex;flex-direction:column;gap:20px;font-size:0.97rem;color:#888;line-height:1.88;}
     .prose a{color:#fd6a00;text-decoration:none;}.prose a:hover{text-decoration:underline;}
     .prose strong{color:#c8c8c8;font-weight:600;}
-    .prose h2{font-size:1.15rem;font-weight:800;letter-spacing:-0.025em;color:#d0d0d0;margin-top:8px;}
     .bo{background:rgba(253,106,0,0.12);border:1px solid rgba(253,106,0,0.22);color:#fd6a00;font-size:0.6rem;font-weight:700;padding:3px 9px;border-radius:20px;letter-spacing:0.07em;text-transform:uppercase;}
     .bg{background:rgba(255,205,0,0.08);border:1px solid rgba(255,205,0,0.18);color:#ffcd00;font-size:0.6rem;font-weight:700;padding:3px 9px;border-radius:20px;letter-spacing:0.07em;text-transform:uppercase;}
     .bc{background:rgba(0,200,100,0.08);border:1px solid rgba(0,200,100,0.18);color:#00c864;font-size:0.6rem;font-weight:700;padding:3px 9px;border-radius:20px;letter-spacing:0.07em;text-transform:uppercase;}
-    .toc-a{display:block;font-size:0.8rem;color:#404040;text-decoration:none;padding:7px 0 7px 14px;border-left:2px solid #1e1e1e;line-height:1.4;transition:color 0.15s,border-color 0.15s;}
-    .toc-a:hover{color:#888;border-left-color:#484848;}
-    .toc-a.active{color:#e8e8e8;border-left-color:#fd6a00;}
-    @media(max-width:768px){nav{padding:16px 20px!important;}nav>div{gap:18px!important;}nav a[href="/contact/"]{display:none!important;}h1{font-size:clamp(1.55rem,6.5vw,2.65rem)!important;line-height:1.1!important;}.article-wrap{flex-direction:column!important;gap:0!important;padding:32px 20px 64px!important;}.toc-sidebar{display:none!important;}.more-grid{grid-template-columns:1fr!important;gap:20px!important;}#wm-wrap{max-width:calc(100% - 24px)!important;margin:0 auto!important;}.update-grid{grid-template-columns:1fr!important;}.cta-row{flex-direction:column!important;}}
+    @media(max-width:768px){nav{padding:16px 20px!important;}nav>div{gap:18px!important;}nav a[href="/contact/"]{display:none!important;}h1{font-size:clamp(1.55rem,6.5vw,2.4rem)!important;line-height:1.1!important;}.update-grid{grid-template-columns:1fr!important;}.cta-row{flex-direction:column!important;align-items:stretch!important;}.more-grid{grid-template-columns:1fr!important;gap:20px!important;}#wm-wrap{max-width:calc(100% - 24px)!important;margin:0 auto!important;}}
   </style>
   <script defer src="/_vercel/insights/script.js"></script>
 </head>
@@ -54,97 +50,85 @@
     </div>
   </nav>
 
-  <!-- Article: main col + TOC col -->
-  <div class="article-wrap" style="max-width:960px;margin:0 auto;padding:52px 24px 88px;width:100%;display:flex;gap:52px;align-items:flex-start;">
+  <!-- Article -->
+  <div style="max-width:680px;margin:0 auto;padding:52px 24px 0;width:100%;">
 
-    <!-- Main content column -->
-    <div style="flex:1;min-width:0;">
+    <a href="/blog/" style="display:inline-flex;align-items:center;gap:6px;font-size:0.78rem;color:#383838;text-decoration:none;margin-bottom:30px;transition:color 0.15s;" onmouseover="this.style.color='#888'" onmouseout="this.style.color='#383838'">← All posts</a>
 
-      <a href="/blog/" style="display:inline-flex;align-items:center;gap:6px;font-size:0.78rem;color:#383838;text-decoration:none;margin-bottom:30px;transition:color 0.15s;" onmouseover="this.style.color='#888'" onmouseout="this.style.color='#383838'">← All posts</a>
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
+      <span class="bg">Announcement</span>
+      <span style="color:#2e2e2e;font-size:0.75rem;">June 28, 2026</span>
+    </div>
+    <h1 style="font-size:2.4rem;font-weight:900;letter-spacing:-0.045em;line-height:1.1;color:#f0f0f0;margin-bottom:24px;">Huddle Is Now the Home for Fandoms</h1>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <span style="display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:5px 14px;font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#4a4a4a;">2 min read</span>
+      <span style="font-size:0.82rem;color:#333;">The Huddle Team</span>
+    </div>
+  </div>
 
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
-        <span class="bg">Announcement</span>
-        <span style="color:#2e2e2e;font-size:0.75rem;">June 28, 2026</span>
+  <!-- Feature image -->
+  <div style="max-width:680px;margin:36px auto 0;padding:0 24px;width:100%;">
+    <div style="border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.07);">
+      <img src="/blog/images/new-era-fandoms.png" alt="Huddle - The Home for Fandoms" style="width:100%;display:block;" />
+    </div>
+  </div>
+
+  <!-- Body -->
+  <div style="max-width:680px;margin:0 auto;padding:52px 24px 88px;width:100%;">
+
+    <!-- Summary box -->
+    <div style="background:rgba(253,106,0,0.04);border:1px solid rgba(253,106,0,0.18);border-radius:16px;padding:24px 28px;margin-bottom:40px;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+        <span style="color:#fd6a00;font-size:0.8rem;">✦</span>
+        <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#fd6a00;">Summary</span>
       </div>
-      <h1 style="font-size:2.65rem;font-weight:900;letter-spacing:-0.045em;line-height:1.08;color:#f0f0f0;margin-bottom:24px;">Huddle Is Now the Home for Fandoms</h1>
-      <div style="display:flex;align-items:center;gap:16px;">
-        <span style="display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:5px 14px;font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#4a4a4a;">2 min read</span>
-        <span style="font-size:0.82rem;color:#333;">The Huddle Team</span>
-      </div>
-
-      <!-- Feature image -->
-      <div style="margin-top:36px;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,0.07);">
-        <img src="/blog/images/new-era-fandoms.png" alt="Huddle - The Home for Fandoms" style="width:100%;display:block;" />
-      </div>
-
-      <!-- Summary box -->
-      <div style="background:rgba(253,106,0,0.04);border:1px solid rgba(253,106,0,0.18);border-radius:16px;padding:24px 28px;margin-top:40px;margin-bottom:40px;">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
-          <span style="color:#fd6a00;font-size:0.8rem;">✦</span>
-          <span style="font-size:0.6rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#fd6a00;">Summary</span>
-        </div>
-        <p style="font-size:0.93rem;color:#999;line-height:1.78;margin:0;">Huddle is officially evolving into a fandom app — a place where people connect over what they love. iOS v2.0.12 and Android v1.6.7 are live today with a fresh new identity. This is just the beginning.</p>
-      </div>
-
-      <!-- Prose -->
-      <div class="prose">
-
-        <p>For a while now, you've seen it happening inside Huddle. Anime fans finding their people. K-pop communities forming. Gamers connecting over shared obsessions. None of that was accidental. It was Huddle quietly becoming what it was always meant to be.</p>
-        <p>Today, we're making it official. <strong>Huddle is now the home for fandoms.</strong></p>
-
-        <h2 id="from-viaano">A word from Viaano</h2>
-
-        <div style="border-left:3px solid rgba(253,106,0,0.3);background:rgba(253,106,0,0.03);padding:24px 28px;border-radius:0 14px 14px 0;display:flex;flex-direction:column;gap:14px;">
-          <p style="font-size:0.93rem;color:#777;line-height:1.9;margin:0;">"Huddle started as a mental health community — a place where people could feel safe and not feel alone. That intention hasn't changed. But over the years, I noticed something. People weren't just coming here to talk about what they were going through. They were also coming here to talk about what they loved. Some of you met your closest friends here. Some of you even met your partners. A few have gone on to get married.</p>
-          <p style="font-size:0.93rem;color:#777;line-height:1.9;margin:0;">Fandoms weren't something separate from Huddle — they were already becoming a part of it. And I realized: <strong>healing is not only about what hurts. It's also about what brings you back to life.</strong></p>
-          <p style="font-size:0.93rem;color:#777;line-height:1.9;margin:0;">The heart of Huddle is not changing. This is an expansion — a place where people can share what they love, what excites them, and what gives them joy. Because that has always been Huddle's value. Shared presence."</p>
-          <span style="font-size:0.75rem;color:#fd6a00;font-weight:600;letter-spacing:0.03em;">— Viaano, Founder of Huddle</span>
-        </div>
-
-        <h2 id="whats-new">What's new in this update</h2>
-        <p>iOS v2.0.12 and Android v1.6.7 are live now, marking this new chapter with a refreshed identity.</p>
-
-        <div class="update-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-          <div style="background:#0f0f0f;border:1px solid rgba(0,200,100,0.14);border-radius:14px;padding:20px 22px;">
-            <p style="font-size:0.58rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#00c864;margin-bottom:16px;">New</p>
-            <div style="display:flex;flex-direction:column;gap:11px;">
-              <p style="font-size:0.85rem;color:#888;line-height:1.55;">Fresh app icon</p>
-              <p style="font-size:0.85rem;color:#888;line-height:1.55;">New Huddle logo</p>
-              <p style="font-size:0.85rem;color:#888;line-height:1.55;">New welcome screen</p>
-              <p style="font-size:0.85rem;color:#888;line-height:1.55;">Tapping "User joined" in chats now takes you straight to their profile</p>
-            </div>
-          </div>
-          <div style="background:#0f0f0f;border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:20px 22px;">
-            <p style="font-size:0.58rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#404040;margin-bottom:16px;">Fixed</p>
-            <div style="display:flex;flex-direction:column;gap:11px;">
-              <p style="font-size:0.85rem;color:#666;line-height:1.55;">Journals not appearing in the feed for new users</p>
-              <p style="font-size:0.85rem;color:#666;line-height:1.55;">Profile videos not playing on first tap</p>
-              <p style="font-size:0.85rem;color:#666;line-height:1.55;">Chat notification issues</p>
-              <p style="font-size:0.85rem;color:#666;line-height:1.55;">Visual bug when opening GIF threads from notifications</p>
-            </div>
-          </div>
-        </div>
-
-        <p>More features and announcements are on the way. Update Huddle now and step into the new era.</p>
-
-        <div class="cta-row" style="display:flex;gap:12px;flex-wrap:wrap;padding-top:4px;">
-          <a href="https://apps.apple.com/us/app/huddle-make-new-friends/id1669019532" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:11px;background:linear-gradient(135deg,#fd6a00,#ffcd00);color:#000;font-weight:800;font-size:0.82rem;text-decoration:none;">Download on iOS</a>
-          <a href="https://play.google.com/store/apps/details?id=com.huddleverse" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:11px;border:1px solid rgba(255,255,255,0.1);color:#aaa;font-weight:500;font-size:0.82rem;text-decoration:none;background:rgba(255,255,255,0.03);">Get it on Android</a>
-        </div>
-
-      </div>
-
-      <!-- Signature -->
-      <div style="margin-top:52px;padding-top:28px;border-top:1px solid rgba(255,255,255,0.06);">
-        <p style="font-size:0.88rem;color:#383838;">- The Huddle Team</p>
-      </div>
+      <p style="font-size:0.93rem;color:#999;line-height:1.78;margin:0;">Huddle is officially evolving into a fandom app. iOS v2.0.12 and Android v1.6.7 are live today with a fresh new identity, and this is just the beginning.</p>
     </div>
 
-    <!-- TOC Sidebar -->
-    <div class="toc-sidebar" style="width:194px;flex-shrink:0;position:sticky;top:80px;align-self:flex-start;">
-      <p style="font-size:0.58rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#2a2a2a;margin-bottom:14px;">On this page</p>
-      <a class="toc-a active" href="#from-viaano">A word from Viaano</a>
-      <a class="toc-a" href="#whats-new">What's new</a>
+    <!-- Prose -->
+    <div class="prose">
+
+      <p>You've seen it happening. Anime communities forming. K-pop fans finding their people. Gamers connecting over the things they love most. The fandoms were already inside Huddle, and today we're making it official.</p>
+
+      <p><strong>Huddle is now the home for fandoms.</strong></p>
+
+      <p>A place for every kind of fan. Whether it's the latest arc everyone is talking about, a comeback dropping this week, or the game taking over your life right now, your people are here. Same Huddle. New era.</p>
+
+      <p>Alongside this announcement, iOS v2.0.12 and Android v1.6.7 are live with a refreshed identity to match.</p>
+
+      <div class="update-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div style="background:#0f0f0f;border:1px solid rgba(0,200,100,0.14);border-radius:14px;padding:20px 22px;">
+          <p style="font-size:0.58rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#00c864;margin-bottom:16px;">New</p>
+          <div style="display:flex;flex-direction:column;gap:11px;">
+            <p style="font-size:0.85rem;color:#888;line-height:1.55;">Fresh app icon</p>
+            <p style="font-size:0.85rem;color:#888;line-height:1.55;">New Huddle logo</p>
+            <p style="font-size:0.85rem;color:#888;line-height:1.55;">New welcome screen</p>
+            <p style="font-size:0.85rem;color:#888;line-height:1.55;">Tapping "User joined" in chats now takes you straight to their profile</p>
+          </div>
+        </div>
+        <div style="background:#0f0f0f;border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:20px 22px;">
+          <p style="font-size:0.58rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#404040;margin-bottom:16px;">Fixed</p>
+          <div style="display:flex;flex-direction:column;gap:11px;">
+            <p style="font-size:0.85rem;color:#666;line-height:1.55;">Journals not appearing in the feed for new users</p>
+            <p style="font-size:0.85rem;color:#666;line-height:1.55;">Profile videos not playing on first tap</p>
+            <p style="font-size:0.85rem;color:#666;line-height:1.55;">Chat notification issues</p>
+            <p style="font-size:0.85rem;color:#666;line-height:1.55;">Visual bug when opening GIF threads from notifications</p>
+          </div>
+        </div>
+      </div>
+
+      <p>There is a lot more coming. New features, new experiences, and new ways to connect over what you love. Update Huddle now and step into the new era.</p>
+
+      <div class="cta-row" style="display:flex;gap:12px;flex-wrap:wrap;padding-top:4px;">
+        <a href="https://apps.apple.com/us/app/huddle-make-new-friends/id1669019532" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:11px;background:linear-gradient(135deg,#fd6a00,#ffcd00);color:#000;font-weight:800;font-size:0.82rem;text-decoration:none;">Download on iOS</a>
+        <a href="https://play.google.com/store/apps/details?id=com.huddleverse" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:11px;border:1px solid rgba(255,255,255,0.1);color:#aaa;font-weight:500;font-size:0.82rem;text-decoration:none;background:rgba(255,255,255,0.03);">Get it on Android</a>
+      </div>
+
+    </div>
+
+    <!-- Signature -->
+    <div style="margin-top:52px;padding-top:28px;border-top:1px solid rgba(255,255,255,0.06);">
+      <p style="font-size:0.88rem;color:#383838;">- The Huddle Team</p>
     </div>
   </div>
 
@@ -183,17 +167,6 @@
     </div>
   </div>
 </div>
-<script>
-(function(){
-  var w=document.getElementById('wm-wrap'),g=document.getElementById('wm-glow');
-  if(w&&g){w.addEventListener('mousemove',function(e){var r=w.getBoundingClientRect();var x=((e.clientX-r.left)/r.width*100).toFixed(1)+'%';var y=((e.clientY-r.top)/r.height*100).toFixed(1)+'%';var m='radial-gradient(circle 200px at '+x+' '+y+',black 0%,transparent 100%)';g.style.webkitMaskImage=m;g.style.maskImage=m;g.style.opacity='1';});w.addEventListener('mouseleave',function(){g.style.opacity='0';});}
-  var headings=document.querySelectorAll('.prose h2[id]');
-  var links=document.querySelectorAll('.toc-a');
-  if(!headings.length||!links.length)return;
-  function setActive(id){links.forEach(function(l){l.classList.toggle('active',l.getAttribute('href')==='#'+id);});}
-  function update(){var active=null;headings.forEach(function(h){if(h.getBoundingClientRect().top<=120)active=h.id;});if(active){setActive(active);}else{links.forEach(function(l){l.classList.remove('active');});if(links[0])links[0].classList.add('active');}}
-  window.addEventListener('scroll',update,{passive:true});
-})();
-</script>
+<script>(function(){var w=document.getElementById('wm-wrap'),g=document.getElementById('wm-glow');if(!w||!g)return;w.addEventListener('mousemove',function(e){var r=w.getBoundingClientRect();var x=((e.clientX-r.left)/r.width*100).toFixed(1)+'%';var y=((e.clientY-r.top)/r.height*100).toFixed(1)+'%';var m='radial-gradient(circle 200px at '+x+' '+y+',black 0%,transparent 100%)';g.style.webkitMaskImage=m;g.style.maskImage=m;g.style.opacity='1';});w.addEventListener('mouseleave',function(){g.style.opacity='0';});})();</script>
 </body>
 </html>
